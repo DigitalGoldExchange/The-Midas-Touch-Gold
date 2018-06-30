@@ -1,0 +1,45 @@
+TMTGToke[n
+
+Available Accounts                                                                                                                                                                                  
+==================                                                                                                                                                                                  
+(0) 0x7C231D6267904cA586f2DbC3AC26E8DDa23317f7                                                                                                                                                      
+(1) 0x51FE498C33DcF2FDdBD4b84Ba93C1840Fb7f80A8                                                                                                                                                      
+(2) 0xcFC78B14b51c7d6609263D71838e5aC183c9d9ae                                                                                                                                                      
+(3) 0x751A1d7CBA72c185c02c4d4D47A4D0DD1a01877B                                                                                                                                                      
+(4) 0xc91c87d5b407647ED39156934c3040F9F50bC4c4                                                                                                                                                      
+(5) 0xd6f208Abf6308b3D657dDF7122754675B2CaF2de                                                                                                                                                      
+(6) 0x80cfC93E6B55f39F5D19ab275E5575b4e2b8c148                                                                                                                                                      
+(7) 0x4CEF7ebD7Cdf02B8b036079989eBED95326adCcC                                                                                                                                                      
+(8) 0x9A774237009A17d890d9D6b5D1cbBCF3BC673B73                                                                                                                                                      
+(9) 0x327cCaB6Da1694CF4Ba48117cbB868AAC5E61A5e
+
+
+
+
+Private Keys                                                                                                                                                                                        
+==================                                                                                                                                                                                  
+(0) 5e0fea4d9029fca9ce85103c53ce67037116f42500ec1562232b75bf326240aa                                                                                                                                
+(1) 423519358757b3e683397c513fc98d5a5d799a5a73c56a71559a28271648f77e
+(2) 6058b8d7bddfad4050ea0b2129e2882fbbd5dfdf772bcc524f9366644992861a
+(3) 80417a542ff0042f635bd96bb386dc200446a4b784edc833ba19edcca596831f
+(4) 89ef11f1f90749628817c01f9fae31a7bcff7048e4b6e9dc0e8de0213c04c354
+(5) c1bc209f881cf578cd569c9b7eeb6bbf9a67d64b863c6c6fc14dbd257d7ded79
+(6) 8c845569dc8236e5a344cfa480ac21c2d71079aacb9dcb495300af0a25ca7a93
+(7) 831c8c4bfc6fbe7149f3b4ff84b278075153d2305887d677e4e236df1f917427
+(8) 8bb2cdcd20d42e507835770233e964afb926e01cad9a3b89846bc3cb7c195bb2
+(9) 6755e37149c3a4c3791a6a27a77833da752889559dbd5b669216f3d09202d647
+
+
+
+HD Wallet
+==================
+Mnemonic:      interest gadget bright edge risk credit pass deal wall alpha egg duck
+Base HD Path:  m/44'/60'/0'/0/{account_index}
+
+Gas Price
+==================
+20000000000
+
+Gas Limit
+==================
+6721975
