@@ -55506,3 +55506,2634 @@
 {"message":"33. getLimitPeriod : 0","level":"debug"}
 {"message":"::. End : ========================================","level":"debug"}
 {"message":"::. End : ========================================","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: BasicToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. transfer","level":"debug"}
+{"message":"2. balanceOf","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: BurnableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. burn","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: ERC20","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. allowance","level":"debug"}
+{"message":"4. transferFrom","level":"debug"}
+{"message":"5. approve","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: ERC20Basic","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Migrations","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. last_completed_migration","level":"debug"}
+{"message":"1. owner","level":"debug"}
+{"message":"2. setCompleted","level":"debug"}
+{"message":"3. upgrade","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Ownable","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. owner","level":"debug"}
+{"message":"1. transferOwnership","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Pausable","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. paused","level":"debug"}
+{"message":"1. owner","level":"debug"}
+{"message":"2. transferOwnership","level":"debug"}
+{"message":"3. pause","level":"debug"}
+{"message":"4. unpause","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: PausableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. investorList","level":"debug"}
+{"message":"2. unpause","level":"debug"}
+{"message":"3. blackList","level":"debug"}
+{"message":"4. paused","level":"debug"}
+{"message":"5. balanceOf","level":"debug"}
+{"message":"6. pause","level":"debug"}
+{"message":"7. owner","level":"debug"}
+{"message":"8. allowance","level":"debug"}
+{"message":"9. transferOwnership","level":"debug"}
+{"message":"10. regiInvestor","level":"debug"}
+{"message":"11. delInvestor","level":"debug"}
+{"message":"12. blacklisting","level":"debug"}
+{"message":"13. deleteFromBlacklist","level":"debug"}
+{"message":"14. transfer","level":"debug"}
+{"message":"15. transferFrom","level":"debug"}
+{"message":"16. approve","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: SafeMath","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: StandardBurnableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. approve","level":"debug"}
+{"message":"1. totalSupply","level":"debug"}
+{"message":"2. transferFrom","level":"debug"}
+{"message":"3. burn","level":"debug"}
+{"message":"4. balanceOf","level":"debug"}
+{"message":"5. transfer","level":"debug"}
+{"message":"6. allowance","level":"debug"}
+{"message":"7. burnFrom","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: StandardToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. transferFrom","level":"debug"}
+{"message":"4. approve","level":"debug"}
+{"message":"5. allowance","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: TMTGToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. name","level":"debug"}
+{"message":"1. superInvestor","level":"debug"}
+{"message":"2. totalSupply","level":"debug"}
+{"message":"3. regiInvestor","level":"debug"}
+{"message":"4. delInvestor","level":"debug"}
+{"message":"5. INITIAL_SUPPLY","level":"debug"}
+{"message":"6. decimals","level":"debug"}
+{"message":"7. investorList","level":"debug"}
+{"message":"8. unpause","level":"debug"}
+{"message":"9. blackList","level":"debug"}
+{"message":"10. CEx","level":"debug"}
+{"message":"11. paused","level":"debug"}
+{"message":"12. balanceOf","level":"debug"}
+{"message":"13. searchInvestor","level":"debug"}
+{"message":"14. pause","level":"debug"}
+{"message":"15. blacklisting","level":"debug"}
+{"message":"16. owner","level":"debug"}
+{"message":"17. deleteFromBlacklist","level":"debug"}
+{"message":"18. symbol","level":"debug"}
+{"message":"19. openingTime","level":"debug"}
+{"message":"20. allowance","level":"debug"}
+{"message":"21. transferOwnership","level":"debug"}
+{"message":"22. setCEx","level":"debug"}
+{"message":"23. delCEx","level":"debug"}
+{"message":"24. setSuperInvestor","level":"debug"}
+{"message":"25. delSuperInvestor","level":"debug"}
+{"message":"26. setOpeningTime","level":"debug"}
+{"message":"27. burn","level":"debug"}
+{"message":"28. burnFrom","level":"debug"}
+{"message":"29. checkTime","level":"debug"}
+{"message":"30. approve","level":"debug"}
+{"message":"31. transfer","level":"debug"}
+{"message":"32. transferFrom","level":"debug"}
+{"message":"33. getLimitPeriod","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":":: 세부적인 단위 테스트 Start ::========================================","level":"debug"}
+{"message":"::. End : ========================================","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: BasicToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. transfer","level":"debug"}
+{"message":"2. balanceOf","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: BurnableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. burn","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: ERC20","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. allowance","level":"debug"}
+{"message":"4. transferFrom","level":"debug"}
+{"message":"5. approve","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: ERC20Basic","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Migrations","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. last_completed_migration","level":"debug"}
+{"message":"1. owner","level":"debug"}
+{"message":"2. setCompleted","level":"debug"}
+{"message":"3. upgrade","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Ownable","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. owner","level":"debug"}
+{"message":"1. transferOwnership","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Pausable","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. paused","level":"debug"}
+{"message":"1. owner","level":"debug"}
+{"message":"2. transferOwnership","level":"debug"}
+{"message":"3. pause","level":"debug"}
+{"message":"4. unpause","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: PausableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. investorList","level":"debug"}
+{"message":"2. unpause","level":"debug"}
+{"message":"3. blackList","level":"debug"}
+{"message":"4. paused","level":"debug"}
+{"message":"5. balanceOf","level":"debug"}
+{"message":"6. pause","level":"debug"}
+{"message":"7. owner","level":"debug"}
+{"message":"8. allowance","level":"debug"}
+{"message":"9. transferOwnership","level":"debug"}
+{"message":"10. regiInvestor","level":"debug"}
+{"message":"11. delInvestor","level":"debug"}
+{"message":"12. blacklisting","level":"debug"}
+{"message":"13. deleteFromBlacklist","level":"debug"}
+{"message":"14. transfer","level":"debug"}
+{"message":"15. transferFrom","level":"debug"}
+{"message":"16. approve","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: SafeMath","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: StandardBurnableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. approve","level":"debug"}
+{"message":"1. totalSupply","level":"debug"}
+{"message":"2. transferFrom","level":"debug"}
+{"message":"3. burn","level":"debug"}
+{"message":"4. balanceOf","level":"debug"}
+{"message":"5. transfer","level":"debug"}
+{"message":"6. allowance","level":"debug"}
+{"message":"7. burnFrom","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: StandardToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. transferFrom","level":"debug"}
+{"message":"4. approve","level":"debug"}
+{"message":"5. allowance","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: TMTGToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. name","level":"debug"}
+{"message":"1. superInvestor","level":"debug"}
+{"message":"2. totalSupply","level":"debug"}
+{"message":"3. regiInvestor","level":"debug"}
+{"message":"4. delInvestor","level":"debug"}
+{"message":"5. INITIAL_SUPPLY","level":"debug"}
+{"message":"6. decimals","level":"debug"}
+{"message":"7. investorList","level":"debug"}
+{"message":"8. unpause","level":"debug"}
+{"message":"9. blackList","level":"debug"}
+{"message":"10. CEx","level":"debug"}
+{"message":"11. paused","level":"debug"}
+{"message":"12. balanceOf","level":"debug"}
+{"message":"13. searchInvestor","level":"debug"}
+{"message":"14. pause","level":"debug"}
+{"message":"15. blacklisting","level":"debug"}
+{"message":"16. owner","level":"debug"}
+{"message":"17. deleteFromBlacklist","level":"debug"}
+{"message":"18. symbol","level":"debug"}
+{"message":"19. openingTime","level":"debug"}
+{"message":"20. allowance","level":"debug"}
+{"message":"21. transferOwnership","level":"debug"}
+{"message":"22. setCEx","level":"debug"}
+{"message":"23. delCEx","level":"debug"}
+{"message":"24. setSuperInvestor","level":"debug"}
+{"message":"25. delSuperInvestor","level":"debug"}
+{"message":"26. setOpeningTime","level":"debug"}
+{"message":"27. burn","level":"debug"}
+{"message":"28. burnFrom","level":"debug"}
+{"message":"29. checkTime","level":"debug"}
+{"message":"30. approve","level":"debug"}
+{"message":"31. transfer","level":"debug"}
+{"message":"32. transferFrom","level":"debug"}
+{"message":"33. getLimitPeriod","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":":: 세부적인 단위 테스트 Start ::========================================","level":"debug"}
+{"message":"::. End : ========================================","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: BasicToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. transfer","level":"debug"}
+{"message":"2. balanceOf","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: BurnableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. burn","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: ERC20","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. allowance","level":"debug"}
+{"message":"4. transferFrom","level":"debug"}
+{"message":"5. approve","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: ERC20Basic","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Migrations","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. last_completed_migration","level":"debug"}
+{"message":"1. owner","level":"debug"}
+{"message":"2. setCompleted","level":"debug"}
+{"message":"3. upgrade","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Ownable","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. owner","level":"debug"}
+{"message":"1. transferOwnership","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Pausable","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. paused","level":"debug"}
+{"message":"1. owner","level":"debug"}
+{"message":"2. transferOwnership","level":"debug"}
+{"message":"3. pause","level":"debug"}
+{"message":"4. unpause","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: PausableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. investorList","level":"debug"}
+{"message":"2. unpause","level":"debug"}
+{"message":"3. blackList","level":"debug"}
+{"message":"4. paused","level":"debug"}
+{"message":"5. balanceOf","level":"debug"}
+{"message":"6. pause","level":"debug"}
+{"message":"7. owner","level":"debug"}
+{"message":"8. allowance","level":"debug"}
+{"message":"9. transferOwnership","level":"debug"}
+{"message":"10. regiInvestor","level":"debug"}
+{"message":"11. delInvestor","level":"debug"}
+{"message":"12. blacklisting","level":"debug"}
+{"message":"13. deleteFromBlacklist","level":"debug"}
+{"message":"14. transfer","level":"debug"}
+{"message":"15. transferFrom","level":"debug"}
+{"message":"16. approve","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: SafeMath","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: StandardBurnableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. approve","level":"debug"}
+{"message":"1. totalSupply","level":"debug"}
+{"message":"2. transferFrom","level":"debug"}
+{"message":"3. burn","level":"debug"}
+{"message":"4. balanceOf","level":"debug"}
+{"message":"5. transfer","level":"debug"}
+{"message":"6. allowance","level":"debug"}
+{"message":"7. burnFrom","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: StandardToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. transferFrom","level":"debug"}
+{"message":"4. approve","level":"debug"}
+{"message":"5. allowance","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: TMTGToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. name","level":"debug"}
+{"message":"1. superInvestor","level":"debug"}
+{"message":"2. totalSupply","level":"debug"}
+{"message":"3. regiInvestor","level":"debug"}
+{"message":"4. delInvestor","level":"debug"}
+{"message":"5. INITIAL_SUPPLY","level":"debug"}
+{"message":"6. decimals","level":"debug"}
+{"message":"7. investorList","level":"debug"}
+{"message":"8. unpause","level":"debug"}
+{"message":"9. blackList","level":"debug"}
+{"message":"10. CEx","level":"debug"}
+{"message":"11. paused","level":"debug"}
+{"message":"12. balanceOf","level":"debug"}
+{"message":"13. searchInvestor","level":"debug"}
+{"message":"14. pause","level":"debug"}
+{"message":"15. blacklisting","level":"debug"}
+{"message":"16. owner","level":"debug"}
+{"message":"17. deleteFromBlacklist","level":"debug"}
+{"message":"18. symbol","level":"debug"}
+{"message":"19. openingTime","level":"debug"}
+{"message":"20. allowance","level":"debug"}
+{"message":"21. transferOwnership","level":"debug"}
+{"message":"22. setCEx","level":"debug"}
+{"message":"23. delCEx","level":"debug"}
+{"message":"24. setSuperInvestor","level":"debug"}
+{"message":"25. delSuperInvestor","level":"debug"}
+{"message":"26. setOpeningTime","level":"debug"}
+{"message":"27. burn","level":"debug"}
+{"message":"28. burnFrom","level":"debug"}
+{"message":"29. checkTime","level":"debug"}
+{"message":"30. approve","level":"debug"}
+{"message":"31. transfer","level":"debug"}
+{"message":"32. transferFrom","level":"debug"}
+{"message":"33. getLimitPeriod","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":":: 세부적인 단위 테스트 Start ::========================================","level":"debug"}
+{"message":"::. End : ========================================","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: BasicToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. transfer","level":"debug"}
+{"message":"2. balanceOf","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: BurnableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. burn","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: ERC20","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. allowance","level":"debug"}
+{"message":"4. transferFrom","level":"debug"}
+{"message":"5. approve","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: ERC20Basic","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Migrations","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. last_completed_migration","level":"debug"}
+{"message":"1. owner","level":"debug"}
+{"message":"2. setCompleted","level":"debug"}
+{"message":"3. upgrade","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Ownable","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. owner","level":"debug"}
+{"message":"1. transferOwnership","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Pausable","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. paused","level":"debug"}
+{"message":"1. owner","level":"debug"}
+{"message":"2. transferOwnership","level":"debug"}
+{"message":"3. pause","level":"debug"}
+{"message":"4. unpause","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: PausableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. investorList","level":"debug"}
+{"message":"2. unpause","level":"debug"}
+{"message":"3. blackList","level":"debug"}
+{"message":"4. paused","level":"debug"}
+{"message":"5. balanceOf","level":"debug"}
+{"message":"6. pause","level":"debug"}
+{"message":"7. owner","level":"debug"}
+{"message":"8. allowance","level":"debug"}
+{"message":"9. transferOwnership","level":"debug"}
+{"message":"10. regiInvestor","level":"debug"}
+{"message":"11. delInvestor","level":"debug"}
+{"message":"12. blacklisting","level":"debug"}
+{"message":"13. deleteFromBlacklist","level":"debug"}
+{"message":"14. transfer","level":"debug"}
+{"message":"15. transferFrom","level":"debug"}
+{"message":"16. approve","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: SafeMath","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: StandardBurnableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. approve","level":"debug"}
+{"message":"1. totalSupply","level":"debug"}
+{"message":"2. transferFrom","level":"debug"}
+{"message":"3. burn","level":"debug"}
+{"message":"4. balanceOf","level":"debug"}
+{"message":"5. transfer","level":"debug"}
+{"message":"6. allowance","level":"debug"}
+{"message":"7. burnFrom","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: StandardToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. transferFrom","level":"debug"}
+{"message":"4. approve","level":"debug"}
+{"message":"5. allowance","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: TMTGToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. name","level":"debug"}
+{"message":"1. superInvestor","level":"debug"}
+{"message":"2. totalSupply","level":"debug"}
+{"message":"3. regiInvestor","level":"debug"}
+{"message":"4. delInvestor","level":"debug"}
+{"message":"5. INITIAL_SUPPLY","level":"debug"}
+{"message":"6. decimals","level":"debug"}
+{"message":"7. investorList","level":"debug"}
+{"message":"8. unpause","level":"debug"}
+{"message":"9. blackList","level":"debug"}
+{"message":"10. CEx","level":"debug"}
+{"message":"11. paused","level":"debug"}
+{"message":"12. balanceOf","level":"debug"}
+{"message":"13. searchInvestor","level":"debug"}
+{"message":"14. pause","level":"debug"}
+{"message":"15. blacklisting","level":"debug"}
+{"message":"16. owner","level":"debug"}
+{"message":"17. deleteFromBlacklist","level":"debug"}
+{"message":"18. symbol","level":"debug"}
+{"message":"19. openingTime","level":"debug"}
+{"message":"20. allowance","level":"debug"}
+{"message":"21. transferOwnership","level":"debug"}
+{"message":"22. setCEx","level":"debug"}
+{"message":"23. delCEx","level":"debug"}
+{"message":"24. setSuperInvestor","level":"debug"}
+{"message":"25. delSuperInvestor","level":"debug"}
+{"message":"26. setOpeningTime","level":"debug"}
+{"message":"27. burn","level":"debug"}
+{"message":"28. burnFrom","level":"debug"}
+{"message":"29. checkTime","level":"debug"}
+{"message":"30. approve","level":"debug"}
+{"message":"31. transfer","level":"debug"}
+{"message":"32. transferFrom","level":"debug"}
+{"message":"33. getLimitPeriod","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":":: 기능&단위 테스트 Start ::========================================","level":"debug"}
+{"message":":: 세부적인 단위 테스트 Start ::========================================","level":"debug"}
+{"message":"0. name : undefined","level":"debug"}
+{"message":"1. setSuperInvestor : [object Object]","level":"debug"}
+{"message":"1. superInvestor : 2","level":"debug"}
+{"message":"1. delSuperInvestor : [object Object]","level":"debug"}
+{"message":"1. superInvestor : [object Object]","level":"debug"}
+{"message":"1. setSuperInvestor : [object Object]","level":"debug"}
+{"message":"1. superInvestor(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"1. superInvesto(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"2. totalSupply : [object Object]","level":"debug"}
+{"message":"2. totalSupply : [object Object]","level":"debug"}
+{"message":"3. regiInvestor : [object Object]","level":"debug"}
+{"message":"3. regiInvestor(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"3. investorList : 2","level":"debug"}
+{"message":"3. investorList : 0","level":"debug"}
+{"message":"4. delInvestor : [object Object]","level":"debug"}
+{"message":"4. investorList : -2","level":"debug"}
+{"message":"4. regiInvestor : [object Object]","level":"debug"}
+{"message":"4. investorList : 2","level":"debug"}
+{"message":"5. INITIAL_SUPPLY : [object Object]","level":"debug"}
+{"message":"6. decimals : undefined","level":"debug"}
+{"message":"7. investorList : 2","level":"debug"}
+{"message":"7. regiInvestor : [object Object]","level":"debug"}
+{"message":"7. delInvestor : [object Object]","level":"debug"}
+{"message":"7. investorList : 2","level":"debug"}
+{"message":"7. investorList : -2","level":"debug"}
+{"message":"7. investorList : 0","level":"debug"}
+{"message":"8. pause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"8. pause : [object Object]","level":"debug"}
+{"message":"8. paused : true","level":"debug"}
+{"message":"8. unpause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"8. paused : true","level":"debug"}
+{"message":"8. unpause : [object Object]","level":"debug"}
+{"message":"8. paused : false","level":"debug"}
+{"message":"9. blackList : 0","level":"debug"}
+{"message":"9. blacklisting(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"9. blackList : 0","level":"debug"}
+{"message":"9. blacklisting : [object Object]","level":"debug"}
+{"message":"9. blackList : 1","level":"debug"}
+{"message":"9. deleteFromBlacklist(rejected)Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"9. deleteFromBlacklist[object Object]","level":"debug"}
+{"message":"9. blackList : -1","level":"debug"}
+{"message":"10. CEx : 0","level":"debug"}
+{"message":"10. setCEx : [object Object]","level":"debug"}
+{"message":"10. CEx : 2","level":"debug"}
+{"message":"10. delCEx : [object Object]","level":"debug"}
+{"message":"10. CEx : -2","level":"debug"}
+{"message":"10. setCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"10. delCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"11. pause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"11. pause : [object Object]","level":"debug"}
+{"message":"11. paused : true","level":"debug"}
+{"message":"11. unpause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"11. paused : true","level":"debug"}
+{"message":"11. unpause : [object Object]","level":"debug"}
+{"message":"11. paused : false","level":"debug"}
+{"message":"12. balanceOf : 1e+28","level":"debug"}
+{"message":"13. searchInvestor : 0,0,0","level":"debug"}
+{"message":"13. searchInvestor : 0,0,0","level":"debug"}
+{"message":"13. investorList : 2","level":"debug"}
+{"message":"13. investorList : -2","level":"debug"}
+{"message":"13. searchInvestor : 0,0,0","level":"debug"}
+{"message":"13. transfer : [object Object]","level":"debug"}
+{"message":"13. transfer : [object Object]","level":"debug"}
+{"message":"13. investorList : 2","level":"debug"}
+{"message":"13. searchInvestor : 0,100000000000000000,10000000000000000","level":"debug"}
+{"message":"13. searchInvestor : 0,0,0","level":"debug"}
+{"message":"14. pause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"14. pause : [object Object]","level":"debug"}
+{"message":"14. paused : true","level":"debug"}
+{"message":"14. unpause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"14. paused : true","level":"debug"}
+{"message":"14. unpause : [object Object]","level":"debug"}
+{"message":"14. paused : false","level":"debug"}
+{"message":"15. blackList : -1","level":"debug"}
+{"message":"15. blacklisting(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"15. blackList : -1","level":"debug"}
+{"message":"15. blacklisting : [object Object]","level":"debug"}
+{"message":"15. blackList : 1","level":"debug"}
+{"message":"15. deleteFromBlacklist(rejected)Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"15. deleteFromBlacklist[object Object]","level":"debug"}
+{"message":"15. blackList : -1","level":"debug"}
+{"message":"16. owner : 0x7c231d6267904ca586f2dbc3ac26e8dda23317f7","level":"debug"}
+{"message":"16. owner : undefined","level":"debug"}
+{"message":"17. blackList : -1","level":"debug"}
+{"message":"17. blacklisting(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"17. blackList : -1","level":"debug"}
+{"message":"17. blacklisting : [object Object]","level":"debug"}
+{"message":"17. blackList : 1","level":"debug"}
+{"message":"17. deleteFromBlacklist(rejected)Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"17. deleteFromBlacklist[object Object]","level":"debug"}
+{"message":"17. blackList : -1","level":"debug"}
+{"message":"18. symbol : TMTG","level":"debug"}
+{"message":"18. symbol : undefined","level":"debug"}
+{"message":"19. openingTime : 1530376115","level":"debug"}
+{"message":"20. superInvestor : 2","level":"debug"}
+{"message":"20. balanceOf : 900000000000000000","level":"debug"}
+{"message":"20. approve : [object Object]","level":"debug"}
+{"message":"20. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"20. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"20. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"20. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"20. allowance : 1000000000","level":"debug"}
+{"message":"20. allowance : 0","level":"debug"}
+{"message":"21. owner : undefined","level":"debug"}
+{"message":"21. transferOwnership : [object Object]","level":"debug"}
+{"message":"21. transferOwnership : [object Object]","level":"debug"}
+{"message":"21. transferOwnership(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"21. transferOwnership(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"21. transferOwnership(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"22. CEx : -2","level":"debug"}
+{"message":"22. setCEx : [object Object]","level":"debug"}
+{"message":"22. CEx : 2","level":"debug"}
+{"message":"22. delCEx : [object Object]","level":"debug"}
+{"message":"22. CEx : -2","level":"debug"}
+{"message":"22. setCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"22. delCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"23. CEx : -2","level":"debug"}
+{"message":"23. setCEx : [object Object]","level":"debug"}
+{"message":"23. CEx : 2","level":"debug"}
+{"message":"23. delCEx : [object Object]","level":"debug"}
+{"message":"23. CEx : -2","level":"debug"}
+{"message":"23. setCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"23. delCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"24. superInvestor : 2","level":"debug"}
+{"message":"24. setSuperInvestor : [object Object]","level":"debug"}
+{"message":"24. superInvestor : 2","level":"debug"}
+{"message":"24. setSuperInvestor(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"25. superInvestor : 2","level":"debug"}
+{"message":"25. delSuperInvestor : [object Object]","level":"debug"}
+{"message":"25. superInvestor : -2","level":"debug"}
+{"message":"25. delSuperInvestor(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"26. openingTime : 1530376115","level":"debug"}
+{"message":"26. setOpeningTime : [object Object]","level":"debug"}
+{"message":"26. openingTime : 1530376121","level":"debug"}
+{"message":"26. checkTime : 1530376121","level":"debug"}
+{"message":"27. burn : [object Object]","level":"debug"}
+{"message":"27. burn(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"27. burn(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"28. approve : [object Object]","level":"debug"}
+{"message":"28. allowance : 10000000000000","level":"debug"}
+{"message":"28. burnFrom(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"28. transfer : [object Object]","level":"debug"}
+{"message":"28. balanceOf : 1000000000000000000","level":"debug"}
+{"message":"28. approve : [object Object]","level":"debug"}
+{"message":"28. allowance : 1000000000000","level":"debug"}
+{"message":"28. burnFrom : [object Object]","level":"debug"}
+{"message":"28. balanceOf : 999999000000000000","level":"debug"}
+{"message":"29. checkTime : 1530376122","level":"debug"}
+{"message":"30. setSuperInvestor : [object Object]","level":"debug"}
+{"message":"30. superInvestor : 2","level":"debug"}
+{"message":"30. transfer : [object Object]","level":"debug"}
+{"message":"30. transfer : [object Object]","level":"debug"}
+{"message":"30. balanceOf : 100000","level":"debug"}
+{"message":"30. balanceOf : 100000","level":"debug"}
+{"message":"30. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"30. approve : [object Object]","level":"debug"}
+{"message":"31. balanceOf : 100000","level":"debug"}
+{"message":"31. transfer(rejected) : Error: Invalid number of arguments to Solidity function","level":"debug"}
+{"message":"31. transfer : Error: Invalid number of arguments to Solidity function","level":"debug"}
+{"message":"31. balanceOf : 100000","level":"debug"}
+{"message":"32. transfer : [object Object]","level":"debug"}
+{"message":"32. transfer : [object Object]","level":"debug"}
+{"message":"32. balanceOf : 100000000","level":"debug"}
+{"message":"32. balanceOf : 100100000","level":"debug"}
+{"message":"32. balanceOf : 100000","level":"debug"}
+{"message":"32. approve : [object Object]","level":"debug"}
+{"message":"32. approve : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"32. tranferFrom : [object Object]","level":"debug"}
+{"message":"32. tranferFrom : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"33.checkTime : 1530376123","level":"debug"}
+{"message":"33. getLimitPeriod : 0","level":"debug"}
+{"message":"::. End : ========================================","level":"debug"}
+{"message":"::. End : ========================================","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: BasicToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. transfer","level":"debug"}
+{"message":"2. balanceOf","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: BurnableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. burn","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: ERC20","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. allowance","level":"debug"}
+{"message":"4. transferFrom","level":"debug"}
+{"message":"5. approve","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: ERC20Basic","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Migrations","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. last_completed_migration","level":"debug"}
+{"message":"1. owner","level":"debug"}
+{"message":"2. setCompleted","level":"debug"}
+{"message":"3. upgrade","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Ownable","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. owner","level":"debug"}
+{"message":"1. transferOwnership","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Pausable","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. paused","level":"debug"}
+{"message":"1. owner","level":"debug"}
+{"message":"2. transferOwnership","level":"debug"}
+{"message":"3. pause","level":"debug"}
+{"message":"4. unpause","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: PausableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. investorList","level":"debug"}
+{"message":"2. unpause","level":"debug"}
+{"message":"3. blackList","level":"debug"}
+{"message":"4. paused","level":"debug"}
+{"message":"5. balanceOf","level":"debug"}
+{"message":"6. pause","level":"debug"}
+{"message":"7. owner","level":"debug"}
+{"message":"8. allowance","level":"debug"}
+{"message":"9. transferOwnership","level":"debug"}
+{"message":"10. regiInvestor","level":"debug"}
+{"message":"11. delInvestor","level":"debug"}
+{"message":"12. blacklisting","level":"debug"}
+{"message":"13. deleteFromBlacklist","level":"debug"}
+{"message":"14. transfer","level":"debug"}
+{"message":"15. transferFrom","level":"debug"}
+{"message":"16. approve","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: SafeMath","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: StandardBurnableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. approve","level":"debug"}
+{"message":"1. totalSupply","level":"debug"}
+{"message":"2. transferFrom","level":"debug"}
+{"message":"3. burn","level":"debug"}
+{"message":"4. balanceOf","level":"debug"}
+{"message":"5. transfer","level":"debug"}
+{"message":"6. allowance","level":"debug"}
+{"message":"7. burnFrom","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: StandardToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. transferFrom","level":"debug"}
+{"message":"4. approve","level":"debug"}
+{"message":"5. allowance","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: TMTGToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. name","level":"debug"}
+{"message":"1. superInvestor","level":"debug"}
+{"message":"2. totalSupply","level":"debug"}
+{"message":"3. regiInvestor","level":"debug"}
+{"message":"4. delInvestor","level":"debug"}
+{"message":"5. INITIAL_SUPPLY","level":"debug"}
+{"message":"6. decimals","level":"debug"}
+{"message":"7. investorList","level":"debug"}
+{"message":"8. unpause","level":"debug"}
+{"message":"9. blackList","level":"debug"}
+{"message":"10. CEx","level":"debug"}
+{"message":"11. paused","level":"debug"}
+{"message":"12. balanceOf","level":"debug"}
+{"message":"13. searchInvestor","level":"debug"}
+{"message":"14. pause","level":"debug"}
+{"message":"15. blacklisting","level":"debug"}
+{"message":"16. owner","level":"debug"}
+{"message":"17. deleteFromBlacklist","level":"debug"}
+{"message":"18. symbol","level":"debug"}
+{"message":"19. openingTime","level":"debug"}
+{"message":"20. allowance","level":"debug"}
+{"message":"21. transferOwnership","level":"debug"}
+{"message":"22. setCEx","level":"debug"}
+{"message":"23. delCEx","level":"debug"}
+{"message":"24. setSuperInvestor","level":"debug"}
+{"message":"25. delSuperInvestor","level":"debug"}
+{"message":"26. setOpeningTime","level":"debug"}
+{"message":"27. burn","level":"debug"}
+{"message":"28. burnFrom","level":"debug"}
+{"message":"29. checkTime","level":"debug"}
+{"message":"30. approve","level":"debug"}
+{"message":"31. transfer","level":"debug"}
+{"message":"32. transferFrom","level":"debug"}
+{"message":"33. getLimitPeriod","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":":: 기능&단위 테스트 Start ::========================================","level":"debug"}
+{"message":":: 세부적인 단위 테스트 Start ::========================================","level":"debug"}
+{"message":"0. name : undefined","level":"debug"}
+{"message":"1. setSuperInvestor : [object Object]","level":"debug"}
+{"message":"1. superInvestor : 2","level":"debug"}
+{"message":"1. delSuperInvestor : [object Object]","level":"debug"}
+{"message":"1. superInvestor : [object Object]","level":"debug"}
+{"message":"1. setSuperInvestor : [object Object]","level":"debug"}
+{"message":"1. superInvestor(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"1. superInvesto(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"2. totalSupply : [object Object]","level":"debug"}
+{"message":"2. totalSupply : [object Object]","level":"debug"}
+{"message":"3. regiInvestor : [object Object]","level":"debug"}
+{"message":"3. regiInvestor(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"3. investorList : 2","level":"debug"}
+{"message":"3. investorList : 0","level":"debug"}
+{"message":"4. delInvestor : [object Object]","level":"debug"}
+{"message":"4. investorList : -2","level":"debug"}
+{"message":"4. regiInvestor : [object Object]","level":"debug"}
+{"message":"4. investorList : 2","level":"debug"}
+{"message":"5. INITIAL_SUPPLY : [object Object]","level":"debug"}
+{"message":"6. decimals : undefined","level":"debug"}
+{"message":"7. investorList : 2","level":"debug"}
+{"message":"7. regiInvestor : [object Object]","level":"debug"}
+{"message":"7. delInvestor : [object Object]","level":"debug"}
+{"message":"7. investorList : 2","level":"debug"}
+{"message":"7. investorList : -2","level":"debug"}
+{"message":"7. investorList : 0","level":"debug"}
+{"message":"8. pause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"8. pause : [object Object]","level":"debug"}
+{"message":"8. paused : true","level":"debug"}
+{"message":"8. unpause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"8. paused : true","level":"debug"}
+{"message":"8. unpause : [object Object]","level":"debug"}
+{"message":"8. paused : false","level":"debug"}
+{"message":"9. blackList : 0","level":"debug"}
+{"message":"9. blacklisting(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"9. blackList : 0","level":"debug"}
+{"message":"9. blacklisting : [object Object]","level":"debug"}
+{"message":"9. blackList : 1","level":"debug"}
+{"message":"9. deleteFromBlacklist(rejected)Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"9. deleteFromBlacklist[object Object]","level":"debug"}
+{"message":"9. blackList : -1","level":"debug"}
+{"message":"10. CEx : 0","level":"debug"}
+{"message":"10. setCEx : [object Object]","level":"debug"}
+{"message":"10. CEx : 2","level":"debug"}
+{"message":"10. delCEx : [object Object]","level":"debug"}
+{"message":"10. CEx : -2","level":"debug"}
+{"message":"10. setCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"10. delCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"11. pause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"11. pause : [object Object]","level":"debug"}
+{"message":"11. paused : true","level":"debug"}
+{"message":"11. unpause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"11. paused : true","level":"debug"}
+{"message":"11. unpause : [object Object]","level":"debug"}
+{"message":"11. paused : false","level":"debug"}
+{"message":"12. balanceOf : 1e+28","level":"debug"}
+{"message":"13. searchInvestor : 0,0,0","level":"debug"}
+{"message":"13. searchInvestor : 0,0,0","level":"debug"}
+{"message":"13. investorList : 2","level":"debug"}
+{"message":"13. investorList : -2","level":"debug"}
+{"message":"13. searchInvestor : 0,0,0","level":"debug"}
+{"message":"13. transfer : [object Object]","level":"debug"}
+{"message":"13. transfer : [object Object]","level":"debug"}
+{"message":"13. investorList : 2","level":"debug"}
+{"message":"13. searchInvestor : 0,100000000000000000,10000000000000000","level":"debug"}
+{"message":"13. searchInvestor : 0,0,0","level":"debug"}
+{"message":"14. pause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"14. pause : [object Object]","level":"debug"}
+{"message":"14. paused : true","level":"debug"}
+{"message":"14. unpause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"14. paused : true","level":"debug"}
+{"message":"14. unpause : [object Object]","level":"debug"}
+{"message":"14. paused : false","level":"debug"}
+{"message":"15. blackList : -1","level":"debug"}
+{"message":"15. blacklisting(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"15. blackList : -1","level":"debug"}
+{"message":"15. blacklisting : [object Object]","level":"debug"}
+{"message":"15. blackList : 1","level":"debug"}
+{"message":"15. deleteFromBlacklist(rejected)Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"15. deleteFromBlacklist[object Object]","level":"debug"}
+{"message":"15. blackList : -1","level":"debug"}
+{"message":"16. owner : 0x7c231d6267904ca586f2dbc3ac26e8dda23317f7","level":"debug"}
+{"message":"16. owner : undefined","level":"debug"}
+{"message":"17. blackList : -1","level":"debug"}
+{"message":"17. blacklisting(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"17. blackList : -1","level":"debug"}
+{"message":"17. blacklisting : [object Object]","level":"debug"}
+{"message":"17. blackList : 1","level":"debug"}
+{"message":"17. deleteFromBlacklist(rejected)Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"17. deleteFromBlacklist[object Object]","level":"debug"}
+{"message":"17. blackList : -1","level":"debug"}
+{"message":"18. symbol : TMTG","level":"debug"}
+{"message":"18. symbol : undefined","level":"debug"}
+{"message":"19. openingTime : 1530377828","level":"debug"}
+{"message":"20. superInvestor : 2","level":"debug"}
+{"message":"20. balanceOf : 900000000000000000","level":"debug"}
+{"message":"20. approve : [object Object]","level":"debug"}
+{"message":"20. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"20. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"20. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"20. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"20. allowance : 1000000000","level":"debug"}
+{"message":"20. allowance : 0","level":"debug"}
+{"message":"21. owner : undefined","level":"debug"}
+{"message":"21. transferOwnership : [object Object]","level":"debug"}
+{"message":"21. transferOwnership : [object Object]","level":"debug"}
+{"message":"21. transferOwnership(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"21. transferOwnership(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"21. transferOwnership(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"22. CEx : -2","level":"debug"}
+{"message":"22. setCEx : [object Object]","level":"debug"}
+{"message":"22. CEx : 2","level":"debug"}
+{"message":"22. delCEx : [object Object]","level":"debug"}
+{"message":"22. CEx : -2","level":"debug"}
+{"message":"22. setCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"22. delCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"23. CEx : -2","level":"debug"}
+{"message":"23. setCEx : [object Object]","level":"debug"}
+{"message":"23. CEx : 2","level":"debug"}
+{"message":"23. delCEx : [object Object]","level":"debug"}
+{"message":"23. CEx : -2","level":"debug"}
+{"message":"23. setCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"23. delCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"24. superInvestor : 2","level":"debug"}
+{"message":"24. setSuperInvestor : [object Object]","level":"debug"}
+{"message":"24. superInvestor : 2","level":"debug"}
+{"message":"24. setSuperInvestor(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"25. superInvestor : 2","level":"debug"}
+{"message":"25. delSuperInvestor : [object Object]","level":"debug"}
+{"message":"25. superInvestor : -2","level":"debug"}
+{"message":"25. delSuperInvestor(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"26. openingTime : 1530377828","level":"debug"}
+{"message":"26. setOpeningTime : [object Object]","level":"debug"}
+{"message":"26. openingTime : 1530377835","level":"debug"}
+{"message":"26. checkTime : 1530377835","level":"debug"}
+{"message":"27. burn : [object Object]","level":"debug"}
+{"message":"27. burn(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"27. burn(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"28. approve : [object Object]","level":"debug"}
+{"message":"28. allowance : 10000000000000","level":"debug"}
+{"message":"28. burnFrom(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"28. transfer : [object Object]","level":"debug"}
+{"message":"28. balanceOf : 1000000000000000000","level":"debug"}
+{"message":"28. approve : [object Object]","level":"debug"}
+{"message":"28. allowance : 1000000000000","level":"debug"}
+{"message":"28. burnFrom : [object Object]","level":"debug"}
+{"message":"28. balanceOf : 999999000000000000","level":"debug"}
+{"message":"29. checkTime : 1530377836","level":"debug"}
+{"message":"30. setSuperInvestor : [object Object]","level":"debug"}
+{"message":"30. superInvestor : 2","level":"debug"}
+{"message":"30. transfer : [object Object]","level":"debug"}
+{"message":"30. transfer : [object Object]","level":"debug"}
+{"message":"30. balanceOf : 100000","level":"debug"}
+{"message":"30. balanceOf : 100000","level":"debug"}
+{"message":"30. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"30. approve : [object Object]","level":"debug"}
+{"message":"31. balanceOf : 100000","level":"debug"}
+{"message":"31. transfer(rejected) : Error: Invalid number of arguments to Solidity function","level":"debug"}
+{"message":"31. transfer : Error: Invalid number of arguments to Solidity function","level":"debug"}
+{"message":"31. balanceOf : 100000","level":"debug"}
+{"message":"32. transfer : [object Object]","level":"debug"}
+{"message":"32. transfer : [object Object]","level":"debug"}
+{"message":"32. balanceOf : 100000000","level":"debug"}
+{"message":"32. balanceOf : 100100000","level":"debug"}
+{"message":"32. balanceOf : 100000","level":"debug"}
+{"message":"32. approve : [object Object]","level":"debug"}
+{"message":"32. approve : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"32. tranferFrom : [object Object]","level":"debug"}
+{"message":"32. tranferFrom : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"33.checkTime : 1530377837","level":"debug"}
+{"message":"33. getLimitPeriod : 0","level":"debug"}
+{"message":"::. End : ========================================","level":"debug"}
+{"message":"::. End : ========================================","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: BasicToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. transfer","level":"debug"}
+{"message":"2. balanceOf","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: BurnableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. burn","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: ERC20","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. allowance","level":"debug"}
+{"message":"4. transferFrom","level":"debug"}
+{"message":"5. approve","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: ERC20Basic","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Migrations","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. last_completed_migration","level":"debug"}
+{"message":"1. owner","level":"debug"}
+{"message":"2. setCompleted","level":"debug"}
+{"message":"3. upgrade","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Ownable","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. owner","level":"debug"}
+{"message":"1. transferOwnership","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Pausable","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. paused","level":"debug"}
+{"message":"1. owner","level":"debug"}
+{"message":"2. transferOwnership","level":"debug"}
+{"message":"3. pause","level":"debug"}
+{"message":"4. unpause","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: PausableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. investorList","level":"debug"}
+{"message":"2. unpause","level":"debug"}
+{"message":"3. blackList","level":"debug"}
+{"message":"4. paused","level":"debug"}
+{"message":"5. balanceOf","level":"debug"}
+{"message":"6. pause","level":"debug"}
+{"message":"7. owner","level":"debug"}
+{"message":"8. allowance","level":"debug"}
+{"message":"9. transferOwnership","level":"debug"}
+{"message":"10. regiInvestor","level":"debug"}
+{"message":"11. delInvestor","level":"debug"}
+{"message":"12. blacklisting","level":"debug"}
+{"message":"13. deleteFromBlacklist","level":"debug"}
+{"message":"14. transfer","level":"debug"}
+{"message":"15. transferFrom","level":"debug"}
+{"message":"16. approve","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: SafeMath","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: StandardBurnableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. approve","level":"debug"}
+{"message":"1. totalSupply","level":"debug"}
+{"message":"2. transferFrom","level":"debug"}
+{"message":"3. burn","level":"debug"}
+{"message":"4. balanceOf","level":"debug"}
+{"message":"5. transfer","level":"debug"}
+{"message":"6. allowance","level":"debug"}
+{"message":"7. burnFrom","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: StandardToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. transferFrom","level":"debug"}
+{"message":"4. approve","level":"debug"}
+{"message":"5. allowance","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: TMTGToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. name","level":"debug"}
+{"message":"1. superInvestor","level":"debug"}
+{"message":"2. totalSupply","level":"debug"}
+{"message":"3. regiInvestor","level":"debug"}
+{"message":"4. delInvestor","level":"debug"}
+{"message":"5. INITIAL_SUPPLY","level":"debug"}
+{"message":"6. decimals","level":"debug"}
+{"message":"7. investorList","level":"debug"}
+{"message":"8. unpause","level":"debug"}
+{"message":"9. blackList","level":"debug"}
+{"message":"10. CEx","level":"debug"}
+{"message":"11. paused","level":"debug"}
+{"message":"12. balanceOf","level":"debug"}
+{"message":"13. searchInvestor","level":"debug"}
+{"message":"14. pause","level":"debug"}
+{"message":"15. blacklisting","level":"debug"}
+{"message":"16. owner","level":"debug"}
+{"message":"17. deleteFromBlacklist","level":"debug"}
+{"message":"18. symbol","level":"debug"}
+{"message":"19. openingTime","level":"debug"}
+{"message":"20. allowance","level":"debug"}
+{"message":"21. transferOwnership","level":"debug"}
+{"message":"22. setCEx","level":"debug"}
+{"message":"23. delCEx","level":"debug"}
+{"message":"24. setSuperInvestor","level":"debug"}
+{"message":"25. delSuperInvestor","level":"debug"}
+{"message":"26. setOpeningTime","level":"debug"}
+{"message":"27. burn","level":"debug"}
+{"message":"28. burnFrom","level":"debug"}
+{"message":"29. checkTime","level":"debug"}
+{"message":"30. approve","level":"debug"}
+{"message":"31. transfer","level":"debug"}
+{"message":"32. transferFrom","level":"debug"}
+{"message":"33. getLimitPeriod","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":":: 기능&단위 테스트 Start ::========================================","level":"debug"}
+{"message":":: 세부적인 단위 테스트 Start ::========================================","level":"debug"}
+{"message":"0. name : undefined","level":"debug"}
+{"message":"1. setSuperInvestor : [object Object]","level":"debug"}
+{"message":"1. superInvestor : 2","level":"debug"}
+{"message":"1. delSuperInvestor : [object Object]","level":"debug"}
+{"message":"1. superInvestor : [object Object]","level":"debug"}
+{"message":"1. setSuperInvestor : [object Object]","level":"debug"}
+{"message":"1. superInvestor(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"1. superInvesto(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"2. totalSupply : [object Object]","level":"debug"}
+{"message":"2. totalSupply : [object Object]","level":"debug"}
+{"message":"3. regiInvestor : [object Object]","level":"debug"}
+{"message":"3. regiInvestor(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"3. investorList : 2","level":"debug"}
+{"message":"3. investorList : 0","level":"debug"}
+{"message":"4. delInvestor : [object Object]","level":"debug"}
+{"message":"4. investorList : -2","level":"debug"}
+{"message":"4. regiInvestor : [object Object]","level":"debug"}
+{"message":"4. investorList : 2","level":"debug"}
+{"message":"5. INITIAL_SUPPLY : [object Object]","level":"debug"}
+{"message":"6. decimals : undefined","level":"debug"}
+{"message":"7. investorList : 2","level":"debug"}
+{"message":"7. regiInvestor : [object Object]","level":"debug"}
+{"message":"7. delInvestor : [object Object]","level":"debug"}
+{"message":"7. investorList : 2","level":"debug"}
+{"message":"7. investorList : -2","level":"debug"}
+{"message":"7. investorList : 0","level":"debug"}
+{"message":"8. pause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"8. pause : [object Object]","level":"debug"}
+{"message":"8. paused : true","level":"debug"}
+{"message":"8. unpause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"8. paused : true","level":"debug"}
+{"message":"8. unpause : [object Object]","level":"debug"}
+{"message":"8. paused : false","level":"debug"}
+{"message":"9. blackList : 0","level":"debug"}
+{"message":"9. blacklisting(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"9. blackList : 0","level":"debug"}
+{"message":"9. blacklisting : [object Object]","level":"debug"}
+{"message":"9. blackList : 1","level":"debug"}
+{"message":"9. deleteFromBlacklist(rejected)Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"9. deleteFromBlacklist[object Object]","level":"debug"}
+{"message":"9. blackList : -1","level":"debug"}
+{"message":"10. CEx : 0","level":"debug"}
+{"message":"10. setCEx : [object Object]","level":"debug"}
+{"message":"10. CEx : 2","level":"debug"}
+{"message":"10. delCEx : [object Object]","level":"debug"}
+{"message":"10. CEx : -2","level":"debug"}
+{"message":"10. setCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"10. delCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"11. pause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"11. pause : [object Object]","level":"debug"}
+{"message":"11. paused : true","level":"debug"}
+{"message":"11. unpause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"11. paused : true","level":"debug"}
+{"message":"11. unpause : [object Object]","level":"debug"}
+{"message":"11. paused : false","level":"debug"}
+{"message":"12. balanceOf : 1e+28","level":"debug"}
+{"message":"13. searchInvestor : 0,0,0","level":"debug"}
+{"message":"13. searchInvestor : 0,0,0","level":"debug"}
+{"message":"13. investorList : 2","level":"debug"}
+{"message":"13. investorList : -2","level":"debug"}
+{"message":"13. searchInvestor : 0,0,0","level":"debug"}
+{"message":"13. transfer : [object Object]","level":"debug"}
+{"message":"13. transfer : [object Object]","level":"debug"}
+{"message":"13. investorList : 2","level":"debug"}
+{"message":"13. searchInvestor : 0,100000000000000000,10000000000000000","level":"debug"}
+{"message":"13. searchInvestor : 0,0,0","level":"debug"}
+{"message":"14. pause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"14. pause : [object Object]","level":"debug"}
+{"message":"14. paused : true","level":"debug"}
+{"message":"14. unpause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"14. paused : true","level":"debug"}
+{"message":"14. unpause : [object Object]","level":"debug"}
+{"message":"14. paused : false","level":"debug"}
+{"message":"15. blackList : -1","level":"debug"}
+{"message":"15. blacklisting(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"15. blackList : -1","level":"debug"}
+{"message":"15. blacklisting : [object Object]","level":"debug"}
+{"message":"15. blackList : 1","level":"debug"}
+{"message":"15. deleteFromBlacklist(rejected)Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"15. deleteFromBlacklist[object Object]","level":"debug"}
+{"message":"15. blackList : -1","level":"debug"}
+{"message":"16. owner : 0x7c231d6267904ca586f2dbc3ac26e8dda23317f7","level":"debug"}
+{"message":"16. owner : undefined","level":"debug"}
+{"message":"17. blackList : -1","level":"debug"}
+{"message":"17. blacklisting(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"17. blackList : -1","level":"debug"}
+{"message":"17. blacklisting : [object Object]","level":"debug"}
+{"message":"17. blackList : 1","level":"debug"}
+{"message":"17. deleteFromBlacklist(rejected)Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"17. deleteFromBlacklist[object Object]","level":"debug"}
+{"message":"17. blackList : -1","level":"debug"}
+{"message":"18. symbol : TMTG","level":"debug"}
+{"message":"18. symbol : undefined","level":"debug"}
+{"message":"19. openingTime : 1530377858","level":"debug"}
+{"message":"20. superInvestor : 2","level":"debug"}
+{"message":"20. balanceOf : 900000000000000000","level":"debug"}
+{"message":"20. approve : [object Object]","level":"debug"}
+{"message":"20. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"20. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"20. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"20. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"20. allowance : 1000000000","level":"debug"}
+{"message":"20. allowance : 0","level":"debug"}
+{"message":"21. owner : undefined","level":"debug"}
+{"message":"21. transferOwnership : [object Object]","level":"debug"}
+{"message":"21. transferOwnership : [object Object]","level":"debug"}
+{"message":"21. transferOwnership(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"21. transferOwnership(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"21. transferOwnership(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"22. CEx : -2","level":"debug"}
+{"message":"22. setCEx : [object Object]","level":"debug"}
+{"message":"22. CEx : 2","level":"debug"}
+{"message":"22. delCEx : [object Object]","level":"debug"}
+{"message":"22. CEx : -2","level":"debug"}
+{"message":"22. setCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"22. delCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"23. CEx : -2","level":"debug"}
+{"message":"23. setCEx : [object Object]","level":"debug"}
+{"message":"23. CEx : 2","level":"debug"}
+{"message":"23. delCEx : [object Object]","level":"debug"}
+{"message":"23. CEx : -2","level":"debug"}
+{"message":"23. setCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"23. delCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"24. superInvestor : 2","level":"debug"}
+{"message":"24. setSuperInvestor : [object Object]","level":"debug"}
+{"message":"24. superInvestor : 2","level":"debug"}
+{"message":"24. setSuperInvestor(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"25. superInvestor : 2","level":"debug"}
+{"message":"25. delSuperInvestor : [object Object]","level":"debug"}
+{"message":"25. superInvestor : -2","level":"debug"}
+{"message":"25. delSuperInvestor(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"26. openingTime : 1530377858","level":"debug"}
+{"message":"26. setOpeningTime : [object Object]","level":"debug"}
+{"message":"26. openingTime : 1530377864","level":"debug"}
+{"message":"26. checkTime : 1530377864","level":"debug"}
+{"message":"27. burn : [object Object]","level":"debug"}
+{"message":"27. burn(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"27. burn(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"28. approve : [object Object]","level":"debug"}
+{"message":"28. allowance : 10000000000000","level":"debug"}
+{"message":"28. burnFrom(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"28. transfer : [object Object]","level":"debug"}
+{"message":"28. balanceOf : 1000000000000000000","level":"debug"}
+{"message":"28. approve : [object Object]","level":"debug"}
+{"message":"28. allowance : 1000000000000","level":"debug"}
+{"message":"28. burnFrom : [object Object]","level":"debug"}
+{"message":"28. balanceOf : 999999000000000000","level":"debug"}
+{"message":"29. checkTime : 1530377865","level":"debug"}
+{"message":"30. setSuperInvestor : [object Object]","level":"debug"}
+{"message":"30. superInvestor : 2","level":"debug"}
+{"message":"30. transfer : [object Object]","level":"debug"}
+{"message":"30. transfer : [object Object]","level":"debug"}
+{"message":"30. balanceOf : 100000","level":"debug"}
+{"message":"30. balanceOf : 100000","level":"debug"}
+{"message":"30. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"30. approve : [object Object]","level":"debug"}
+{"message":"31. balanceOf : 100000","level":"debug"}
+{"message":"31. transfer(rejected) : Error: Invalid number of arguments to Solidity function","level":"debug"}
+{"message":"31. transfer : Error: Invalid number of arguments to Solidity function","level":"debug"}
+{"message":"31. balanceOf : 100000","level":"debug"}
+{"message":"32. transfer : [object Object]","level":"debug"}
+{"message":"32. transfer : [object Object]","level":"debug"}
+{"message":"32. balanceOf : 100000000","level":"debug"}
+{"message":"32. balanceOf : 100100000","level":"debug"}
+{"message":"32. balanceOf : 100000","level":"debug"}
+{"message":"32. approve : [object Object]","level":"debug"}
+{"message":"32. approve : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"32. tranferFrom : [object Object]","level":"debug"}
+{"message":"32. tranferFrom : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"33.checkTime : 1530377866","level":"debug"}
+{"message":"33. getLimitPeriod : 0","level":"debug"}
+{"message":"::. End : ========================================","level":"debug"}
+{"message":"::. End : ========================================","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: BasicToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. transfer","level":"debug"}
+{"message":"2. balanceOf","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: BurnableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. burn","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: ERC20","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. allowance","level":"debug"}
+{"message":"4. transferFrom","level":"debug"}
+{"message":"5. approve","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: ERC20Basic","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Migrations","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. last_completed_migration","level":"debug"}
+{"message":"1. owner","level":"debug"}
+{"message":"2. setCompleted","level":"debug"}
+{"message":"3. upgrade","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Ownable","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. owner","level":"debug"}
+{"message":"1. transferOwnership","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Pausable","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. paused","level":"debug"}
+{"message":"1. owner","level":"debug"}
+{"message":"2. transferOwnership","level":"debug"}
+{"message":"3. pause","level":"debug"}
+{"message":"4. unpause","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: PausableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. investorList","level":"debug"}
+{"message":"2. unpause","level":"debug"}
+{"message":"3. blackList","level":"debug"}
+{"message":"4. paused","level":"debug"}
+{"message":"5. balanceOf","level":"debug"}
+{"message":"6. pause","level":"debug"}
+{"message":"7. owner","level":"debug"}
+{"message":"8. allowance","level":"debug"}
+{"message":"9. transferOwnership","level":"debug"}
+{"message":"10. regiInvestor","level":"debug"}
+{"message":"11. delInvestor","level":"debug"}
+{"message":"12. blacklisting","level":"debug"}
+{"message":"13. deleteFromBlacklist","level":"debug"}
+{"message":"14. transfer","level":"debug"}
+{"message":"15. transferFrom","level":"debug"}
+{"message":"16. approve","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: SafeMath","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: StandardBurnableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. approve","level":"debug"}
+{"message":"1. totalSupply","level":"debug"}
+{"message":"2. transferFrom","level":"debug"}
+{"message":"3. burn","level":"debug"}
+{"message":"4. balanceOf","level":"debug"}
+{"message":"5. transfer","level":"debug"}
+{"message":"6. allowance","level":"debug"}
+{"message":"7. burnFrom","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: StandardToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. transferFrom","level":"debug"}
+{"message":"4. approve","level":"debug"}
+{"message":"5. allowance","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: TMTGToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. name","level":"debug"}
+{"message":"1. superInvestor","level":"debug"}
+{"message":"2. totalSupply","level":"debug"}
+{"message":"3. regiInvestor","level":"debug"}
+{"message":"4. delInvestor","level":"debug"}
+{"message":"5. INITIAL_SUPPLY","level":"debug"}
+{"message":"6. decimals","level":"debug"}
+{"message":"7. investorList","level":"debug"}
+{"message":"8. unpause","level":"debug"}
+{"message":"9. blackList","level":"debug"}
+{"message":"10. CEx","level":"debug"}
+{"message":"11. paused","level":"debug"}
+{"message":"12. balanceOf","level":"debug"}
+{"message":"13. searchInvestor","level":"debug"}
+{"message":"14. pause","level":"debug"}
+{"message":"15. blacklisting","level":"debug"}
+{"message":"16. owner","level":"debug"}
+{"message":"17. deleteFromBlacklist","level":"debug"}
+{"message":"18. symbol","level":"debug"}
+{"message":"19. openingTime","level":"debug"}
+{"message":"20. allowance","level":"debug"}
+{"message":"21. transferOwnership","level":"debug"}
+{"message":"22. setCEx","level":"debug"}
+{"message":"23. delCEx","level":"debug"}
+{"message":"24. setSuperInvestor","level":"debug"}
+{"message":"25. delSuperInvestor","level":"debug"}
+{"message":"26. setOpeningTime","level":"debug"}
+{"message":"27. burn","level":"debug"}
+{"message":"28. burnFrom","level":"debug"}
+{"message":"29. checkTime","level":"debug"}
+{"message":"30. approve","level":"debug"}
+{"message":"31. transfer","level":"debug"}
+{"message":"32. transferFrom","level":"debug"}
+{"message":"33. getLimitPeriod","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":":: 기능&단위 테스트 Start ::========================================","level":"debug"}
+{"message":":: 세부적인 단위 테스트 Start ::========================================","level":"debug"}
+{"message":"0. name : undefined","level":"debug"}
+{"message":"1. setSuperInvestor : [object Object]","level":"debug"}
+{"message":"1. superInvestor : 2","level":"debug"}
+{"message":"1. delSuperInvestor : [object Object]","level":"debug"}
+{"message":"1. superInvestor : [object Object]","level":"debug"}
+{"message":"1. setSuperInvestor : [object Object]","level":"debug"}
+{"message":"1. superInvestor(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"1. superInvesto(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"2. totalSupply : [object Object]","level":"debug"}
+{"message":"2. totalSupply : [object Object]","level":"debug"}
+{"message":"3. regiInvestor : [object Object]","level":"debug"}
+{"message":"3. regiInvestor(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"3. investorList : 2","level":"debug"}
+{"message":"3. investorList : 0","level":"debug"}
+{"message":"4. delInvestor : [object Object]","level":"debug"}
+{"message":"4. investorList : -2","level":"debug"}
+{"message":"4. regiInvestor : [object Object]","level":"debug"}
+{"message":"4. investorList : 2","level":"debug"}
+{"message":"5. INITIAL_SUPPLY : [object Object]","level":"debug"}
+{"message":"6. decimals : undefined","level":"debug"}
+{"message":"7. investorList : 2","level":"debug"}
+{"message":"7. regiInvestor : [object Object]","level":"debug"}
+{"message":"7. delInvestor : [object Object]","level":"debug"}
+{"message":"7. investorList : 2","level":"debug"}
+{"message":"7. investorList : -2","level":"debug"}
+{"message":"7. investorList : 0","level":"debug"}
+{"message":"8. pause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"8. pause : [object Object]","level":"debug"}
+{"message":"8. paused : true","level":"debug"}
+{"message":"8. unpause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"8. paused : true","level":"debug"}
+{"message":"8. unpause : [object Object]","level":"debug"}
+{"message":"8. paused : false","level":"debug"}
+{"message":"9. blackList : 0","level":"debug"}
+{"message":"9. blacklisting(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"9. blackList : 0","level":"debug"}
+{"message":"9. blacklisting : [object Object]","level":"debug"}
+{"message":"9. blackList : 1","level":"debug"}
+{"message":"9. deleteFromBlacklist(rejected)Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"9. deleteFromBlacklist[object Object]","level":"debug"}
+{"message":"9. blackList : -1","level":"debug"}
+{"message":"10. CEx : 0","level":"debug"}
+{"message":"10. setCEx : [object Object]","level":"debug"}
+{"message":"10. CEx : 2","level":"debug"}
+{"message":"10. delCEx : [object Object]","level":"debug"}
+{"message":"10. CEx : -2","level":"debug"}
+{"message":"10. setCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"10. delCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"11. pause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"11. pause : [object Object]","level":"debug"}
+{"message":"11. paused : true","level":"debug"}
+{"message":"11. unpause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"11. paused : true","level":"debug"}
+{"message":"11. unpause : [object Object]","level":"debug"}
+{"message":"11. paused : false","level":"debug"}
+{"message":"12. balanceOf : 1e+28","level":"debug"}
+{"message":"13. searchInvestor : 0,0,0","level":"debug"}
+{"message":"13. searchInvestor : 0,0,0","level":"debug"}
+{"message":"13. investorList : 2","level":"debug"}
+{"message":"13. investorList : -2","level":"debug"}
+{"message":"13. searchInvestor : 0,0,0","level":"debug"}
+{"message":"13. transfer : [object Object]","level":"debug"}
+{"message":"13. transfer : [object Object]","level":"debug"}
+{"message":"13. investorList : 2","level":"debug"}
+{"message":"13. searchInvestor : 0,100000000000000000,10000000000000000","level":"debug"}
+{"message":"13. searchInvestor : 0,0,0","level":"debug"}
+{"message":"14. pause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"14. pause : [object Object]","level":"debug"}
+{"message":"14. paused : true","level":"debug"}
+{"message":"14. unpause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"14. paused : true","level":"debug"}
+{"message":"14. unpause : [object Object]","level":"debug"}
+{"message":"14. paused : false","level":"debug"}
+{"message":"15. blackList : -1","level":"debug"}
+{"message":"15. blacklisting(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"15. blackList : -1","level":"debug"}
+{"message":"15. blacklisting : [object Object]","level":"debug"}
+{"message":"15. blackList : 1","level":"debug"}
+{"message":"15. deleteFromBlacklist(rejected)Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"15. deleteFromBlacklist[object Object]","level":"debug"}
+{"message":"15. blackList : -1","level":"debug"}
+{"message":"16. owner : 0x7c231d6267904ca586f2dbc3ac26e8dda23317f7","level":"debug"}
+{"message":"16. owner : undefined","level":"debug"}
+{"message":"17. blackList : -1","level":"debug"}
+{"message":"17. blacklisting(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"17. blackList : -1","level":"debug"}
+{"message":"17. blacklisting : [object Object]","level":"debug"}
+{"message":"17. blackList : 1","level":"debug"}
+{"message":"17. deleteFromBlacklist(rejected)Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"17. deleteFromBlacklist[object Object]","level":"debug"}
+{"message":"17. blackList : -1","level":"debug"}
+{"message":"18. symbol : TMTG","level":"debug"}
+{"message":"18. symbol : undefined","level":"debug"}
+{"message":"19. openingTime : 1530377965","level":"debug"}
+{"message":"20. superInvestor : 2","level":"debug"}
+{"message":"20. balanceOf : 900000000000000000","level":"debug"}
+{"message":"20. approve : [object Object]","level":"debug"}
+{"message":"20. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"20. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"20. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"20. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"20. allowance : 1000000000","level":"debug"}
+{"message":"20. allowance : 0","level":"debug"}
+{"message":"21. owner : undefined","level":"debug"}
+{"message":"21. transferOwnership : [object Object]","level":"debug"}
+{"message":"21. transferOwnership : [object Object]","level":"debug"}
+{"message":"21. transferOwnership(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"21. transferOwnership(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"21. transferOwnership(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"22. CEx : -2","level":"debug"}
+{"message":"22. setCEx : [object Object]","level":"debug"}
+{"message":"22. CEx : 2","level":"debug"}
+{"message":"22. delCEx : [object Object]","level":"debug"}
+{"message":"22. CEx : -2","level":"debug"}
+{"message":"22. setCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"22. delCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"23. CEx : -2","level":"debug"}
+{"message":"23. setCEx : [object Object]","level":"debug"}
+{"message":"23. CEx : 2","level":"debug"}
+{"message":"23. delCEx : [object Object]","level":"debug"}
+{"message":"23. CEx : -2","level":"debug"}
+{"message":"23. setCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"23. delCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"24. superInvestor : 2","level":"debug"}
+{"message":"24. setSuperInvestor : [object Object]","level":"debug"}
+{"message":"24. superInvestor : 2","level":"debug"}
+{"message":"24. setSuperInvestor(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"25. superInvestor : 2","level":"debug"}
+{"message":"25. delSuperInvestor : [object Object]","level":"debug"}
+{"message":"25. superInvestor : -2","level":"debug"}
+{"message":"25. delSuperInvestor(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"26. openingTime : 1530377965","level":"debug"}
+{"message":"26. setOpeningTime : [object Object]","level":"debug"}
+{"message":"26. openingTime : 1530377970","level":"debug"}
+{"message":"26. checkTime : 1530377971","level":"debug"}
+{"message":"27. burn : [object Object]","level":"debug"}
+{"message":"27. burn(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"27. burn(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"28. approve : [object Object]","level":"debug"}
+{"message":"28. allowance : 10000000000000","level":"debug"}
+{"message":"28. burnFrom(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"28. transfer : [object Object]","level":"debug"}
+{"message":"28. balanceOf : 1000000000000000000","level":"debug"}
+{"message":"28. approve : [object Object]","level":"debug"}
+{"message":"28. allowance : 1000000000000","level":"debug"}
+{"message":"28. burnFrom : [object Object]","level":"debug"}
+{"message":"28. balanceOf : 999999000000000000","level":"debug"}
+{"message":"29. checkTime : 1530377971","level":"debug"}
+{"message":"30. setSuperInvestor : [object Object]","level":"debug"}
+{"message":"30. superInvestor : 2","level":"debug"}
+{"message":"30. transfer : [object Object]","level":"debug"}
+{"message":"30. transfer : [object Object]","level":"debug"}
+{"message":"30. balanceOf : 100000","level":"debug"}
+{"message":"30. balanceOf : 100000","level":"debug"}
+{"message":"30. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"30. approve : [object Object]","level":"debug"}
+{"message":"31. balanceOf : 100000","level":"debug"}
+{"message":"31. transfer(rejected) : Error: Invalid number of arguments to Solidity function","level":"debug"}
+{"message":"31. transfer : Error: Invalid number of arguments to Solidity function","level":"debug"}
+{"message":"31. balanceOf : 100000","level":"debug"}
+{"message":"32. transfer : [object Object]","level":"debug"}
+{"message":"32. transfer : [object Object]","level":"debug"}
+{"message":"32. balanceOf : 100000000","level":"debug"}
+{"message":"32. balanceOf : 100100000","level":"debug"}
+{"message":"32. balanceOf : 100000","level":"debug"}
+{"message":"32. approve : [object Object]","level":"debug"}
+{"message":"32. approve : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"32. tranferFrom : [object Object]","level":"debug"}
+{"message":"32. tranferFrom : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"33.checkTime : 1530377972","level":"debug"}
+{"message":"33. getLimitPeriod : 0","level":"debug"}
+{"message":"::. End : ========================================","level":"debug"}
+{"message":"::. End : ========================================","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: BasicToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. transfer","level":"debug"}
+{"message":"2. balanceOf","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: BurnableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. burn","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: ERC20","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. allowance","level":"debug"}
+{"message":"4. transferFrom","level":"debug"}
+{"message":"5. approve","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: ERC20Basic","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Migrations","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. last_completed_migration","level":"debug"}
+{"message":"1. owner","level":"debug"}
+{"message":"2. setCompleted","level":"debug"}
+{"message":"3. upgrade","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Ownable","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. owner","level":"debug"}
+{"message":"1. transferOwnership","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Pausable","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. paused","level":"debug"}
+{"message":"1. owner","level":"debug"}
+{"message":"2. transferOwnership","level":"debug"}
+{"message":"3. pause","level":"debug"}
+{"message":"4. unpause","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: PausableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. investorList","level":"debug"}
+{"message":"2. unpause","level":"debug"}
+{"message":"3. blackList","level":"debug"}
+{"message":"4. paused","level":"debug"}
+{"message":"5. balanceOf","level":"debug"}
+{"message":"6. pause","level":"debug"}
+{"message":"7. owner","level":"debug"}
+{"message":"8. allowance","level":"debug"}
+{"message":"9. transferOwnership","level":"debug"}
+{"message":"10. regiInvestor","level":"debug"}
+{"message":"11. delInvestor","level":"debug"}
+{"message":"12. blacklisting","level":"debug"}
+{"message":"13. deleteFromBlacklist","level":"debug"}
+{"message":"14. transfer","level":"debug"}
+{"message":"15. transferFrom","level":"debug"}
+{"message":"16. approve","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: SafeMath","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: StandardBurnableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. approve","level":"debug"}
+{"message":"1. totalSupply","level":"debug"}
+{"message":"2. transferFrom","level":"debug"}
+{"message":"3. burn","level":"debug"}
+{"message":"4. balanceOf","level":"debug"}
+{"message":"5. transfer","level":"debug"}
+{"message":"6. allowance","level":"debug"}
+{"message":"7. burnFrom","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: StandardToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. transferFrom","level":"debug"}
+{"message":"4. approve","level":"debug"}
+{"message":"5. allowance","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: TMTGToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. name","level":"debug"}
+{"message":"1. superInvestor","level":"debug"}
+{"message":"2. totalSupply","level":"debug"}
+{"message":"3. regiInvestor","level":"debug"}
+{"message":"4. delInvestor","level":"debug"}
+{"message":"5. INITIAL_SUPPLY","level":"debug"}
+{"message":"6. decimals","level":"debug"}
+{"message":"7. investorList","level":"debug"}
+{"message":"8. unpause","level":"debug"}
+{"message":"9. blackList","level":"debug"}
+{"message":"10. CEx","level":"debug"}
+{"message":"11. paused","level":"debug"}
+{"message":"12. balanceOf","level":"debug"}
+{"message":"13. searchInvestor","level":"debug"}
+{"message":"14. pause","level":"debug"}
+{"message":"15. blacklisting","level":"debug"}
+{"message":"16. owner","level":"debug"}
+{"message":"17. deleteFromBlacklist","level":"debug"}
+{"message":"18. symbol","level":"debug"}
+{"message":"19. openingTime","level":"debug"}
+{"message":"20. allowance","level":"debug"}
+{"message":"21. transferOwnership","level":"debug"}
+{"message":"22. setCEx","level":"debug"}
+{"message":"23. delCEx","level":"debug"}
+{"message":"24. setSuperInvestor","level":"debug"}
+{"message":"25. delSuperInvestor","level":"debug"}
+{"message":"26. setOpeningTime","level":"debug"}
+{"message":"27. burn","level":"debug"}
+{"message":"28. burnFrom","level":"debug"}
+{"message":"29. checkTime","level":"debug"}
+{"message":"30. approve","level":"debug"}
+{"message":"31. transfer","level":"debug"}
+{"message":"32. transferFrom","level":"debug"}
+{"message":"33. getLimitPeriod","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":":: 기능&단위 테스트 Start ::========================================","level":"debug"}
+{"message":":: 세부적인 단위 테스트 Start ::========================================","level":"debug"}
+{"message":"0. name : undefined","level":"debug"}
+{"message":"1. setSuperInvestor : [object Object]","level":"debug"}
+{"message":"1. superInvestor : 2","level":"debug"}
+{"message":"1. delSuperInvestor : [object Object]","level":"debug"}
+{"message":"1. superInvestor : [object Object]","level":"debug"}
+{"message":"1. setSuperInvestor : [object Object]","level":"debug"}
+{"message":"1. superInvestor(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"1. superInvesto(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"2. totalSupply : [object Object]","level":"debug"}
+{"message":"2. totalSupply : [object Object]","level":"debug"}
+{"message":"3. regiInvestor : [object Object]","level":"debug"}
+{"message":"3. regiInvestor(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"3. investorList : 2","level":"debug"}
+{"message":"3. investorList : 0","level":"debug"}
+{"message":"4. delInvestor : [object Object]","level":"debug"}
+{"message":"4. investorList : -2","level":"debug"}
+{"message":"4. regiInvestor : [object Object]","level":"debug"}
+{"message":"4. investorList : 2","level":"debug"}
+{"message":"5. INITIAL_SUPPLY : [object Object]","level":"debug"}
+{"message":"6. decimals : undefined","level":"debug"}
+{"message":"7. investorList : 2","level":"debug"}
+{"message":"7. regiInvestor : [object Object]","level":"debug"}
+{"message":"7. delInvestor : [object Object]","level":"debug"}
+{"message":"7. investorList : 2","level":"debug"}
+{"message":"7. investorList : -2","level":"debug"}
+{"message":"7. investorList : 0","level":"debug"}
+{"message":"8. pause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"8. pause : [object Object]","level":"debug"}
+{"message":"8. paused : true","level":"debug"}
+{"message":"8. unpause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"8. paused : true","level":"debug"}
+{"message":"8. unpause : [object Object]","level":"debug"}
+{"message":"8. paused : false","level":"debug"}
+{"message":"9. blackList : 0","level":"debug"}
+{"message":"9. blacklisting(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"9. blackList : 0","level":"debug"}
+{"message":"9. blacklisting : [object Object]","level":"debug"}
+{"message":"9. blackList : 1","level":"debug"}
+{"message":"9. deleteFromBlacklist(rejected)Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"9. deleteFromBlacklist[object Object]","level":"debug"}
+{"message":"9. blackList : -1","level":"debug"}
+{"message":"10. CEx : 0","level":"debug"}
+{"message":"10. setCEx : [object Object]","level":"debug"}
+{"message":"10. CEx : 2","level":"debug"}
+{"message":"10. delCEx : [object Object]","level":"debug"}
+{"message":"10. CEx : -2","level":"debug"}
+{"message":"10. setCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"10. delCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"11. pause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"11. pause : [object Object]","level":"debug"}
+{"message":"11. paused : true","level":"debug"}
+{"message":"11. unpause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"11. paused : true","level":"debug"}
+{"message":"11. unpause : [object Object]","level":"debug"}
+{"message":"11. paused : false","level":"debug"}
+{"message":"12. balanceOf : 1e+28","level":"debug"}
+{"message":"13. searchInvestor : 0,0,0","level":"debug"}
+{"message":"13. searchInvestor : 0,0,0","level":"debug"}
+{"message":"13. investorList : 2","level":"debug"}
+{"message":"13. investorList : -2","level":"debug"}
+{"message":"13. searchInvestor : 0,0,0","level":"debug"}
+{"message":"13. transfer : [object Object]","level":"debug"}
+{"message":"13. transfer : [object Object]","level":"debug"}
+{"message":"13. investorList : 2","level":"debug"}
+{"message":"13. searchInvestor : 0,100000000000000000,10000000000000000","level":"debug"}
+{"message":"13. searchInvestor : 0,0,0","level":"debug"}
+{"message":"14. pause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"14. pause : [object Object]","level":"debug"}
+{"message":"14. paused : true","level":"debug"}
+{"message":"14. unpause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"14. paused : true","level":"debug"}
+{"message":"14. unpause : [object Object]","level":"debug"}
+{"message":"14. paused : false","level":"debug"}
+{"message":"15. blackList : -1","level":"debug"}
+{"message":"15. blacklisting(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"15. blackList : -1","level":"debug"}
+{"message":"15. blacklisting : [object Object]","level":"debug"}
+{"message":"15. blackList : 1","level":"debug"}
+{"message":"15. deleteFromBlacklist(rejected)Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"15. deleteFromBlacklist[object Object]","level":"debug"}
+{"message":"15. blackList : -1","level":"debug"}
+{"message":"16. owner : 0x7c231d6267904ca586f2dbc3ac26e8dda23317f7","level":"debug"}
+{"message":"16. owner : undefined","level":"debug"}
+{"message":"17. blackList : -1","level":"debug"}
+{"message":"17. blacklisting(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"17. blackList : -1","level":"debug"}
+{"message":"17. blacklisting : [object Object]","level":"debug"}
+{"message":"17. blackList : 1","level":"debug"}
+{"message":"17. deleteFromBlacklist(rejected)Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"17. deleteFromBlacklist[object Object]","level":"debug"}
+{"message":"17. blackList : -1","level":"debug"}
+{"message":"18. symbol : TMTG","level":"debug"}
+{"message":"18. symbol : undefined","level":"debug"}
+{"message":"19. openingTime : 1530378129","level":"debug"}
+{"message":"20. superInvestor : 2","level":"debug"}
+{"message":"20. balanceOf : 900000000000000000","level":"debug"}
+{"message":"20. approve : [object Object]","level":"debug"}
+{"message":"20. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"20. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"20. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"20. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"20. allowance : 1000000000","level":"debug"}
+{"message":"20. allowance : 0","level":"debug"}
+{"message":"21. owner : undefined","level":"debug"}
+{"message":"21. transferOwnership : [object Object]","level":"debug"}
+{"message":"21. transferOwnership : [object Object]","level":"debug"}
+{"message":"21. transferOwnership(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"21. transferOwnership(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"21. transferOwnership(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"22. CEx : -2","level":"debug"}
+{"message":"22. setCEx : [object Object]","level":"debug"}
+{"message":"22. CEx : 2","level":"debug"}
+{"message":"22. delCEx : [object Object]","level":"debug"}
+{"message":"22. CEx : -2","level":"debug"}
+{"message":"22. setCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"22. delCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"23. CEx : -2","level":"debug"}
+{"message":"23. setCEx : [object Object]","level":"debug"}
+{"message":"23. CEx : 2","level":"debug"}
+{"message":"23. delCEx : [object Object]","level":"debug"}
+{"message":"23. CEx : -2","level":"debug"}
+{"message":"23. setCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"23. delCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"24. superInvestor : 2","level":"debug"}
+{"message":"24. setSuperInvestor : [object Object]","level":"debug"}
+{"message":"24. superInvestor : 2","level":"debug"}
+{"message":"24. setSuperInvestor(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"25. superInvestor : 2","level":"debug"}
+{"message":"25. delSuperInvestor : [object Object]","level":"debug"}
+{"message":"25. superInvestor : -2","level":"debug"}
+{"message":"25. delSuperInvestor(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"26. openingTime : 1530378129","level":"debug"}
+{"message":"26. setOpeningTime : [object Object]","level":"debug"}
+{"message":"26. openingTime : 1530378135","level":"debug"}
+{"message":"26. checkTime : 1530378135","level":"debug"}
+{"message":"27. burn : [object Object]","level":"debug"}
+{"message":"27. burn(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"27. burn(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"28. approve : [object Object]","level":"debug"}
+{"message":"28. allowance : 10000000000000","level":"debug"}
+{"message":"28. burnFrom(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"28. transfer : [object Object]","level":"debug"}
+{"message":"28. balanceOf : 1000000000000000000","level":"debug"}
+{"message":"28. approve : [object Object]","level":"debug"}
+{"message":"28. allowance : 1000000000000","level":"debug"}
+{"message":"28. burnFrom : [object Object]","level":"debug"}
+{"message":"28. balanceOf : 999999000000000000","level":"debug"}
+{"message":"29. checkTime : 1530378136","level":"debug"}
+{"message":"30. setSuperInvestor : [object Object]","level":"debug"}
+{"message":"30. superInvestor : 2","level":"debug"}
+{"message":"30. transfer : [object Object]","level":"debug"}
+{"message":"30. transfer : [object Object]","level":"debug"}
+{"message":"30. balanceOf : 100000","level":"debug"}
+{"message":"30. balanceOf : 100000","level":"debug"}
+{"message":"30. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"30. approve : [object Object]","level":"debug"}
+{"message":"31. balanceOf : 100000","level":"debug"}
+{"message":"31. transfer(rejected) : Error: Invalid number of arguments to Solidity function","level":"debug"}
+{"message":"31. transfer : Error: Invalid number of arguments to Solidity function","level":"debug"}
+{"message":"31. balanceOf : 100000","level":"debug"}
+{"message":"32. transfer : [object Object]","level":"debug"}
+{"message":"32. transfer : [object Object]","level":"debug"}
+{"message":"32. balanceOf : 100000000","level":"debug"}
+{"message":"32. balanceOf : 100100000","level":"debug"}
+{"message":"32. balanceOf : 100000","level":"debug"}
+{"message":"32. approve : [object Object]","level":"debug"}
+{"message":"32. approve : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"32. tranferFrom : [object Object]","level":"debug"}
+{"message":"32. tranferFrom : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"33.checkTime : 1530378137","level":"debug"}
+{"message":"33. getLimitPeriod : 0","level":"debug"}
+{"message":"::. End : ========================================","level":"debug"}
+{"message":"::. End : ========================================","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: BasicToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. transfer","level":"debug"}
+{"message":"2. balanceOf","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: BurnableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. burn","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: ERC20","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. allowance","level":"debug"}
+{"message":"4. transferFrom","level":"debug"}
+{"message":"5. approve","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: ERC20Basic","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Migrations","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. last_completed_migration","level":"debug"}
+{"message":"1. owner","level":"debug"}
+{"message":"2. setCompleted","level":"debug"}
+{"message":"3. upgrade","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Ownable","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. owner","level":"debug"}
+{"message":"1. transferOwnership","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Pausable","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. paused","level":"debug"}
+{"message":"1. owner","level":"debug"}
+{"message":"2. transferOwnership","level":"debug"}
+{"message":"3. pause","level":"debug"}
+{"message":"4. unpause","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: PausableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. investorList","level":"debug"}
+{"message":"2. unpause","level":"debug"}
+{"message":"3. blackList","level":"debug"}
+{"message":"4. paused","level":"debug"}
+{"message":"5. balanceOf","level":"debug"}
+{"message":"6. pause","level":"debug"}
+{"message":"7. owner","level":"debug"}
+{"message":"8. allowance","level":"debug"}
+{"message":"9. transferOwnership","level":"debug"}
+{"message":"10. regiInvestor","level":"debug"}
+{"message":"11. delInvestor","level":"debug"}
+{"message":"12. blacklisting","level":"debug"}
+{"message":"13. deleteFromBlacklist","level":"debug"}
+{"message":"14. transfer","level":"debug"}
+{"message":"15. transferFrom","level":"debug"}
+{"message":"16. approve","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: SafeMath","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: StandardBurnableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. approve","level":"debug"}
+{"message":"1. totalSupply","level":"debug"}
+{"message":"2. transferFrom","level":"debug"}
+{"message":"3. burn","level":"debug"}
+{"message":"4. balanceOf","level":"debug"}
+{"message":"5. transfer","level":"debug"}
+{"message":"6. allowance","level":"debug"}
+{"message":"7. burnFrom","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: StandardToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. transferFrom","level":"debug"}
+{"message":"4. approve","level":"debug"}
+{"message":"5. allowance","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: TMTGToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. name","level":"debug"}
+{"message":"1. superInvestor","level":"debug"}
+{"message":"2. totalSupply","level":"debug"}
+{"message":"3. regiInvestor","level":"debug"}
+{"message":"4. delInvestor","level":"debug"}
+{"message":"5. INITIAL_SUPPLY","level":"debug"}
+{"message":"6. decimals","level":"debug"}
+{"message":"7. investorList","level":"debug"}
+{"message":"8. unpause","level":"debug"}
+{"message":"9. blackList","level":"debug"}
+{"message":"10. CEx","level":"debug"}
+{"message":"11. paused","level":"debug"}
+{"message":"12. balanceOf","level":"debug"}
+{"message":"13. searchInvestor","level":"debug"}
+{"message":"14. pause","level":"debug"}
+{"message":"15. blacklisting","level":"debug"}
+{"message":"16. owner","level":"debug"}
+{"message":"17. deleteFromBlacklist","level":"debug"}
+{"message":"18. symbol","level":"debug"}
+{"message":"19. openingTime","level":"debug"}
+{"message":"20. allowance","level":"debug"}
+{"message":"21. transferOwnership","level":"debug"}
+{"message":"22. setCEx","level":"debug"}
+{"message":"23. delCEx","level":"debug"}
+{"message":"24. setSuperInvestor","level":"debug"}
+{"message":"25. delSuperInvestor","level":"debug"}
+{"message":"26. setOpeningTime","level":"debug"}
+{"message":"27. burn","level":"debug"}
+{"message":"28. burnFrom","level":"debug"}
+{"message":"29. checkTime","level":"debug"}
+{"message":"30. approve","level":"debug"}
+{"message":"31. transfer","level":"debug"}
+{"message":"32. transferFrom","level":"debug"}
+{"message":"33. getLimitPeriod","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":":: 기능&단위 테스트 Start ::========================================","level":"debug"}
+{"message":":: 세부적인 단위 테스트 Start ::========================================","level":"debug"}
+{"message":"0. name : undefined","level":"debug"}
+{"message":"1. setSuperInvestor : [object Object]","level":"debug"}
+{"message":"1. superInvestor : 2","level":"debug"}
+{"message":"1. delSuperInvestor : [object Object]","level":"debug"}
+{"message":"1. superInvestor : [object Object]","level":"debug"}
+{"message":"1. setSuperInvestor : [object Object]","level":"debug"}
+{"message":"1. superInvestor(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"1. superInvesto(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"2. totalSupply : [object Object]","level":"debug"}
+{"message":"2. totalSupply : [object Object]","level":"debug"}
+{"message":"3. regiInvestor : [object Object]","level":"debug"}
+{"message":"3. regiInvestor(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"3. investorList : 2","level":"debug"}
+{"message":"3. investorList : 0","level":"debug"}
+{"message":"4. delInvestor : [object Object]","level":"debug"}
+{"message":"4. investorList : -2","level":"debug"}
+{"message":"4. regiInvestor : [object Object]","level":"debug"}
+{"message":"4. investorList : 2","level":"debug"}
+{"message":"5. INITIAL_SUPPLY : [object Object]","level":"debug"}
+{"message":"6. decimals : undefined","level":"debug"}
+{"message":"7. investorList : 2","level":"debug"}
+{"message":"7. regiInvestor : [object Object]","level":"debug"}
+{"message":"7. delInvestor : [object Object]","level":"debug"}
+{"message":"7. investorList : 2","level":"debug"}
+{"message":"7. investorList : -2","level":"debug"}
+{"message":"7. investorList : 0","level":"debug"}
+{"message":"8. pause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"8. pause : [object Object]","level":"debug"}
+{"message":"8. paused : true","level":"debug"}
+{"message":"8. unpause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"8. paused : true","level":"debug"}
+{"message":"8. unpause : [object Object]","level":"debug"}
+{"message":"8. paused : false","level":"debug"}
+{"message":"9. blackList : 0","level":"debug"}
+{"message":"9. blacklisting(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"9. blackList : 0","level":"debug"}
+{"message":"9. blacklisting : [object Object]","level":"debug"}
+{"message":"9. blackList : 1","level":"debug"}
+{"message":"9. deleteFromBlacklist(rejected)Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"9. deleteFromBlacklist[object Object]","level":"debug"}
+{"message":"9. blackList : -1","level":"debug"}
+{"message":"10. CEx : 0","level":"debug"}
+{"message":"10. setCEx : [object Object]","level":"debug"}
+{"message":"10. CEx : 2","level":"debug"}
+{"message":"10. delCEx : [object Object]","level":"debug"}
+{"message":"10. CEx : -2","level":"debug"}
+{"message":"10. setCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"10. delCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"11. pause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"11. pause : [object Object]","level":"debug"}
+{"message":"11. paused : true","level":"debug"}
+{"message":"11. unpause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"11. paused : true","level":"debug"}
+{"message":"11. unpause : [object Object]","level":"debug"}
+{"message":"11. paused : false","level":"debug"}
+{"message":"12. balanceOf : 1e+28","level":"debug"}
+{"message":"13. searchInvestor : 0,0,0","level":"debug"}
+{"message":"13. searchInvestor : 0,0,0","level":"debug"}
+{"message":"13. investorList : 2","level":"debug"}
+{"message":"13. investorList : -2","level":"debug"}
+{"message":"13. searchInvestor : 0,0,0","level":"debug"}
+{"message":"13. transfer : [object Object]","level":"debug"}
+{"message":"13. transfer : [object Object]","level":"debug"}
+{"message":"13. investorList : 2","level":"debug"}
+{"message":"13. searchInvestor : 0,100000000000000000,10000000000000000","level":"debug"}
+{"message":"13. searchInvestor : 0,0,0","level":"debug"}
+{"message":"14. pause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"14. pause : [object Object]","level":"debug"}
+{"message":"14. paused : true","level":"debug"}
+{"message":"14. unpause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"14. paused : true","level":"debug"}
+{"message":"14. unpause : [object Object]","level":"debug"}
+{"message":"14. paused : false","level":"debug"}
+{"message":"15. blackList : -1","level":"debug"}
+{"message":"15. blacklisting(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"15. blackList : -1","level":"debug"}
+{"message":"15. blacklisting : [object Object]","level":"debug"}
+{"message":"15. blackList : 1","level":"debug"}
+{"message":"15. deleteFromBlacklist(rejected)Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"15. deleteFromBlacklist[object Object]","level":"debug"}
+{"message":"15. blackList : -1","level":"debug"}
+{"message":"16. owner : 0x7c231d6267904ca586f2dbc3ac26e8dda23317f7","level":"debug"}
+{"message":"16. owner : undefined","level":"debug"}
+{"message":"17. blackList : -1","level":"debug"}
+{"message":"17. blacklisting(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"17. blackList : -1","level":"debug"}
+{"message":"17. blacklisting : [object Object]","level":"debug"}
+{"message":"17. blackList : 1","level":"debug"}
+{"message":"17. deleteFromBlacklist(rejected)Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"17. deleteFromBlacklist[object Object]","level":"debug"}
+{"message":"17. blackList : -1","level":"debug"}
+{"message":"18. symbol : TMTG","level":"debug"}
+{"message":"18. symbol : undefined","level":"debug"}
+{"message":"19. openingTime : 1530379898","level":"debug"}
+{"message":"20. superInvestor : 2","level":"debug"}
+{"message":"20. balanceOf : 900000000000000000","level":"debug"}
+{"message":"20. approve : [object Object]","level":"debug"}
+{"message":"20. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"20. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"20. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"20. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"20. allowance : 1000000000","level":"debug"}
+{"message":"20. allowance : 0","level":"debug"}
+{"message":"21. owner : undefined","level":"debug"}
+{"message":"21. transferOwnership : [object Object]","level":"debug"}
+{"message":"21. transferOwnership : [object Object]","level":"debug"}
+{"message":"21. transferOwnership(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"21. transferOwnership(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"21. transferOwnership(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"22. CEx : -2","level":"debug"}
+{"message":"22. setCEx : [object Object]","level":"debug"}
+{"message":"22. CEx : 2","level":"debug"}
+{"message":"22. delCEx : [object Object]","level":"debug"}
+{"message":"22. CEx : -2","level":"debug"}
+{"message":"22. setCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"22. delCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"23. CEx : -2","level":"debug"}
+{"message":"23. setCEx : [object Object]","level":"debug"}
+{"message":"23. CEx : 2","level":"debug"}
+{"message":"23. delCEx : [object Object]","level":"debug"}
+{"message":"23. CEx : -2","level":"debug"}
+{"message":"23. setCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"23. delCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"24. superInvestor : 2","level":"debug"}
+{"message":"24. setSuperInvestor : [object Object]","level":"debug"}
+{"message":"24. superInvestor : 2","level":"debug"}
+{"message":"24. setSuperInvestor(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"25. superInvestor : 2","level":"debug"}
+{"message":"25. delSuperInvestor : [object Object]","level":"debug"}
+{"message":"25. superInvestor : -2","level":"debug"}
+{"message":"25. delSuperInvestor(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"26. openingTime : 1530379898","level":"debug"}
+{"message":"26. setOpeningTime : [object Object]","level":"debug"}
+{"message":"26. openingTime : 1530379904","level":"debug"}
+{"message":"26. checkTime : 1530379904","level":"debug"}
+{"message":"27. burn : [object Object]","level":"debug"}
+{"message":"27. burn(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"27. burn(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"28. approve : [object Object]","level":"debug"}
+{"message":"28. allowance : 10000000000000","level":"debug"}
+{"message":"28. burnFrom(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"28. transfer : [object Object]","level":"debug"}
+{"message":"28. balanceOf : 1000000000000000000","level":"debug"}
+{"message":"28. approve : [object Object]","level":"debug"}
+{"message":"28. allowance : 1000000000000","level":"debug"}
+{"message":"28. burnFrom : [object Object]","level":"debug"}
+{"message":"28. balanceOf : 999999000000000000","level":"debug"}
+{"message":"29. checkTime : 1530379905","level":"debug"}
+{"message":"30. setSuperInvestor : [object Object]","level":"debug"}
+{"message":"30. superInvestor : 2","level":"debug"}
+{"message":"30. transfer : [object Object]","level":"debug"}
+{"message":"30. transfer : [object Object]","level":"debug"}
+{"message":"30. balanceOf : 100000","level":"debug"}
+{"message":"30. balanceOf : 100000","level":"debug"}
+{"message":"30. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"30. approve : [object Object]","level":"debug"}
+{"message":"31. balanceOf : 100000","level":"debug"}
+{"message":"31. transfer(rejected) : Error: Invalid number of arguments to Solidity function","level":"debug"}
+{"message":"31. transfer : Error: Invalid number of arguments to Solidity function","level":"debug"}
+{"message":"31. balanceOf : 100000","level":"debug"}
+{"message":"32. transfer : [object Object]","level":"debug"}
+{"message":"32. transfer : [object Object]","level":"debug"}
+{"message":"32. balanceOf : 100000000","level":"debug"}
+{"message":"32. balanceOf : 100100000","level":"debug"}
+{"message":"32. balanceOf : 100000","level":"debug"}
+{"message":"32. approve : [object Object]","level":"debug"}
+{"message":"32. approve : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"32. tranferFrom : [object Object]","level":"debug"}
+{"message":"32. tranferFrom : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"33.checkTime : 1530379906","level":"debug"}
+{"message":"33. getLimitPeriod : 0","level":"debug"}
+{"message":"::. End : ========================================","level":"debug"}
+{"message":"::. End : ========================================","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: BasicToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. transfer","level":"debug"}
+{"message":"2. balanceOf","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: BurnableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. burn","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: ERC20","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. allowance","level":"debug"}
+{"message":"4. transferFrom","level":"debug"}
+{"message":"5. approve","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: ERC20Basic","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Migrations","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. last_completed_migration","level":"debug"}
+{"message":"1. owner","level":"debug"}
+{"message":"2. setCompleted","level":"debug"}
+{"message":"3. upgrade","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Ownable","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. owner","level":"debug"}
+{"message":"1. transferOwnership","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Pausable","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. paused","level":"debug"}
+{"message":"1. owner","level":"debug"}
+{"message":"2. transferOwnership","level":"debug"}
+{"message":"3. pause","level":"debug"}
+{"message":"4. unpause","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: PausableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. investorList","level":"debug"}
+{"message":"2. unpause","level":"debug"}
+{"message":"3. blackList","level":"debug"}
+{"message":"4. paused","level":"debug"}
+{"message":"5. balanceOf","level":"debug"}
+{"message":"6. pause","level":"debug"}
+{"message":"7. owner","level":"debug"}
+{"message":"8. allowance","level":"debug"}
+{"message":"9. transferOwnership","level":"debug"}
+{"message":"10. regiInvestor","level":"debug"}
+{"message":"11. delInvestor","level":"debug"}
+{"message":"12. blacklisting","level":"debug"}
+{"message":"13. deleteFromBlacklist","level":"debug"}
+{"message":"14. transfer","level":"debug"}
+{"message":"15. transferFrom","level":"debug"}
+{"message":"16. approve","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: SafeMath","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: StandardBurnableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. approve","level":"debug"}
+{"message":"1. totalSupply","level":"debug"}
+{"message":"2. transferFrom","level":"debug"}
+{"message":"3. burn","level":"debug"}
+{"message":"4. balanceOf","level":"debug"}
+{"message":"5. transfer","level":"debug"}
+{"message":"6. allowance","level":"debug"}
+{"message":"7. burnFrom","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: StandardToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. transferFrom","level":"debug"}
+{"message":"4. approve","level":"debug"}
+{"message":"5. allowance","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: TMTGToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. name","level":"debug"}
+{"message":"1. superInvestor","level":"debug"}
+{"message":"2. totalSupply","level":"debug"}
+{"message":"3. regiInvestor","level":"debug"}
+{"message":"4. delInvestor","level":"debug"}
+{"message":"5. INITIAL_SUPPLY","level":"debug"}
+{"message":"6. decimals","level":"debug"}
+{"message":"7. investorList","level":"debug"}
+{"message":"8. unpause","level":"debug"}
+{"message":"9. blackList","level":"debug"}
+{"message":"10. CEx","level":"debug"}
+{"message":"11. paused","level":"debug"}
+{"message":"12. balanceOf","level":"debug"}
+{"message":"13. searchInvestor","level":"debug"}
+{"message":"14. pause","level":"debug"}
+{"message":"15. blacklisting","level":"debug"}
+{"message":"16. owner","level":"debug"}
+{"message":"17. deleteFromBlacklist","level":"debug"}
+{"message":"18. symbol","level":"debug"}
+{"message":"19. openingTime","level":"debug"}
+{"message":"20. allowance","level":"debug"}
+{"message":"21. transferOwnership","level":"debug"}
+{"message":"22. setCEx","level":"debug"}
+{"message":"23. delCEx","level":"debug"}
+{"message":"24. setSuperInvestor","level":"debug"}
+{"message":"25. delSuperInvestor","level":"debug"}
+{"message":"26. setOpeningTime","level":"debug"}
+{"message":"27. burn","level":"debug"}
+{"message":"28. burnFrom","level":"debug"}
+{"message":"29. checkTime","level":"debug"}
+{"message":"30. approve","level":"debug"}
+{"message":"31. transfer","level":"debug"}
+{"message":"32. transferFrom","level":"debug"}
+{"message":"33. getLimitPeriod","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":":: 기능&단위 테스트 Start ::========================================","level":"debug"}
+{"message":":: 세부적인 단위 테스트 Start ::========================================","level":"debug"}
+{"message":"0. name : undefined","level":"debug"}
+{"message":"1. setSuperInvestor : [object Object]","level":"debug"}
+{"message":"1. superInvestor : 2","level":"debug"}
+{"message":"1. delSuperInvestor : [object Object]","level":"debug"}
+{"message":"1. superInvestor : [object Object]","level":"debug"}
+{"message":"1. setSuperInvestor : [object Object]","level":"debug"}
+{"message":"2. totalSupply : [object Object]","level":"debug"}
+{"message":"2. totalSupply : [object Object]","level":"debug"}
+{"message":"3. regiInvestor : [object Object]","level":"debug"}
+{"message":"3. regiInvestor(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"3. investorList : 2","level":"debug"}
+{"message":"3. investorList : 0","level":"debug"}
+{"message":"4. delInvestor : [object Object]","level":"debug"}
+{"message":"4. investorList : -2","level":"debug"}
+{"message":"4. regiInvestor : [object Object]","level":"debug"}
+{"message":"4. investorList : 2","level":"debug"}
+{"message":"5. INITIAL_SUPPLY : [object Object]","level":"debug"}
+{"message":"6. decimals : undefined","level":"debug"}
+{"message":"7. investorList : 2","level":"debug"}
+{"message":"7. regiInvestor : [object Object]","level":"debug"}
+{"message":"7. delInvestor : [object Object]","level":"debug"}
+{"message":"7. investorList : 2","level":"debug"}
+{"message":"7. investorList : -2","level":"debug"}
+{"message":"7. investorList : 0","level":"debug"}
+{"message":"8. pause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"8. pause : [object Object]","level":"debug"}
+{"message":"8. paused : true","level":"debug"}
+{"message":"8. unpause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"8. paused : true","level":"debug"}
+{"message":"8. unpause : [object Object]","level":"debug"}
+{"message":"8. paused : false","level":"debug"}
+{"message":"9. blackList : 0","level":"debug"}
+{"message":"9. blacklisting(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"9. blackList : 0","level":"debug"}
+{"message":"9. blacklisting : [object Object]","level":"debug"}
+{"message":"9. blackList : 1","level":"debug"}
+{"message":"9. deleteFromBlacklist(rejected)Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"9. deleteFromBlacklist[object Object]","level":"debug"}
+{"message":"9. blackList : -1","level":"debug"}
+{"message":"10. CEx : 0","level":"debug"}
+{"message":"10. setCEx : [object Object]","level":"debug"}
+{"message":"10. CEx : 2","level":"debug"}
+{"message":"10. delCEx : [object Object]","level":"debug"}
+{"message":"10. CEx : -2","level":"debug"}
+{"message":"10. setCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"10. delCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"11. pause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"11. pause : [object Object]","level":"debug"}
+{"message":"11. paused : true","level":"debug"}
+{"message":"11. unpause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"11. paused : true","level":"debug"}
+{"message":"11. unpause : [object Object]","level":"debug"}
+{"message":"11. paused : false","level":"debug"}
+{"message":"12. balanceOf : 1e+28","level":"debug"}
+{"message":"13. searchInvestor : 0,0,0","level":"debug"}
+{"message":"13. searchInvestor : 0,0,0","level":"debug"}
+{"message":"13. investorList : 2","level":"debug"}
+{"message":"13. investorList : -2","level":"debug"}
+{"message":"13. searchInvestor : 0,0,0","level":"debug"}
+{"message":"13. transfer : [object Object]","level":"debug"}
+{"message":"13. transfer : [object Object]","level":"debug"}
+{"message":"13. investorList : 2","level":"debug"}
+{"message":"13. searchInvestor : 0,100000000000000000,10000000000000000","level":"debug"}
+{"message":"13. searchInvestor : 0,0,0","level":"debug"}
+{"message":"14. pause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"14. pause : [object Object]","level":"debug"}
+{"message":"14. paused : true","level":"debug"}
+{"message":"14. unpause(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"14. paused : true","level":"debug"}
+{"message":"14. unpause : [object Object]","level":"debug"}
+{"message":"14. paused : false","level":"debug"}
+{"message":"15. blackList : -1","level":"debug"}
+{"message":"15. blacklisting(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"15. blackList : -1","level":"debug"}
+{"message":"15. blacklisting : [object Object]","level":"debug"}
+{"message":"15. blackList : 1","level":"debug"}
+{"message":"15. deleteFromBlacklist(rejected)Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"15. deleteFromBlacklist[object Object]","level":"debug"}
+{"message":"15. blackList : -1","level":"debug"}
+{"message":"16. owner : 0x7c231d6267904ca586f2dbc3ac26e8dda23317f7","level":"debug"}
+{"message":"16. owner : undefined","level":"debug"}
+{"message":"17. blackList : -1","level":"debug"}
+{"message":"17. blacklisting(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"17. blackList : -1","level":"debug"}
+{"message":"17. blacklisting : [object Object]","level":"debug"}
+{"message":"17. blackList : 1","level":"debug"}
+{"message":"17. deleteFromBlacklist(rejected)Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"17. deleteFromBlacklist[object Object]","level":"debug"}
+{"message":"17. blackList : -1","level":"debug"}
+{"message":"18. symbol : TMTG","level":"debug"}
+{"message":"18. symbol : undefined","level":"debug"}
+{"message":"19. openingTime : 1530380331","level":"debug"}
+{"message":"20. superInvestor : 2","level":"debug"}
+{"message":"20. balanceOf : 900000000000000000","level":"debug"}
+{"message":"20. approve : [object Object]","level":"debug"}
+{"message":"20. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"20. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"20. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"20. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"20. allowance : 1000000000","level":"debug"}
+{"message":"20. allowance : 0","level":"debug"}
+{"message":"21. owner : undefined","level":"debug"}
+{"message":"21. transferOwnership : [object Object]","level":"debug"}
+{"message":"21. transferOwnership : [object Object]","level":"debug"}
+{"message":"21. transferOwnership(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"21. transferOwnership(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"21. transferOwnership(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"22. CEx : -2","level":"debug"}
+{"message":"22. setCEx : [object Object]","level":"debug"}
+{"message":"22. CEx : 2","level":"debug"}
+{"message":"22. delCEx : [object Object]","level":"debug"}
+{"message":"22. CEx : -2","level":"debug"}
+{"message":"22. setCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"22. delCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"23. CEx : -2","level":"debug"}
+{"message":"23. setCEx : [object Object]","level":"debug"}
+{"message":"23. CEx : 2","level":"debug"}
+{"message":"23. delCEx : [object Object]","level":"debug"}
+{"message":"23. CEx : -2","level":"debug"}
+{"message":"23. setCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"23. delCEx(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"24. superInvestor : 2","level":"debug"}
+{"message":"24. setSuperInvestor : [object Object]","level":"debug"}
+{"message":"24. superInvestor : 2","level":"debug"}
+{"message":"24. setSuperInvestor(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"25. superInvestor : 2","level":"debug"}
+{"message":"25. delSuperInvestor : [object Object]","level":"debug"}
+{"message":"25. superInvestor : -2","level":"debug"}
+{"message":"25. delSuperInvestor(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"26. openingTime : 1530380331","level":"debug"}
+{"message":"26. setOpeningTime : [object Object]","level":"debug"}
+{"message":"26. openingTime : 1530380337","level":"debug"}
+{"message":"26. checkTime : 1530380337","level":"debug"}
+{"message":"27. burn : [object Object]","level":"debug"}
+{"message":"27. burn(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"27. burn(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"28. approve : [object Object]","level":"debug"}
+{"message":"28. allowance : 10000000000000","level":"debug"}
+{"message":"28. burnFrom(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"28. transfer : [object Object]","level":"debug"}
+{"message":"28. balanceOf : 1000000000000000000","level":"debug"}
+{"message":"28. approve : [object Object]","level":"debug"}
+{"message":"28. allowance : 1000000000000","level":"debug"}
+{"message":"28. burnFrom : [object Object]","level":"debug"}
+{"message":"28. balanceOf : 999999000000000000","level":"debug"}
+{"message":"29. checkTime : 1530380338","level":"debug"}
+{"message":"30. setSuperInvestor : [object Object]","level":"debug"}
+{"message":"30. superInvestor : 2","level":"debug"}
+{"message":"30. transfer : [object Object]","level":"debug"}
+{"message":"30. transfer : [object Object]","level":"debug"}
+{"message":"30. balanceOf : 100000","level":"debug"}
+{"message":"30. balanceOf : 100000","level":"debug"}
+{"message":"30. approve(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"30. approve : [object Object]","level":"debug"}
+{"message":"31. balanceOf : 100000","level":"debug"}
+{"message":"31. transfer(rejected) : Error: Invalid number of arguments to Solidity function","level":"debug"}
+{"message":"31. transfer : Error: Invalid number of arguments to Solidity function","level":"debug"}
+{"message":"31. balanceOf : 100000","level":"debug"}
+{"message":"32. transfer : [object Object]","level":"debug"}
+{"message":"32. transfer : [object Object]","level":"debug"}
+{"message":"32. balanceOf : 100000000","level":"debug"}
+{"message":"32. balanceOf : 100100000","level":"debug"}
+{"message":"32. balanceOf : 100000","level":"debug"}
+{"message":"32. approve : [object Object]","level":"debug"}
+{"message":"32. approve : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"32. tranferFrom : [object Object]","level":"debug"}
+{"message":"32. tranferFrom : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"33.checkTime : 1530380339","level":"debug"}
+{"message":"33. getLimitPeriod : 0","level":"debug"}
+{"message":"::. End : ========================================","level":"debug"}
+{"message":"::. End : ========================================","level":"debug"}
+{"message":"1. superInvestor(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}
+{"message":"1. superInvesto(rejected) : Error: VM Exception while processing transaction: revert","level":"debug"}

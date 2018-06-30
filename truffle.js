@@ -11,6 +11,7 @@
  *     gasPrice: 10000000000,
  *   },
  */
+
 require('babel-register')
 require('babel-polyfill')
 

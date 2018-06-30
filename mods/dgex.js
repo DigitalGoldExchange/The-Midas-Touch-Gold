@@ -43,10 +43,10 @@ module.exports = {
                 before('setup contract ', async function() {
                     tmtgFinal = await self._artifact.new({from: owner});
                 })
-                /**
+                ///**
                   
                  
-                -------------------------------------------기능&단위 테스트-----------------------------------------------------------------------
+               // -------------------------------------------기능&단위 테스트-----------------------------------------------------------------------
                 logger.debug(":: 기능&단위 테스트 Start ::========================================");
                 
                 it('0. name check', async function(){
@@ -62,12 +62,15 @@ module.exports = {
                     logger.debug("1. setSuperInvestor : " + await tmtgFinal.setSuperInvestor(superInvestor, {from:owner}).should.be.fulfilled);
                     
                 })
+                describe("calling something", ()=>{
+
+                
                 it('1. superInvestor check', async function(){
                     assert.equal(owner, await tmtgFinal.owner());
                     logger.debug("1. superInvestor(rejected) : " + await tmtgFinal.setSuperInvestor(superInvestor2,{from:anonymous}).should.be.rejected);
                     logger.debug("1. superInvesto(rejected) : " + await tmtgFinal.delSuperInvestor(superInvestor,{from:anonymous}).should.be.rejected);
                 })
-                
+            });
                 it('2. totalSupply check', async function(){    
                     const totalSupply = new BigNumber(1e+28);
                     logger.debug("2. totalSupply : " + (await tmtgFinal.balanceOf(owner)).should.be.bignumber.equal(await tmtgFinal.totalSupply()));
@@ -334,7 +337,7 @@ module.exports = {
                 it("end" ,async function(){
                     logger.debug("::. End : ========================================");
                 })
-                */
+               // */
                 // 기능 테스트 완료------------------------------------------------------------------------------------------------------------------------
                 
                 
@@ -343,6 +346,8 @@ module.exports = {
                 // 권한 : owner / superInvestor / CEx(거래소) / investor / anonymous
                 // 1. 권한에 따른 approve  && transfer && traferFrom 
                 // 2. 토큰락 테스트 
+                
+
 
                 it("end" ,async function(){
                     logger.debug("::. End : ========================================");

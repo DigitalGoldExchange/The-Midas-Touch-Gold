@@ -10,6 +10,7 @@
     "app-root-path": "^2.1.0",
     "babel-polyfill": "^6.26.0",
     "babel-register": "^6.26.0",
+    "coveralls": "^3.0.2",
     "moment": "^2.22.2",
     "winston": "^3.0.0"
   },
@@ -17,9 +18,11 @@
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "chai-bignumber": "^2.0.2",
-    "solium": "^1.1.7"
+    "solium": "^1.1.7",
+    "truffle-hdwallet-provider" :"^0.0.5" 
   },
   "scripts": {
+    "coverage" : "SOLIDITY_COVERAGE=true ./node_modules/.bin/solidity-coverage",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "DGE",
