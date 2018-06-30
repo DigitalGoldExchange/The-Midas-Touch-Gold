@@ -25,7 +25,8 @@ module.exports = {
                     .use(require('chai-bignumber')(BigNumber))
                     .should();
 
-                let tmtgFinal
+                let tmtgFinal;
+
                 const [
                     owner,
                     superInvestor,
@@ -42,9 +43,11 @@ module.exports = {
                 before('setup contract ', async function() {
                     tmtgFinal = await self._artifact.new({from: owner});
                 })
-                logger.debug(":: Start ::========================================")
-                
-                //-------------------------------------------기능 테스트-----------------------------------------------------------------------
+                /**
+                  
+                 
+                -------------------------------------------기능 테스트-----------------------------------------------------------------------
+                logger.debug(":: 기능 테스트 Start ::========================================");
                 
                 it('0. name check', async function(){
                     var name = "The Midas Touch Gold";
@@ -305,7 +308,6 @@ module.exports = {
                     logger.debug("30. approve(rejected) : " +  await tmtgFinal.approve(cex1,10000,{from:superInvestor2}).should.be.rejected);
                     logger.debug("30. approve : " +  await tmtgFinal.approve(cex1,10000,{from:anonymous2}).should.be.fulfilled);
                 })
-                //----------------------------------------------------------------------------------------------------------------------------
                 it('31. transfer', async function(){
                     logger.debug("31. balanceOf : " + await tmtgFinal.balanceOf(anonymous2));
                     logger.debug("31. transfer(rejected) : " + await tmtgFinal.transfer(100001).should.be.rejected);
@@ -329,7 +331,24 @@ module.exports = {
                     logger.debug("33.checkTime : " + await tmtgFinal.checkTime());
                     logger.debug("33. getLimitPeriod : " + await tmtgFinal.getLimitPeriod());
                 })
-            }) // 기능 테스트 완료
+                it("end" ,async function(){
+                    logger.debug("::. End : ========================================");
+                })
+                */
+                // 기능 테스트 완료------------------------------------------------------------------------------------------------------------------------
+                
+
+
+                logger.debug(":: 단위 테스트 Start ::========================================");
+
+
+
+                it("end" ,async function(){
+                    logger.debug("::. End : ========================================");
+                })// 단위 테스트 완료---------------------------------------------------------------------------------------------------------------------
+
+
+            }) 
         }
     }
 }
