@@ -14,7 +14,7 @@ Engine.core.build()
 
 /**
  * 2. Create dgex object
- * dgex = Han Sang Il
+ * dgex 
  */
 const dgex = require('../mods/dgex.js')
 dgex.core.init(Engine)
