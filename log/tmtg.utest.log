@@ -33999,3 +33999,163 @@
 {"message":"0-7. unpause","level":"debug"}
 {"message":"0-8. pause","level":"debug"}
 {"message":"0-9. INITIAL_SUPPLY1e+28","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: BasicToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. transfer","level":"debug"}
+{"message":"2. balanceOf","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: BurnableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. burn","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: ERC20","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. allowance","level":"debug"}
+{"message":"4. transferFrom","level":"debug"}
+{"message":"5. approve","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: ERC20Basic","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Migrations","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. last_completed_migration","level":"debug"}
+{"message":"1. owner","level":"debug"}
+{"message":"2. setCompleted","level":"debug"}
+{"message":"3. upgrade","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Ownable","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. owner","level":"debug"}
+{"message":"1. transferOwnership","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: Pausable","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. paused","level":"debug"}
+{"message":"1. owner","level":"debug"}
+{"message":"2. transferOwnership","level":"debug"}
+{"message":"3. pause","level":"debug"}
+{"message":"4. unpause","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: PausableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. investorList","level":"debug"}
+{"message":"2. unpause","level":"debug"}
+{"message":"3. blackList","level":"debug"}
+{"message":"4. paused","level":"debug"}
+{"message":"5. balanceOf","level":"debug"}
+{"message":"6. pause","level":"debug"}
+{"message":"7. owner","level":"debug"}
+{"message":"8. allowance","level":"debug"}
+{"message":"9. transferOwnership","level":"debug"}
+{"message":"10. regiInvestor","level":"debug"}
+{"message":"11. delInvestor","level":"debug"}
+{"message":"12. blacklisting","level":"debug"}
+{"message":"13. deleteFromBlacklist","level":"debug"}
+{"message":"14. transfer","level":"debug"}
+{"message":"15. transferFrom","level":"debug"}
+{"message":"16. approve","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: SafeMath","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: StandardBurnableToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. approve","level":"debug"}
+{"message":"1. totalSupply","level":"debug"}
+{"message":"2. transferFrom","level":"debug"}
+{"message":"3. burn","level":"debug"}
+{"message":"4. balanceOf","level":"debug"}
+{"message":"5. transfer","level":"debug"}
+{"message":"6. allowance","level":"debug"}
+{"message":"7. burnFrom","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: StandardToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. totalSupply","level":"debug"}
+{"message":"1. balanceOf","level":"debug"}
+{"message":"2. transfer","level":"debug"}
+{"message":"3. transferFrom","level":"debug"}
+{"message":"4. approve","level":"debug"}
+{"message":"5. allowance","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":"::콘트렉트 클라스, 함수 갯수 정보 ============================\n","level":"debug"}
+{"message":"컨트렉트 이름: TMTGToken","level":"debug"}
+{"message":"함수 리스트 --------","level":"debug"}
+{"message":"0. name","level":"debug"}
+{"message":"1. superInvestor","level":"debug"}
+{"message":"2. totalSupply","level":"debug"}
+{"message":"3. regiInvestor","level":"debug"}
+{"message":"4. delInvestor","level":"debug"}
+{"message":"5. INITIAL_SUPPLY","level":"debug"}
+{"message":"6. decimals","level":"debug"}
+{"message":"7. investorList","level":"debug"}
+{"message":"8. unpause","level":"debug"}
+{"message":"9. blackList","level":"debug"}
+{"message":"10. CEx","level":"debug"}
+{"message":"11. paused","level":"debug"}
+{"message":"12. balanceOf","level":"debug"}
+{"message":"13. searchInvestor","level":"debug"}
+{"message":"14. pause","level":"debug"}
+{"message":"15. blacklisting","level":"debug"}
+{"message":"16. owner","level":"debug"}
+{"message":"17. deleteFromBlacklist","level":"debug"}
+{"message":"18. symbol","level":"debug"}
+{"message":"19. openingTime","level":"debug"}
+{"message":"20. allowance","level":"debug"}
+{"message":"21. transferOwnership","level":"debug"}
+{"message":"22. setCEx","level":"debug"}
+{"message":"23. delCEx","level":"debug"}
+{"message":"24. setSuperInvestor","level":"debug"}
+{"message":"25. delSuperInvestor","level":"debug"}
+{"message":"26. setOpeningTime","level":"debug"}
+{"message":"27. burn","level":"debug"}
+{"message":"28. burnFrom","level":"debug"}
+{"message":"29. checkTime","level":"debug"}
+{"message":"30. approve","level":"debug"}
+{"message":"31. transfer","level":"debug"}
+{"message":"32. transferFrom","level":"debug"}
+{"message":"33. getLimitPeriod","level":"debug"}
+{"message":"\n\n","level":"debug"}
+{"message":":: Start ::========================================","level":"debug"}
+{"message":"0--1. owner fail S : 0x51fe498c33dcf2fddbd4b84ba93c1840fb7f80a8","level":"debug"}
+{"message":"0--2. tokenName fail S : The Midas Touch Silver","level":"debug"}
+{"message":"0--3. decimals check Fail S :19","level":"debug"}
+{"message":"0--4. totalSupply check Fail :1e+281","level":"debug"}
+{"message":"0-5. pause check Fail","level":"debug"}
+{"message":"0-6. setSuperInvestor fail","level":"debug"}
+{"message":"0-7. unpause fail","level":"debug"}
+{"message":"0-8. pause fail","level":"debug"}
+{"message":"0-9. INITIAL_SUPPLY fail1e+28","level":"debug"}
+{"message":"0-10. blacklisting fail","level":"debug"}
+{"message":"0-1. tokenName check : [object Promise]S : 0x7c231d6267904ca586f2dbc3ac26e8dda23317f7","level":"debug"}
+{"message":"0-2. tokenName check : [object Promise]S : The Midas Touch Gold","level":"debug"}
+{"message":"0-3. tokenName check : [object Promise]S : 18","level":"debug"}
+{"message":"0-4. totalSupply check : [object Promise]S :1e+28","level":"debug"}
+{"message":"0-5. pause check","level":"debug"}
+{"message":"0-6. setSuperInvestor","level":"debug"}
+{"message":"0-7. unpause","level":"debug"}
+{"message":"0-8. pause","level":"debug"}
+{"message":"0-9. INITIAL_SUPPLY1e+28","level":"debug"}

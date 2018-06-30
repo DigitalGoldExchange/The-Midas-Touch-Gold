@@ -96,6 +96,13 @@ module.exports = {
                     assert.equal(await tmtgFinal.owner(), investor);
                     await tmtgFinal.transferOwnership(owner,{from:investor});
                 })
+                it('0-13. setCEx', async function(){
+                    await tmtgFinal.setCEx(cex1, {from:investor}).should.be.fulfilled;   
+                })
+
+                it('0-14. delCEx', async function(){
+                    await tmtgFinal.delCEx(cex1, {from:owner}).should.be.rejected;
+                })
                 //-----------------------------------------------------------------------------
                 it('0-1. owner check', async function(){
                     logger.debug("0-1. tokenName check : " + tmtgFinal.owner() + "S : " + owner);
