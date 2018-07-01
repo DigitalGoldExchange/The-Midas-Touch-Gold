@@ -387,59 +387,67 @@ module.exports = {
                     logger.debug(":: 0-3. approve(rejected) : " + await tmtgFinal.approve(owner,investorAmount,{from:anonymous2}).should.be.rejected);
                     //require(_newLimit.add(9 * (10 ** uint256(decimals))) >= searchInvestor[msg.sender]._sentAmount.add(_value));
                     //이므로 TMTG 9개까지의 갯수는 보낼 수 있다. 999개를 보낸 경우 990까지 보낼 수 있으므로 해당limit + 9개까지는 가능하다.
+                    //해당 리밋 + 18은 불가하다.
                     logger.debug(":: 0-3. approve(rejected) : " + await tmtgFinal.approve(owner,rest2,{from:anonymous2}).should.be.rejected); 
                     logger.debug(":: 0-3. approve : " + await tmtgFinal.approve(owner,rest,{from:anonymous2}).should.be.fulfilled);
                     logger.debug(":: 0-3. approve(rejected) : " + await tmtgFinal.approve(owner,rest,{from:anonymous2}).should.be.rejected);
                     logger.debug(":: 0-3. searchInvestor : " + await tmtgFinal.searchInvestor(anonymous2));
-
                 })
 
                 it("0-4. 보내는 사람이 superInvestor 일 경우, Approve는 작동하지 않는다. " ,async function() {
-                    logger.debug("::. Approve START : ========================================");
+                    logger.debug(":: 0-4. superInvestor : " + await tmtgFinal.superInvestor(superInvestor)); 
+                    logger.debug(":: 0-4. balanceOf : " + await tmtgFinal.balanceOf(superInvestor));
+                    logger.debug(":: 0-4. approve(rejected) : " + await tmtgFinal.approve(anonymous2,1,{from:superInvestor}).should.be.rejected);
                 })
+
                 it("0-5. msg.sender의 balance의 초과 금액을 보낼 경우, Approve는 작동하지 않는다. " ,async function() {
-                    logger.debug("::. Approve START : ========================================");
+                    logger.debug(await tmtgFinal.balanceOf(cex1));
+                    const balance = new BigNumber(1e+24);
+                    logger.debug(":: 0-5. transfer : " + await tmtgFinal.transfer(cex1,balance,{from:owner}));
+                    const toSendAmount = new BigNumber(1e+25);
+                    logger.debug(await tmtgFinal.superInvestor(cex1));
+                    logger.debug(":: 0-5. approve(rejected) : " + await tmtgFinal.approve(cex2,toSendAmount,{from:cex1}).should.be.rejected);
                 })
                 it("END" ,async function() {
                     logger.debug("::. Approve End : ========================================");
                 })
             })
 
-            // describe('1. transfer test', () => {
-            //     it("START" ,async function() {
-            //         logger.debug("::. Transfer START : ========================================");
-            //     })
-            //     it("1-1. 서킷브레이커 작동시, transfer는 작동하지 않는다. " ,async function() {
-            //         logger.debug(":: . Approve START : ========================================");
-            //     })
-            //     it("1-2. 보내는 사람, 받는사람이 블랙리스트일 경우, transfer는 작동하지 않는다. " ,async function() {
-            //         logger.debug("::. Approve START : ========================================");
-            //     })
-            //     it("1-3. 보내는 사람이 investor 일 경우, transfer는 해당 _newLimit만큼 보낼 수 있다. " ,async function() {
-            //         logger.debug("::. Approve START : ========================================");
-            //     })
-            //     it("1-4. 받는 사람이 0x0 일 경우, transfer는 작동하지 않는다. " ,async function() {
-            //         logger.debug("::. Approve START : ========================================");
-            //     })
-            //     it("1-5. msg.sender's balance의 초과 금액을 보낼 경우, transfer는 작동하지 않는다. " ,async function() {
-            //         logger.debug("::. Approve START : ========================================");
-            //     })
-            //     it("1-6. msg.sender가 superInvestor이고, _to가 anonymous인 경우, _to는 investor로 권한이 변경되며, 토큰 락이 걸려 10%씩 차등 제한이 풀리게 된다. " ,async function() {
-            //         logger.debug("::. Approve START : ========================================");
-            //     })
-            //     it("1-7. msg.sender가 superInvestor이고, _to가 investor인 경우, _to의 limit은 변함이 없으며, 추가 금액은 10개월간 토큰 락이 걸린다. " ,async function() {
-            //         logger.debug("::. Approve START : ========================================");
-            //     })
-            //     it("1-8. msg.sender가 superInvestor인 경우, _to가 거래소,owner,superInvestor인 경우 transfer는 작동하지 않는다. " ,async function() {
-            //         logger.debug("::. Approve START : ========================================");
-            //     })
-            //     it("1-9. msg.sender. " ,async function() {
-            //         logger.debug("::. Approve START : ========================================");
-            //     })
-            //     it("END" , async function() {
-            //         logger.debug("::. Transfer END : ========================================");
-            //     })
-            // })
+            describe('1. transfer test', () => {
+                it("START" ,async function() {
+                    logger.debug("::. Transfer START : ========================================");
+                })
+                // it("1-1. 서킷브레이커 작동시, transfer는 작동하지 않는다. " ,async function() {
+                //     logger.debug(":: . Approve START : ========================================");
+                // })
+                // it("1-2. 보내는 사람, 받는사람이 블랙리스트일 경우, transfer는 작동하지 않는다. " ,async function() {
+                //     logger.debug("::. Approve START : ========================================");
+                // })
+                // it("1-3. 보내는 사람이 investor 일 경우, transfer는 해당 _newLimit만큼 보낼 수 있다. " ,async function() {
+                //     logger.debug("::. Approve START : ========================================");
+                // })
+                // it("1-4. 받는 사람이 0x0 일 경우, transfer는 작동하지 않는다. " ,async function() {
+                //     logger.debug("::. Approve START : ========================================");
+                // })
+                // it("1-5. msg.sender's balance의 초과 금액을 보낼 경우, transfer는 작동하지 않는다. " ,async function() {
+                //     logger.debug("::. Approve START : ========================================");
+                // })
+                // it("1-6. msg.sender가 superInvestor이고, _to가 anonymous인 경우, _to는 investor로 권한이 변경되며, 토큰 락이 걸려 10%씩 차등 제한이 풀리게 된다. " ,async function() {
+                //     logger.debug("::. Approve START : ========================================");
+                // })
+                // it("1-7. msg.sender가 superInvestor이고, _to가 investor인 경우, _to의 limit은 변함이 없으며, 추가 금액은 10개월간 토큰 락이 걸린다. " ,async function() {
+                //     logger.debug("::. Approve START : ========================================");
+                // })
+                // it("1-8. msg.sender가 superInvestor인 경우, _to가 거래소,owner,superInvestor인 경우 transfer는 작동하지 않는다. " ,async function() {
+                //     logger.debug("::. Approve START : ========================================");
+                // })
+                // it("1-9. msg.sender. " ,async function() {
+                //     logger.debug("::. Approve START : ========================================");
+                // })
+                it("END" , async function() {
+                    logger.debug("::. Transfer END : ========================================");
+                })
+            })
 
             // describe('2. transferFrom test', () => {
             //     it("START" , async function() {

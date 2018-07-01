@@ -155,6 +155,10 @@ contract StandardToken is ERC20, BasicToken {
    */
     function approve(address _spender, uint256 _value) public returns (bool) {
         allowed[msg.sender][_spender] = _value;
+        require(_spender != address(0));
+        require(balances[msg.sender] >= _value);
+        require(balances[_spender].add(_value) > balances[_spender]);
+          
         emit Approval(msg.sender, _spender, _value);
         return true;
     }
