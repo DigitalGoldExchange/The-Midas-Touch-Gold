@@ -372,7 +372,7 @@ module.exports = {
                 it("0-3. 보내는 사람이 investor 일 경우, Approve는 해당 limit만큼 보낼 수 있다. " ,async function() {
                     const superInvestorAmount = new BigNumber(1e+23);
                     const investorAmount = new BigNumber(1e+22);
-                    const rest = new BigNumber(9e+10);
+                    const rest = new BigNumber(9e+18);
                     
                     logger.debug(":: 0-3. transfer : " + await tmtgFinal.transfer(superInvestor,superInvestorAmount,{from:owner}));
                     logger.debug(":: 0-3. setSuperInvestor : " + await tmtgFinal.setSuperInvestor(superInvestor,{from:owner}).should.be.fulfilled);

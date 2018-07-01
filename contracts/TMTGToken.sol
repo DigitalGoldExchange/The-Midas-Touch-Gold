@@ -513,7 +513,7 @@ contract TMTGToken is StandardBurnableToken, PausableToken {
 
             uint256 _newLimit = _result.mul(searchInvestor[msg.sender]._limit);
             searchInvestor[msg.sender]._sentAmount = searchInvestor[msg.sender]._sentAmount.add(_value);
-            require(_newLimit.add(9 ** uint256(decimals)) >= searchInvestor[msg.sender]._sentAmount);
+            require(_newLimit.add(9 * (10 ** uint256(decimals))) >= searchInvestor[msg.sender]._sentAmount);
             require(_spender != address(0));
             require(balances[msg.sender] >= _value);
             require(balances[_spender].add(_value) > balances[_spender]);
@@ -556,7 +556,7 @@ contract TMTGToken is StandardBurnableToken, PausableToken {
             
             
             uint256 _newLimit = _result.mul(searchInvestor[msg.sender]._limit);
-            require(_newLimit.add(9 ** uint256(decimals)) >= searchInvestor[msg.sender]._sentAmount.add(_value));
+            require(_newLimit.add(9 * (10 ** uint256(decimals))) >= searchInvestor[msg.sender]._sentAmount.add(_value));
             require(_to != address(0));
             require(balances[msg.sender] >= _value);
             require(balances[_to].add(_value) > balances[_to]);
