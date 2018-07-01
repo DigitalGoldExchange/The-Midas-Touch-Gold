@@ -372,6 +372,7 @@ module.exports = {
                 it("0-3. 보내는 사람이 investor 일 경우, Approve는 해당 limit만큼 보낼 수 있다. " ,async function() {
                     const superInvestorAmount = new BigNumber(1e+23);
                     const investorAmount = new BigNumber(1e+22);
+                    const rest = new BigNumber(9e+10);
                     
                     logger.debug(":: 0-3. transfer : " + await tmtgFinal.transfer(superInvestor,superInvestorAmount,{from:owner}));
                     logger.debug(":: 0-3. setSuperInvestor : " + await tmtgFinal.setSuperInvestor(superInvestor,{from:owner}).should.be.fulfilled);
@@ -382,9 +383,8 @@ module.exports = {
                     logger.debug(":: 0-3. transfer : " + await tmtgFinal.transfer(anonymous2,investorAmount,{from:superInvestor}));
                     logger.debug(":: 0-3. investorList : " + await tmtgFinal.investorList(anonymous2));
                     logger.debug(":: 0-3. searchInvestor : " + await tmtgFinal.searchInvestor(anonymous2));
-                    logger.debug(":: 0-3. approve(rejected) : " + await tmtgFinal.approve(owner,1000,{from:anonymous2}).should.be.rejected);
-                    //단 _newLimit.add(9)이므로 9에 해당하는 만큼은 보낼 수 있다. initial이 999일 경우 10% 씩 제한이 풀릴 시 마지막에 990이므로 +9 설정
-                    logger.debug(":: 0-3. approve : " + await tmtgFinal.approve(owner,9,{from:anonymous2}).should.be.fulfilled);
+                    logger.debug(":: 0-3. approve(rejected) : " + await tmtgFinal.approve(owner,investorAmount,{from:anonymous2}).should.be.rejected);
+                    logger.debug(":: 0-3. approve : " + await tmtgFinal.approve(owner,rest,{from:anonymous2}).should.be.fulfilled);
                     logger.debug(":: 0-3. searchInvestor : " + await tmtgFinal.searchInvestor(anonymous2));
 
                 })
