@@ -340,24 +340,48 @@ module.exports = {
                // */
                 // 기능 테스트 완료------------------------------------------------------------------------------------------------------------------------
                 
-            describe('Approve test', ()=> {
-                it("START" ,async function(){
+            // 권한 : owner / superInvestor / CEx(거래소) / investor / anonymous
+            // 0. approve 
+            // 1. transfer 
+            // 2. tranferFrom
+            // 3. 토큰락 테스트
+                
+            describe('0. Approve test', ()=> {
+                it("0-1. 서킷브레이커 작동시, Approve는 작동하지 않는다. " ,async function() {
+                    logger.debug(":: . Approve START : ========================================");
+                })
+                it("0-2. 보내는 사람, 받는사람이 블랙리스트일 경우, Approve는 작동하지 않는다. " ,async function() {
                     logger.debug("::. Approve START : ========================================");
                 })
-                
-                // 권한 : owner / superInvestor / CEx(거래소) / investor / anonymous
-                // 1. 권한에 따른 approve  && transfer && transferFrom 
-                // 2. 토큰락 테스트 
-                
-
-
-                it("END" ,async function(){
+                it("0-3. 보내는 사람이 investor 일 경우, Approve는 해당 limit만큼 보낼 수 있다. " ,async function() {
+                    logger.debug("::. Approve START : ========================================");
+                })
+                it("0-4. 보내는 사람이 superInvestor 일 경우, Approve는 작동하지 않는다. " ,async function() {
+                    logger.debug("::. Approve START : ========================================");
+                })
+                it("0-5. msg.sender의 balance의 초과 금액을 보낼 경우, Approve는 작동하지 않는다. " ,async function() {
+                    logger.debug("::. Approve START : ========================================");
+                })
+                it("END" ,async function() {
                     logger.debug("::. Approve End : ========================================");
-                })// 단위 테스트 완료---------------------------------------------------------------------------------------------------------------------
-
+                })
             })
 
+            describe('1. transfer test', ()=> {
+                it("1-1. 서킷브레이커 작동시, transfer는 작동하지 않는다. " ,async function() {
+                    logger.debug(":: . Approve START : ========================================");
+                })
+                it("1-2. 보내는 사람, 받는사람이 블랙리스트일 경우, transfer는 작동하지 않는다. " ,async function() {
+                    logger.debug("::. Approve START : ========================================");
+                })
+                it("1-3. 보내는 사람이 investor 일 경우, transfer는 해당 _newLimit만큼 보낼 수 있다. " ,async function() {
+                    logger.debug("::. Approve START : ========================================");
+                })
+                it("1-4. 받는 사람이 0x0 일 경우, transfer는 작동하지 않는다. " ,async function() {
+                    logger.debug("::. Approve START : ========================================");
+                })
 
+            })
                 // logger.debug(":: 시나리오 테스트 Start ::========================================");
 
                 // it("end" ,async function(){
