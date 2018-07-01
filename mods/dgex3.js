@@ -82,28 +82,14 @@ module.exports = {
                     logger.debug("investor2 approves to anyone 5M TMTG right away : " + await tmtgFinal.approve(investor, amt2, {from: investor2}).should.be.rejected);
 
                     timeTravel(monthInSeconds); // Aug
-
-                    logger.debug("4. get limit period : " + assert.equal(await tmtgFinal.getLimitPeriod(), 1));
-                    logger.debug("investor transfer to anyone .5M TMTG right away : " + await tmtgFinal.transfer(investor2, amt3, {from: investor}).should.be.fulfilled);
-                    logger.debug("investor transfer to anyone 1M TMTG right away : " + await tmtgFinal.transfer(investor2, amt3 * 2, {from: investor}).should.be.rejected);
-                    logger.debug("investor2 approves to anyone .5M TMTG right away : " + await tmtgFinal.approve(investor, amt3, {from: investor2}).should.be.fulfilled);
-                    logger.debug("investor2 approves to anyone 1M TMTG right away : " + await tmtgFinal.approve(investor, amt3 * 2, {from: investor2}).should.be.rejected);
-
                     timeTravel(monthInSeconds); // Sep
-
-                    logger.debug("5. get limit period : " + assert.equal(await tmtgFinal.getLimitPeriod(), 2));
-                    logger.debug("investor transfer to anyone .5M TMTG right away : " + await tmtgFinal.transfer(investor2, amt3, {from: investor}).should.be.fulfilled);
-                    logger.debug("investor transfer to anyone 1M TMTG right away : " + await tmtgFinal.transfer(investor2, amt3 * 2, {from: investor}).should.be.rejected);
-                    logger.debug("investor2 approves to anyone .5M TMTG right away : " + await tmtgFinal.approve(investor, amt3, {from: investor2}).should.be.fulfilled);
-                    logger.debug("investor2 approves to anyone 1M TMTG right away : " + await tmtgFinal.approve(investor, amt3 * 2, {from: investor2}).should.be.rejected);
-
                     timeTravel(monthInSeconds); // Oct
-
-                    logger.debug("6. get limit period : " + assert.equal(await tmtgFinal.getLimitPeriod(), 3));
-                    logger.debug("investor transfer to anyone .5M TMTG right away : " + await tmtgFinal.transfer(investor2, amt3, {from: investor}).should.be.fulfilled);
-                    logger.debug("investor transfer to anyone 1M TMTG right away : " + await tmtgFinal.transfer(investor2, amt3 * 2, {from: investor}).should.be.rejected);
-                    logger.debug("investor2 approves to anyone .5M TMTG right away : " + await tmtgFinal.approve(investor, amt3, {from: investor2}).should.be.fulfilled);
-                    logger.debug("investor2 approves to anyone 1M TMTG right away : " + await tmtgFinal.approve(investor, amt3 * 2, {from: investor2}).should.be.rejected);
+             
+                    logger.debug("6. get limit period : " + await tmtgFinal.getLimitPeriod());
+                    logger.debug("investor transfer to anyone .15M TMTG right away : " + await tmtgFinal.transfer(investor2, amt3 * 3, {from: investor}).should.be.fulfilled);
+                    logger.debug("investor transfer to anyone 20M TMTG right away : " + await tmtgFinal.transfer(investor2, amt3 * 4, {from: investor}).should.be.rejected);
+                    logger.debug("investor2 approves to anyone .15M TMTG right away : " + await tmtgFinal.approve(investor, amt3 * 3, {from: investor2}).should.be.fulfilled);
+                    logger.debug("investor2 approves to anyone 20M TMTG right away : " + await tmtgFinal.approve(investor, amt3 * 4, {from: investor2}).should.be.rejected);
 
                     timeTravel(monthInSeconds); // Nov
 
