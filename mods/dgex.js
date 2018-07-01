@@ -347,7 +347,7 @@ module.exports = {
                     logger.debug(":: 0-1.함수 테스트) Approve START : ========================================");
                     logger.debug(":: 0-1. pause : " + (await tmtgFinal.pause({from:owner}).should.be.fulfilled));
                     logger.debug(":: 0-1. paused : " + await tmtgFinal.paused());
-                    logger.debug(":: 0-1  approve : " +  await tmtgFinal.approve(anonymous,10000,{from:owner}).should.be.rejected);
+                    logger.debug(":: 0-1  approve(rejected) : " +  await tmtgFinal.approve(anonymous,10000,{from:owner}).should.be.rejected);
                     logger.debug(":: 0-1. unpaused : " + await tmtgFinal.unpause());
                     logger.debug(":: 0-1. paused : " + await tmtgFinal.paused());
                     
@@ -381,7 +381,12 @@ module.exports = {
                     logger.debug(":: 0-3. balanceOf : " + await tmtgFinal.balanceOf(superInvestor));
                     logger.debug(":: 0-3. investorList : " + await tmtgFinal.investorList(anonymous2));
                     logger.debug(":: 0-3. searchInvestor : " + await tmtgFinal.searchInvestor(anonymous2));
+                    
+                    //check-point 1) 수퍼 인베스터가 anonymous2에게 investorAmount만큼 주었으므로 해당 계정은 investor 권한을 얻었고,
+                    //현재 받은 금액을 initialAmount로 설정하고, 매달 10%씩 제한이 풀린다.
+                    //추가적으로 다른 사람으로부터 금액을 받을 시, 해당 금액은 10개월간 락이 걸린다.
                     logger.debug(":: 0-3. transfer : " + await tmtgFinal.transfer(anonymous2,investorAmount,{from:superInvestor}));
+                    
                     logger.debug(":: 0-3. investorList : " + await tmtgFinal.investorList(anonymous2));
                     logger.debug(":: 0-3. searchInvestor : " + await tmtgFinal.searchInvestor(anonymous2));
                     logger.debug(":: 0-3. approve(rejected) : " + await tmtgFinal.approve(owner,investorAmount,{from:anonymous2}).should.be.rejected);
@@ -414,24 +419,69 @@ module.exports = {
             })
 
             describe('1. transfer test', () => {
-                it("START" ,async function() {
+               it("1-1. 서킷브레이커 작동시, Transfer는 작동하지 않는다. " , async function() {
                     logger.debug("::. Transfer START : ========================================");
+                    logger.debug(":: 1-1. pause : " + (await tmtgFinal.pause({from:owner}).should.be.fulfilled));
+                    logger.debug(":: 1-1. paused : " + await tmtgFinal.paused());
+                    logger.debug(":: 1-1  transfer(rejected) : " +  await tmtgFinal.transfer(anonymous,10000,{from:owner}).should.be.rejected);
+                    logger.debug(":: 1-1. unpaused : " + await tmtgFinal.unpause());
+                    logger.debug(":: 1-1. paused : " + await tmtgFinal.paused());      
                 })
-                // it("1-1. 서킷브레이커 작동시, transfer는 작동하지 않는다. " ,async function() {
-                //     logger.debug(":: . Approve START : ========================================");
-                // })
-                // it("1-2. 보내는 사람, 받는사람이 블랙리스트일 경우, transfer는 작동하지 않는다. " ,async function() {
-                //     logger.debug("::. Approve START : ========================================");
-                // })
-                // it("1-3. 보내는 사람이 investor 일 경우, transfer는 해당 _newLimit만큼 보낼 수 있다. " ,async function() {
-                //     logger.debug("::. Approve START : ========================================");
-                // })
-                // it("1-4. 받는 사람이 0x0 일 경우, transfer는 작동하지 않는다. " ,async function() {
-                //     logger.debug("::. Approve START : ========================================");
-                // })
-                // it("1-5. msg.sender's balance의 초과 금액을 보낼 경우, transfer는 작동하지 않는다. " ,async function() {
-                //     logger.debug("::. Approve START : ========================================");
-                // })
+                it("1-2. 보내는 사람, 받는사람이 블랙리스트일 경우, transfer는 작동하지 않는다. " ,async function() {
+                    logger.debug(":: 1-2. ownerCheck : " + assert.equal(await tmtgFinal.owner(), owner));
+                    logger.debug(":: 1-2. transfer : " + await tmtgFinal.transfer(anonymous,100000,{from:owner}));
+                    logger.debug(":: 1-2. balanceOf : " + await tmtgFinal.balanceOf(anonymous));
+                    logger.debug(":: 1-2. blackList : " + await tmtgFinal.blackList(anonymous,{from:owner}));
+                    logger.debug(":: 1-2. blacklisting : " + await tmtgFinal.blacklisting(anonymous,{from:owner}).should.be.fulfilled);
+                    logger.debug(":: 1-2. blackList : " + await tmtgFinal.blackList(anonymous,{from:owner}));
+                    //보내는사람이 블랙리스트인 경우
+                    logger.debug(":: 1-2. transfer(rejected) : " + await tmtgFinal.transfer(owner,100000,{from:anonymous}).should.be.rejected);
+                    //받는사람이 블랙리스트인 경우
+                    logger.debug(":: 1-2. transfer(rejected) : " + await tmtgFinal.transfer(anonymous, 100000,{from: owner}).should.be.rejected);
+                    logger.debug(":: 1-2. deleteFromBlacklist : " + await tmtgFinal.deleteFromBlacklist(anonymous,{from:owner}).should.be.fulfilled);
+                    logger.debug(":: 1-2. transfer : " + await tmtgFinal.transfer(owner,100000,{from:anonymous}).should.be.fulfilled);
+                    logger.debug(":: 1-2. transfer : " + await tmtgFinal.transfer(anonymous, 100000,{from: owner}).should.be.fulfilled);
+                })
+                // 1달이 되기전 _newLimit == 9; 1달이 지난후, _newLimit == 최초 지급받은 금액의 10% + 9;
+                it("1-3. 보내는 사람이 investor 일 경우, transfer는 해당 _newLimit만큼 보낼 수 있다. " ,async function() {
+                    const superInvestorAmount = new BigNumber(1e+23);
+                    
+                    //투자자가 현재 한달마다 제한이 풀리는 금액
+                    const currentAmount = new BigNumber(100000000000000000);
+                    const toSendAmount = new BigNumber(1e+21);
+                    const rest = new BigNumber(9e+18);
+                    const perAmount = new BigNumber(100000000000000000000);
+                    
+                    logger.debug(":: 1-3. transfer : " + await tmtgFinal.transfer(superInvestor,superInvestorAmount,{from:owner}));
+                    logger.debug(":: 1-3. setSuperInvestor : " + await tmtgFinal.setSuperInvestor(superInvestor,{from:owner}).should.be.fulfilled);
+                    logger.debug(":: 1-3. superInvestor : " + await tmtgFinal.superInvestor(superInvestor)); 
+                    logger.debug(":: 1-3. balanceOf : " + await tmtgFinal.balanceOf(superInvestor));
+                    //init 현재 0.1 TMTG를 가지고 있으므로 투자자 권한 삭제 한뒤, owner에게 해당금액 옮기고, 다시 1000TMTG 소유하도록 설정
+                    //현재 investor 결과값 searchInvestor : 0,100000000000000000,10000000000000000"
+                    logger.debug(":: 1-3. searchInvestor : " + await tmtgFinal.searchInvestor(investor2));
+                    logger.debug(":: 1-3. init : " + await tmtgFinal.delInvestor(investor2,{from:owner}));
+                    logger.debug(":: 1-3. init : " + await tmtgFinal.transfer(owner,currentAmount,{from:investor2}));
+                    logger.debug(":: 1-3. init : " + await tmtgFinal.balanceOf(investor2));
+                    logger.debug(":: 1-3. init : " + await tmtgFinal.investorList(investor2));
+                    logger.debug(":: 1-3. init : " + await tmtgFinal.transfer(investor2,toSendAmount,{from:superInvestor}));
+                    //변화된 값 : searchInvestor : 0,1e+21,100000000000000000000"
+                    logger.debug(":: 1-3. searchInvestor : " + await tmtgFinal.searchInvestor(investor2));
+                    
+                    logger.debug(":: 1-3. transfer : " + await tmtgFinal.transfer(owner,perAmount,{from:investor2}).should.be.rejected);
+                    logger.debug(":: 1-3. transfer : " + await tmtgFinal.transfer(owner,rest,{from:investor2}).should.be.fulfilled);
+
+                    
+                })
+                 it("1-4. 받는 사람이 0x0 일 경우, transfer는 작동하지 않는다. " ,async function() {
+                    logger.debug(":: 1-4. transfer : " + await tmtgFinal.transfer("",10,{from:owner}).should.be.rejected);
+                     
+                 })
+                 it("1-5. msg.sender's balance의 초과 금액을 보낼 경우, transfer는 작동하지 않는다. " ,async function() {
+                    const toSendAmount = new BigNumber(1e+26);
+                    logger.debug(":: 1-5. balanceOf : " + await tmtgFinal.balanceOf(cex1));
+                    logger.debug(":: 1-5. transfer : " + await tmtgFinal.transfer(owner,toSendAmount,{from:cex1}).should.be.rejected);
+                 })
+
                 // it("1-6. msg.sender가 superInvestor이고, _to가 anonymous인 경우, _to는 investor로 권한이 변경되며, 토큰 락이 걸려 10%씩 차등 제한이 풀리게 된다. " ,async function() {
                 //     logger.debug("::. Approve START : ========================================");
                 // })
@@ -441,9 +491,7 @@ module.exports = {
                 // it("1-8. msg.sender가 superInvestor인 경우, _to가 거래소,owner,superInvestor인 경우 transfer는 작동하지 않는다. " ,async function() {
                 //     logger.debug("::. Approve START : ========================================");
                 // })
-                // it("1-9. msg.sender. " ,async function() {
-                //     logger.debug("::. Approve START : ========================================");
-                // })
+               
                 it("END" , async function() {
                     logger.debug("::. Transfer END : ========================================");
                 })
