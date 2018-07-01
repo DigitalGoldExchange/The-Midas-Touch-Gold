@@ -368,6 +368,9 @@ module.exports = {
             })
 
             describe('1. transfer test', ()=> {
+                it("START" ,async function() {
+                    logger.debug("::. Transfer START : ========================================");
+                })
                 it("1-1. 서킷브레이커 작동시, transfer는 작동하지 않는다. " ,async function() {
                     logger.debug(":: . Approve START : ========================================");
                 })
@@ -380,14 +383,42 @@ module.exports = {
                 it("1-4. 받는 사람이 0x0 일 경우, transfer는 작동하지 않는다. " ,async function() {
                     logger.debug("::. Approve START : ========================================");
                 })
-
+                it("1-5. msg.sender's balance의 초과 금액을 보낼 경우, transfer는 작동하지 않는다. " ,async function() {
+                    logger.debug("::. Approve START : ========================================");
+                })
+                it("1-6. msg.sender가 superInvestor이고, _to가 anonymous인 경우, _to는 investor로 권한이 변경되며, 토큰 락이 걸려 10%씩 차등 제한이 풀리게 된다. " ,async function() {
+                    logger.debug("::. Approve START : ========================================");
+                })
+                it("1-7. msg.sender가 superInvestor이고, _to가 investor인 경우, _to의 limit은 변함이 없으며, 추가 금액은 10개월간 토큰 락이 걸린다. " ,async function() {
+                    logger.debug("::. Approve START : ========================================");
+                })
+                it("1-8. msg.sender가 superInvestor인 경우, _to가 거래소,owner,superInvestor인 경우 transfer는 작동하지 않는다. " ,async function() {
+                    logger.debug("::. Approve START : ========================================");
+                })
+                it("1-9. msg.sender. " ,async function() {
+                    logger.debug("::. Approve START : ========================================");
+                })
+                it("END" ,async function() {
+                    logger.debug("::. Transfer END : ========================================");
+                })
             })
-                // logger.debug(":: 시나리오 테스트 Start ::========================================");
 
-                // it("end" ,async function(){
-                //     logger.debug("::. End : ========================================");
-                // })// 시나리오 테스트 완료---------------------------------------------------------------------------------------------------------------------
+            describe('2. transferFrom test', ()=> {
+                it("START" ,async function() {
+                    logger.debug("::. TransferFrom START : ========================================");
+                })
+
+                it("1-1. 서킷브레이커 작동시, transfer는 작동하지 않는다. " ,async function() {
+                    logger.debug(":: . Approve START : ========================================");
+                })
+
+
+                it("END" ,async function() {
+                    logger.debug("::. TransferFrom END : ========================================");
+                })
                 
+            })
+
             }) 
         }
     }
