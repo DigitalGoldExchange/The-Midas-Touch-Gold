@@ -367,7 +367,7 @@ module.exports = {
                 })
             })
 
-            describe('1. transfer test', ()=> {
+            describe('1. transfer test', () => {
                 it("START" ,async function() {
                     logger.debug("::. Transfer START : ========================================");
                 })
@@ -398,25 +398,46 @@ module.exports = {
                 it("1-9. msg.sender. " ,async function() {
                     logger.debug("::. Approve START : ========================================");
                 })
-                it("END" ,async function() {
+                it("END" , async function() {
                     logger.debug("::. Transfer END : ========================================");
                 })
             })
 
-            describe('2. transferFrom test', ()=> {
-                it("START" ,async function() {
+            describe('2. transferFrom test', () => {
+                it("START" , async function() {
                     logger.debug("::. TransferFrom START : ========================================");
                 })
 
-                it("1-1. 서킷브레이커 작동시, transfer는 작동하지 않는다. " ,async function() {
+                it("2-1. 서킷브레이커 작동시, transferFrom는 작동하지 않는다. " ,async function() {
                     logger.debug(":: . Approve START : ========================================");
                 })
 
+                it("2-2. investor인 경우, transferFrom은 해당 _newLimit만큼(approve된 만큼)  보낼 수 있다. " ,async function() {
+                    logger.debug(":: . Approve START : ========================================");
+                })
+                it("2-3. anonymous인 상태에서 approve한 금액은 investor가 된 이후에도 newLimit에 관계없이 transferFrom을 통해 보낼 수 있다. " ,async function() {
+                    logger.debug(":: . Approve START : ========================================");
+                })
+                it("2-4. superInvestor인 경우, transferFrom(address _from, address _to)의 _from으로 설정 할 수 없다.", async function(){
 
+                })
+                it("2-5.  _from의 balance 초과된 금액을 보낼 수 없다." , async function(){
+
+                })
+                it("2-6.  _from의 allowed 초과된 금액을 보낼 수 없다." , async function(){
+
+                })
                 it("END" ,async function() {
                     logger.debug("::. TransferFrom END : ========================================");
                 })
-                
+            })
+            
+            describe('3. getLimitPeriod test', () => {
+            
+            })
+
+            describe('4. tokenLock test', () => {
+            
             })
 
             }) 
