@@ -62,10 +62,6 @@ module.exports = {
                         logger.debug("1. delSuperInvestor : " + await tmtgFinal.delSuperInvestor(superInvestor,{from:owner}).should.be.fulfilled);
                         logger.debug("1. superInvestor : " + await tmtgFinal.setSuperInvestor(superInvestor, {from:owner}));
                         logger.debug("1. setSuperInvestor : " + await tmtgFinal.setSuperInvestor(superInvestor, {from:owner}).should.be.fulfilled);
-                        
-                    })
-                    it('1. superInvestor check', async function(){
-                        assert.equal(owner, await tmtgFinal.owner());
                         logger.debug("1. superInvestor(rejected) : " + await tmtgFinal.setSuperInvestor(superInvestor2,{from:anonymous}).should.be.rejected);
                         logger.debug("1. superInvesto(rejected) : " + await tmtgFinal.delSuperInvestor(superInvestor,{from:anonymous}).should.be.rejected);
                     })
@@ -348,7 +344,7 @@ module.exports = {
                 
             describe('0. Approve test', ()=> {
                 it("0-1. 서킷브레이커 작동시, Approve는 작동하지 않는다. " , async function() {
-                    logger.debug(":: 0-1.단위 테스트) Approve START : ========================================");
+                    logger.debug(":: 0-1.함수 테스트) Approve START : ========================================");
                     logger.debug(":: 0-1. pause : " + (await tmtgFinal.pause({from:owner}).should.be.fulfilled));
                     logger.debug(":: 0-1. paused : " + await tmtgFinal.paused());
                     logger.debug(":: 0-1  approve : " +  await tmtgFinal.approve(anonymous,10000,{from:owner}).should.be.rejected);
@@ -374,7 +370,23 @@ module.exports = {
                 })
 
                 it("0-3. 보내는 사람이 investor 일 경우, Approve는 해당 limit만큼 보낼 수 있다. " ,async function() {
-                    logger.debug(":: 0-3. ");
+                    const superInvestorAmount = new BigNumber(1e+23);
+                    const investorAmount = new BigNumber(1e+22);
+                    
+                    logger.debug(":: 0-3. transfer : " + await tmtgFinal.transfer(superInvestor,superInvestorAmount,{from:owner}));
+                    logger.debug(":: 0-3. setSuperInvestor : " + await tmtgFinal.setSuperInvestor(superInvestor,{from:owner}).should.be.fulfilled);
+                    logger.debug(":: 0-3. superInvestor : " + await tmtgFinal.superInvestor(superInvestor)); 
+                    logger.debug(":: 0-3. balanceOf : " + await tmtgFinal.balanceOf(superInvestor));
+                    logger.debug(":: 0-3. investorList : " + await tmtgFinal.investorList(anonymous2));
+                    logger.debug(":: 0-3. searchInvestor : " + await tmtgFinal.searchInvestor(anonymous2));
+                    logger.debug(":: 0-3. transfer : " + await tmtgFinal.transfer(anonymous2,investorAmount,{from:superInvestor}));
+                    logger.debug(":: 0-3. investorList : " + await tmtgFinal.investorList(anonymous2));
+                    logger.debug(":: 0-3. searchInvestor : " + await tmtgFinal.searchInvestor(anonymous2));
+                    logger.debug(":: 0-3. approve(rejected) : " + await tmtgFinal.approve(owner,1000,{from:anonymous2}).should.be.rejected);
+                    //단 _newLimit.add(9)이므로 9에 해당하는 만큼은 보낼 수 있다. initial이 999일 경우 10% 씩 제한이 풀릴 시 마지막에 990이므로 +9 설정
+                    logger.debug(":: 0-3. approve : " + await tmtgFinal.approve(owner,9,{from:anonymous2}).should.be.fulfilled);
+                    logger.debug(":: 0-3. searchInvestor : " + await tmtgFinal.searchInvestor(anonymous2));
+
                 })
 
                 it("0-4. 보내는 사람이 superInvestor 일 경우, Approve는 작동하지 않는다. " ,async function() {
