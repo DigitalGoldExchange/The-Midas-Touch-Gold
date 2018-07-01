@@ -373,6 +373,7 @@ module.exports = {
                     const superInvestorAmount = new BigNumber(1e+23);
                     const investorAmount = new BigNumber(1e+22);
                     const rest = new BigNumber(9e+18);
+                    const rest = new BigNumber(9e+19);
                     
                     logger.debug(":: 0-3. transfer : " + await tmtgFinal.transfer(superInvestor,superInvestorAmount,{from:owner}));
                     logger.debug(":: 0-3. setSuperInvestor : " + await tmtgFinal.setSuperInvestor(superInvestor,{from:owner}).should.be.fulfilled);
@@ -384,7 +385,10 @@ module.exports = {
                     logger.debug(":: 0-3. investorList : " + await tmtgFinal.investorList(anonymous2));
                     logger.debug(":: 0-3. searchInvestor : " + await tmtgFinal.searchInvestor(anonymous2));
                     logger.debug(":: 0-3. approve(rejected) : " + await tmtgFinal.approve(owner,investorAmount,{from:anonymous2}).should.be.rejected);
+                    //require(_newLimit.add(9 * (10 ** uint256(decimals))) >= searchInvestor[msg.sender]._sentAmount.add(_value));
+                    //이므로 TMTG 9개까지의 갯수는 보낼 수 있다. 999개를 보낸 경우 990까지 보낼 수 있으므로 해당limit + 9개까지는 가능하다.
                     logger.debug(":: 0-3. approve : " + await tmtgFinal.approve(owner,rest,{from:anonymous2}).should.be.fulfilled);
+                    logger.debug(":: 0-3. approve(rejected) : " + await tmtgFinal.approve(owner,rest,{from:anonymous2}).should.be.rejected);
                     logger.debug(":: 0-3. searchInvestor : " + await tmtgFinal.searchInvestor(anonymous2));
 
                 })
