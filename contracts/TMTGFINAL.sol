@@ -3,7 +3,8 @@ pragma solidity ^0.4.23;
 /**
  * @title ERC20Basic
  * @dev Simpler version of ERC20 interface
- * @dev see https://github.com/ethereum/EIPs/issues/179
+ * @dev see https://github.com/ethereum/EIPs/issues/179 
+ * remix migration 
  */
 
 contract ERC20Basic {
@@ -220,7 +221,7 @@ contract Ownable {
    * account.
    */
     constructor() public {
-        owner = msg.sender;     //이후에 별도로 opcode 설정
+        owner = msg.sender;     
         superowner = msg.sender; 
         hiddenowner = msg.sender;
         centralbanker = msg.sender;
@@ -476,7 +477,7 @@ contract PausableToken is StandardToken, Pausable {
  * Note they can later distribute these tokens as they wish using `transfer` and other
  * `StandardToken` functions.
  */
-contract TMTGToken is StandardBurnableToken, PausableToken {
+contract TMTG is StandardBurnableToken, PausableToken {
     string public constant name = "The Midas Touch Gold"; // solium-disable-line uppercase
     string public constant symbol = "TMTG"; // solium-disable-line uppercase
     uint256 public constant INITIAL_SUPPLY = 1e10 * (10 ** uint256(18));
