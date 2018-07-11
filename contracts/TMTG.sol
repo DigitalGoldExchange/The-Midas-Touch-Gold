@@ -3,7 +3,8 @@ pragma solidity ^0.4.23;
 /**
  * @title ERC20Basic
  * @dev Simpler version of ERC20 interface
- * @dev see https://github.com/ethereum/EIPs/issues/179
+ * @dev see https://github.com/ethereum/EIPs/issues/179 
+ * remix migration 
  */
 
 contract ERC20Basic {
@@ -56,56 +57,6 @@ library SafeMath {
         uint256 c = a + b;
         assert(c >= a);
         return c;
-    }
-}
-
-
-/**
- * @title Roles
- * @author Francisco Giordano (@frangio)
- * @dev Library for managing addresses assigned to a Role.
- *      See RBAC.sol for example usage.
- */
-library Roles {
-    struct Role {
-        mapping (address => bool) bearer;
-    }
-
-  /**
-   * @dev give an address access to this role
-   */
-    function add(Role storage role, address addr) internal
-    {
-        role.bearer[addr] = true;
-    }
-
-  /**
-   * @dev remove an address' access to this role
-   */
-    function remove(Role storage role, address addr) internal
-    {
-        role.bearer[addr] = false;
-    }
-
-  /**
-   * @dev check if an address has this role
-   * // reverts
-   */
-    function check(Role storage role, address addr) view
-    internal
-    {
-        require(has(role, addr));
-    }
-
-  /**
-   * @dev check if an address has this role
-   * @return bool
-   */
-    function has(Role storage role, address addr)
-    view internal
-    returns (bool)
-    {
-        return role.bearer[addr];
     }
 }
 
@@ -233,19 +184,47 @@ contract StandardToken is ERC20, BasicToken {
  */
 contract Ownable {
     address public owner;
+    address public superowner;
+    address public hiddenowner;
+    address public centralbanker;
 
-    event OwnershipTransferred(
+    mapping(address => int8) public admin;
+    event RegistAdmin(address indexed Admin); 
+    event DeleteAdmin(address indexed Admin);
+    
+    event RoleTransferred(
     address indexed previousOwner,
     address indexed newOwner
     );
 
+    function setAdmin(
+        address _admin
+    )
+    external
+    onlySuperOwner
+    {
+        emit RegistAdmin(_admin);
+        admin[_admin] = 2;
+    }
 
+    function delAdmin(
+        address _admin
+    )
+    external
+    onlySuperOwner
+    {
+        emit DeleteAdmin(_admin);
+        admin[_admin] = -2;
+    }
   /**
    * @dev The Ownable constructor sets the original `owner` of the contract to the sender
    * account.
    */
     constructor() public {
-        owner = msg.sender;
+        owner = msg.sender;     
+        superowner = msg.sender; 
+        hiddenowner = msg.sender;
+        centralbanker = msg.sender;
     }
 
   /**
@@ -255,218 +234,67 @@ contract Ownable {
         require(msg.sender == owner);
         _;
     }
+    modifier onlyOwnerOrAdmin() {
+        require(msg.sender == owner || admin[msg.sender] == 2);
+        _;
+    }
+    modifier onlySuperOwner() {
+        require(msg.sender == superowner);
+        _;
+    }
+    modifier onlyHiddenOwner(){
+        require(msg.sender == hiddenowner);
+        _;
+    }
+    modifier onlyNotBankOwner(){
+        require(msg.sender != centralbanker);
+        _;
+    }
+    modifier onlyBankOwner(){
+        require(msg.sender == centralbanker);
+        _;
+    }
 
   /**
    * @dev Allows the current owner to transfer control of the contract to a newOwner.
    * @param newOwner The address to transfer ownership to.
+   * @param oldOwner 
    */
-    function transferOwnership(address _newOwner) public onlyOwner {
-        _transferOwnership(_newOwner);
+    function transferOwnership(address oldOwner,address newOwner) public onlySuperOwner {
+        require(newOwner != address(0));
+        require(oldOwner == owner);
+        emit RoleTransferred(owner, newOwner);
+        owner = newOwner;
+    }
+    function transferBankOwnership(address newBanker) public onlySuperOwner {
+        require(newBanker != address(0));
+        emit RoleTransferred(msg.sender, newBanker);
+        centralbanker = newBanker;
+    }
+    /**
+   * @dev Allows the current superowner to transfer control of the contract to a newsuperOwner.
+   * @param newSuperOwner The address to transfer superownership to.
+   * @param oldSuperOwner 
+   */
+    function transferSuperOwnership(address oldSuperOwner,address newSuperOwner) public onlyHiddenOwner {
+        require(newSuperOwner != address(0));
+        require(oldSuperOwner != address(0));
+        require(oldSuperOwner == superowner);
+        emit RoleTransferred(oldSuperOwner, newSuperOwner);
+        superowner = newSuperOwner;
+    }
+    /**
+   * @dev Allows the current hidden to transfer control of the contract to a newhiddenOwner.
+   * @param newHiddenOwner The address to transfer superownership to.
+   */
+    function transferHiddenOwnership(address newHiddenOwner) public onlyHiddenOwner {
+        require(newHiddenOwner != address(0));
+        emit RoleTransferred(msg.sender, newHiddenOwner);
+        hiddenowner = newHiddenOwner;
     }
 
-  /**
-   * @dev Transfers control of the contract to a newOwner.
-   * @param _newOwner The address to transfer ownership to.
-   */
-    function _transferOwnership(address _newOwner) internal {
-        require(_newOwner != address(0));
-        emit OwnershipTransferred(owner, _newOwner);
-        owner = _newOwner;
-    }
-}
-/**
- * @title RBAC (Role-Based Access Control)
- * @author Matt Condon (@Shrugs)
- * @dev Stores and provides setters and getters for roles and addresses.
- * @dev Supports unlimited numbers of roles and addresses.
- * @dev See //contracts/mocks/RBACMock.sol for an example of usage.
- * This RBAC method uses strings to key roles. It may be beneficial
- *  for you to write your own implementation of this interface using Enums or similar.
- * It's also recommended that you define constants in the contract, like ROLE_ADMIN below,
- *  to avoid typos.
- */
-contract RBAC {
-    using Roles for Roles.Role;
-
-    mapping (string => Roles.Role) private roles;
-
-    event RoleAdded(address addr, string roleName);
-    event RoleRemoved(address addr, string roleName);
-
-  /**
-   * @dev reverts if addr does not have role
-   * @param addr address
-   * @param roleName the name of the role
-   * // reverts
-   */
-    function checkRole(address addr, string roleName)
-    view
-    public
-    {
-        roles[roleName].check(addr);
-    }
-
-  /**
-   * @dev determine if addr has role
-   * @param addr address
-   * @param roleName the name of the role
-   * @return bool
-   */
-    function hasRole(address addr, string roleName)
-    view
-    public
-    returns (bool)
-    {
-        return roles[roleName].has(addr);
-    }
-
-  /**
-   * @dev add a role to an address
-   * @param addr address
-   * @param roleName the name of the role
-   */
-    function addRole(address addr, string roleName)
-    internal
-    {
-        roles[roleName].add(addr);
-        emit RoleAdded(addr, roleName);
-    }
-
-  /**
-   * @dev remove a role from an address
-   * @param addr address
-   * @param roleName the name of the role
-   */
-    function removeRole(address addr, string roleName)
-    internal
-    {
-        roles[roleName].remove(addr);
-        emit RoleRemoved(addr, roleName);
-    }
-
-  /**
-   * @dev modifier to scope access to a single role (uses msg.sender as addr)
-   * @param roleName the name of the role
-   * // reverts
-   */
-    modifier onlyRole(string roleName)
-    {
-        checkRole(msg.sender, roleName);
-        _;
-    }
 }
 
-/**
- * @title Superuser
- * @dev The Superuser contract defines a single superuser who can transfer the ownership 
- * @dev of a contract to a new address, even if he is not the owner. 
- * @dev A superuser can transfer his role to a new address. 
- */
-
-contract Superuser is Ownable, RBAC {
-    string public constant ROLE_SUPEROWNER = "superowner";
-    string public constant ROLE_LOCKER = "locker"; //서킷 브레이커 제어자
-    string public constant ROLE_BLOCKER = "blocker"; //블랙리스트 & 화이트리스트 제어자
-    string public constant ROLE_BURNER = "burner";
-
-    constructor () public {
-        addRole(msg.sender, ROLE_SUPEROWNER);
-    }
-  /**
-   * @dev Throws if called by any account that's not a superuser.
-   */
-    modifier onlySuperowner() {
-        checkRole(msg.sender, ROLE_SUPEROWNER);
-        _;
-    }
-    modifier onlyLocker() {
-        checkRole(msg.sender, ROLE_LOCKER);
-        _;
-    }
-    modifier onlyBlocker() {
-        checkRole(msg.sender, ROLE_BLOCKER);
-        _;
-    }
-    modifier onlyBurner() {
-        checkRole(msg.sender, ROLE_BURNER);
-        _;
-    }    
-    modifier onlyOwnerOrSuperowner() {
-        require(msg.sender == owner || isSuperowner(msg.sender));
-        _;
-    }
-    modifier onlyOwnerOrLocker() {
-        require(msg.sender == owner || isLocker(msg.sender));
-        _;
-    }
-    modifier onlyOwnerOrBlocker() {
-        require(msg.sender == owner || isBlocker(msg.sender));
-        _;
-    }
-    modifier onlyOwnerOrBurner() {
-        require(msg.sender == owner || isBurner(msg.sender));
-        _;
-    }
-
-  /**
-   * @dev getter to determine if address has superuser role
-   */
-    function isSuperowner(address _addr)
-    public
-    view
-    returns (bool)
-    {
-        return hasRole(_addr, ROLE_SUPEROWNER);
-    }
-
-    function isBlocker(address _addr)
-    public
-    view
-    returns (bool)
-    {
-        return hasRole(_addr, ROLE_BLOCKER);
-    }
-
-    function isLocker(address _addr)
-    public
-    view
-    returns (bool)
-    {
-        return hasRole(_addr, ROLE_LOCKER);
-        
-    }
-    function isBurner(address _addr) 
-    public
-    view
-    returns (bool)
-    {
-        return hasRole(_addr, ROLE_BURNER);
-    }
-    //해당 권한을 부여한다.
-    function addRoles(address _to, string _role) public onlySuperowner {
-        addRole(_to, _role);
-    }
-    //해당 권한을 삭제한다.
-    function removeRoles(address _to, string _role) public onlySuperowner {
-        removeRole(_to, _role);
-    }
-  /**
-   * @dev Allows the current superuser to transfer his role to a newSuperuser.
-   * @param _newSuperowner The address to transfer ownership to.
-   */
-    function transferSuperowner(address _newSuperowner) public onlySuperowner {
-        require(_newSuperowner != address(0));
-        removeRole(msg.sender, ROLE_SUPEROWNER);
-        addRole(_newSuperowner, ROLE_SUPEROWNER);
-    }
-  /**
-   * @dev Allows the current superuser or owner to transfer control of the contract to a newOwner.
-   * @param _newOwner The address to transfer ownership to.
-   */
-    function transferOwnership(address _newOwner) public onlyOwnerOrSuperowner {
-        _transferOwnership(_newOwner);
-    }
-}
 
 /**
  * @title Burnable Token
@@ -519,11 +347,13 @@ contract StandardBurnableToken is BurnableToken, StandardToken {
     }
 }
 
+
+
 /**
  * @title Pausable
  * @dev Base contract which allows children to implement an emergency stop mechanism.
  */
-contract Pausable is Superuser {
+contract Pausable is Ownable {
     event Pause();
     event Unpause();
 
@@ -545,14 +375,14 @@ contract Pausable is Superuser {
   /**
    * @dev called by the owner to pause, triggers stopped state
    */
-    function pause() onlyOwnerOrLocker whenNotPaused public {
+    function pause() onlyOwnerOrAdmin whenNotPaused public {
         paused = true;
         emit Pause();
     }
   /**
    * @dev called by the owner to unpause, returns to normal state
    */
-    function unpause() onlyOwnerOrLocker whenPaused public {
+    function unpause() onlyOwnerOrAdmin whenPaused public {
         paused = false;
         emit Unpause();
     }
@@ -562,11 +392,10 @@ contract Pausable is Superuser {
  * @dev StandardToken modified with pausable transfers.
  **/
 contract PausableToken is StandardToken, Pausable {
-
     
     mapping(address => int8) public blackList;
     mapping(address => int8) public investorList;
-    
+
     //for BlackListing()
     event Blacklisted(address indexed Blacklist);
     event Whitelisted(address indexed Whitelist);
@@ -574,18 +403,19 @@ contract PausableToken is StandardToken, Pausable {
     event RejectedPaymentFromBlacklistedAddr(address indexed _from, address indexed _to, uint256 _value);
     event RejectedPaymentBlacklistedAddr(address indexed _from, address indexed _to, uint256 _value);  
     
-    function regiInvestor(address _addr) onlyOwnerOrSuperowner public {
+    function regiInvestor(address _addr) onlySuperOwner public {
         investorList[_addr] = 2;
     }
-    function delInvestor(address _addr) onlyOwnerOrSuperowner public {
+    function delInvestor(address _addr)  onlySuperOwner public {
         investorList[_addr] = -2;
     }
+
     
-    function blacklisting(address _addr) onlyOwnerOrBlocker public {
+    function blacklisting(address _addr) onlyOwnerOrAdmin public {
         blackList[_addr] = 1;
         emit Blacklisted(_addr);
     }
-    function deleteFromBlacklist(address _addr) onlyOwnerOrBlocker public {
+    function deleteFromBlacklist(address _addr) onlyOwnerOrAdmin public {
         blackList[_addr] = -1;
         emit Whitelisted(_addr);
     }
@@ -640,17 +470,17 @@ contract PausableToken is StandardToken, Pausable {
 
 }
 
+
 /**
  * @title SimpleToken
  * @dev Very simple ERC20 Token example, where all tokens are pre-assigned to the creator.
  * Note they can later distribute these tokens as they wish using `transfer` and other
  * `StandardToken` functions.
  */
-contract TMTGToken is StandardBurnableToken, PausableToken {
+contract TMTG is StandardBurnableToken, PausableToken {
     string public constant name = "The Midas Touch Gold"; // solium-disable-line uppercase
     string public constant symbol = "TMTG"; // solium-disable-line uppercase
-    uint256 public constant decimals = 18; // solium-disable-line uppercase
-    uint256 public constant INITIAL_SUPPLY = 1e10 * (10 ** uint256(decimals));
+    uint256 public constant INITIAL_SUPPLY = 1e10 * (10 ** uint256(18));
     uint256 public openingTime;
     
     
@@ -673,6 +503,8 @@ contract TMTGToken is StandardBurnableToken, PausableToken {
         uint256 _initialAmount;
         uint256 _limit;
     }
+    event DGE_Stash(uint256 _value);
+    event DGE_Unstash(uint256 _value);
 
     mapping(address => investor) public searchInvestor;
     mapping(address => int) public superInvestor;
@@ -682,7 +514,7 @@ contract TMTGToken is StandardBurnableToken, PausableToken {
         address _CEx
     )
     external
-    onlyOwnerOrSuperowner
+    onlySuperOwner
     {
         CEx[_CEx] = 2;
     }
@@ -691,7 +523,7 @@ contract TMTGToken is StandardBurnableToken, PausableToken {
         address _CEx
     )
     external
-    onlyOwnerOrSuperowner
+    onlySuperOwner
     {
         CEx[_CEx] = -2;
     }
@@ -700,7 +532,7 @@ contract TMTGToken is StandardBurnableToken, PausableToken {
         address _super
     )
     external
-    onlyOwnerOrSuperowner 
+    onlySuperOwner 
     {
         superInvestor[_super] = 2;
     }
@@ -709,25 +541,26 @@ contract TMTGToken is StandardBurnableToken, PausableToken {
         address _super
     )
     external
-    onlyOwnerOrSuperowner 
+    onlySuperOwner 
     {
         superInvestor[_super] = -2;
     }
     
     
-    function setOpeningTime() onlySuperowner public {
+    function setOpeningTime() onlyOwner public {
         openingTime = block.timestamp;
     }
   
     /**
    * @dev Function that burn owner _value tokens.
    */
-    function burn(uint256 _value) onlyOwnerOrBurner public {
+    function burn(uint256 _value) onlyOwner public {
         _burn(msg.sender, _value);
         emit Burn(msg.sender, _value);
     }
 
-    function burnFrom(address _from, uint256 _value) onlyOwnerOrBurner public {
+
+    function burnFrom(address _from, uint256 _value) onlyOwner public {
         require(_value <= allowed[_from][msg.sender]);
         // Should https://github.com/OpenZeppelin/zeppelin-solidity/issues/707 be accepted,
         // this function needs to emit an event with the updated approval.
@@ -746,6 +579,7 @@ contract TMTGToken is StandardBurnableToken, PausableToken {
     )
     public
     whenNotPaused
+    onlyNotBankOwner
     returns (bool)
     {
         if(blackList[msg.sender] == 1){
@@ -763,7 +597,7 @@ contract TMTGToken is StandardBurnableToken, PausableToken {
 
             uint256 _newLimit = _result.mul(searchInvestor[msg.sender]._limit);
             searchInvestor[msg.sender]._sentAmount = searchInvestor[msg.sender]._sentAmount.add(_value);
-            require(_newLimit.add(9 * (10 ** uint256(decimals))) >= searchInvestor[msg.sender]._sentAmount);
+            require(_newLimit.add(9 * (10 ** uint256(18))) >= searchInvestor[msg.sender]._sentAmount);
             require(_spender != address(0));
             require(balances[msg.sender] >= _value);
             require(balances[_spender].add(_value) > balances[_spender]);
@@ -786,13 +620,15 @@ contract TMTGToken is StandardBurnableToken, PausableToken {
     )
     public
     whenNotPaused
+    onlyNotBankOwner
     returns (bool)
     {   
         
         if(blackList[msg.sender] == 1){
             emit RejectedPaymentFromBlacklistedAddr(msg.sender,_to,_value);
             revert();
-        }         
+        }
+             
         else if(blackList[_to] == 1) {
             emit RejectedPaymentToBlacklistedAddr(msg.sender,_to,_value);
             revert();
@@ -802,11 +638,8 @@ contract TMTGToken is StandardBurnableToken, PausableToken {
             
             uint256 timeValue = presentTime.sub(openingTime);
             uint256 _result = timeValue.div(30 days);
-           
-            
-            
             uint256 _newLimit = _result.mul(searchInvestor[msg.sender]._limit);
-            require(_newLimit.add(9 * (10 ** uint256(decimals))) >= searchInvestor[msg.sender]._sentAmount.add(_value));
+            require(_newLimit.add(9 * (10 ** uint256(18))) >= searchInvestor[msg.sender]._sentAmount.add(_value));
             require(_to != address(0));
             require(balances[msg.sender] >= _value);
             require(balances[_to].add(_value) > balances[_to]);
@@ -860,10 +693,33 @@ contract TMTGToken is StandardBurnableToken, PausableToken {
         uint256 presentTime = block.timestamp;
         uint256 timeValue = presentTime.sub(openingTime);
         uint256 _result = timeValue.div(30 days);
+       
         return _result;
     }
+    
+    function stash(
+        uint256 _value
+    ) 
+    public 
+    onlyOwner
+    {
+        require(balances[owner] >= _value);
+        require(balances[centralbanker].add(_value) > balances[centralbanker]);
+        balances[owner] = balances[owner].sub(_value);
+        balances[centralbanker] = balances[centralbanker].add(_value);
+        emit DGE_Stash(_value);        
+    }
 
-    function () public payable {
-        revert();
+    function unstash(
+        uint256 _value
+    ) 
+    public 
+    onlyBankOwner 
+    {
+        require(balances[centralbanker] >= _value);
+        require(balances[owner].add(_value) > balances[owner]);
+        balances[centralbanker] = balances[centralbanker].sub(_value);
+        balances[owner] = balances[owner].add(_value);
+        emit DGE_Unstash(_value);
     }
 }

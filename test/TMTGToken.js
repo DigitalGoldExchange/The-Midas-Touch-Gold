@@ -27,13 +27,15 @@ Engine.core.build()
 
 //const dgex = require('../mods/dgex3.js')
 
-const dgex = require('../mods/dgex4.js')
+//const dgex = require('../mods/dgex4.js')
+
+const dgex = require('../mods/dgex_final.js');
 
 //------------------------------------------------ -------------------------------
 
 dgex.core.init(Engine)
 dgex.core.components(
-    artifacts.require('../contracts/TMTGToken.sol')
+    artifacts.require('../contracts/TMTG.sol')
 )
 /**
  * 3. Choose any file from the sub folder

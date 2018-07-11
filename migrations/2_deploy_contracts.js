@@ -1,4 +1,6 @@
-const TMTGToken = artifacts.require('../contracts/TMTGToken.sol')
+const TMTGToken = artifacts.require('../contracts/TMTG.sol')
+
+
 
 module.exports = function(deployer) {
     deployer.deploy(TMTGToken);
