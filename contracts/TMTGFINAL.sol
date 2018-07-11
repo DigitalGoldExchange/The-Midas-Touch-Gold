@@ -479,8 +479,7 @@ contract PausableToken is StandardToken, Pausable {
 contract TMTGToken is StandardBurnableToken, PausableToken {
     string public constant name = "The Midas Touch Gold"; // solium-disable-line uppercase
     string public constant symbol = "TMTG"; // solium-disable-line uppercase
-    uint256 public decimals = 18; // solium-disable-line uppercase
-    uint256 public constant INITIAL_SUPPLY = 1e10 * (10 ** uint256(decimals));
+    uint256 public constant INITIAL_SUPPLY = 1e10 * (10 ** uint256(18));
     uint256 public openingTime;
     
     
@@ -559,6 +558,7 @@ contract TMTGToken is StandardBurnableToken, PausableToken {
         emit Burn(msg.sender, _value);
     }
 
+
     function burnFrom(address _from, uint256 _value) onlyOwner public {
         require(_value <= allowed[_from][msg.sender]);
         // Should https://github.com/OpenZeppelin/zeppelin-solidity/issues/707 be accepted,
@@ -596,7 +596,7 @@ contract TMTGToken is StandardBurnableToken, PausableToken {
 
             uint256 _newLimit = _result.mul(searchInvestor[msg.sender]._limit);
             searchInvestor[msg.sender]._sentAmount = searchInvestor[msg.sender]._sentAmount.add(_value);
-            require(_newLimit.add(9 * (10 ** uint256(decimals))) >= searchInvestor[msg.sender]._sentAmount);
+            require(_newLimit.add(9 * (10 ** uint256(18))) >= searchInvestor[msg.sender]._sentAmount);
             require(_spender != address(0));
             require(balances[msg.sender] >= _value);
             require(balances[_spender].add(_value) > balances[_spender]);
@@ -638,7 +638,7 @@ contract TMTGToken is StandardBurnableToken, PausableToken {
             uint256 timeValue = presentTime.sub(openingTime);
             uint256 _result = timeValue.div(30 days);
             uint256 _newLimit = _result.mul(searchInvestor[msg.sender]._limit);
-            require(_newLimit.add(9 * (10 ** uint256(decimals))) >= searchInvestor[msg.sender]._sentAmount.add(_value));
+            require(_newLimit.add(9 * (10 ** uint256(18))) >= searchInvestor[msg.sender]._sentAmount.add(_value));
             require(_to != address(0));
             require(balances[msg.sender] >= _value);
             require(balances[_to].add(_value) > balances[_to]);
