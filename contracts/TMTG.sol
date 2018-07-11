@@ -66,9 +66,7 @@ library SafeMath {
  */
 contract BasicToken is ERC20Basic {
     using SafeMath for uint256;
-
     mapping(address => uint256) balances;
-
     uint256 totalSupply_;
 
   /**
@@ -156,10 +154,6 @@ contract StandardToken is ERC20, BasicToken {
    */
     function approve(address _spender, uint256 _value) public returns (bool) {
         allowed[msg.sender][_spender] = _value;
-        require(_spender != address(0));
-        require(balances[msg.sender] >= _value);
-        require(balances[_spender].add(_value) > balances[_spender]);
-          
         emit Approval(msg.sender, _spender, _value);
         return true;
     }
@@ -188,7 +182,7 @@ contract Ownable {
     address public hiddenowner;
     address public centralbanker;
 
-    mapping(address => int8) public admin;
+    mapping(address => bool) public admin;
     event RegistAdmin(address indexed Admin); 
     event DeleteAdmin(address indexed Admin);
     
@@ -204,7 +198,7 @@ contract Ownable {
     onlySuperOwner
     {
         emit RegistAdmin(_admin);
-        admin[_admin] = 2;
+        admin[_admin] = true;
     }
 
     function delAdmin(
@@ -214,7 +208,7 @@ contract Ownable {
     onlySuperOwner
     {
         emit DeleteAdmin(_admin);
-        admin[_admin] = -2;
+        admin[_admin] = false;
     }
   /**
    * @dev The Ownable constructor sets the original `owner` of the contract to the sender
@@ -235,7 +229,7 @@ contract Ownable {
         _;
     }
     modifier onlyOwnerOrAdmin() {
-        require(msg.sender == owner || admin[msg.sender] == 2);
+        require(msg.sender == owner || admin[msg.sender]);
         _;
     }
     modifier onlySuperOwner() {
@@ -258,7 +252,6 @@ contract Ownable {
   /**
    * @dev Allows the current owner to transfer control of the contract to a newOwner.
    * @param newOwner The address to transfer ownership to.
-   * @param oldOwner 
    */
     function transferOwnership(address oldOwner,address newOwner) public onlySuperOwner {
         require(newOwner != address(0));
@@ -274,13 +267,9 @@ contract Ownable {
     /**
    * @dev Allows the current superowner to transfer control of the contract to a newsuperOwner.
    * @param newSuperOwner The address to transfer superownership to.
-   * @param oldSuperOwner 
    */
-    function transferSuperOwnership(address oldSuperOwner,address newSuperOwner) public onlyHiddenOwner {
-        require(newSuperOwner != address(0));
-        require(oldSuperOwner != address(0));
-        require(oldSuperOwner == superowner);
-        emit RoleTransferred(oldSuperOwner, newSuperOwner);
+    function transferSuperOwnership(address newSuperOwner) public onlyHiddenOwner {
+        emit RoleTransferred(superowner, newSuperOwner);
         superowner = newSuperOwner;
     }
     /**
@@ -288,7 +277,6 @@ contract Ownable {
    * @param newHiddenOwner The address to transfer superownership to.
    */
     function transferHiddenOwnership(address newHiddenOwner) public onlyHiddenOwner {
-        require(newHiddenOwner != address(0));
         emit RoleTransferred(msg.sender, newHiddenOwner);
         hiddenowner = newHiddenOwner;
     }
@@ -387,38 +375,44 @@ contract Pausable is Ownable {
         emit Unpause();
     }
 }
+
+
+contract Blacklist is Ownable {
+    mapping(address => bool) blacklisted;
+    
+    event Blacklisted(address indexed Blacklist);
+    event Whitelisted(address indexed Whitelist);
+
+    function blacklist(address node) public onlySuperOwner {
+        blacklisted[node] = true;
+        emit Blacklisted(node);
+    }
+
+    function unblacklist(address node) public onlySuperOwner {
+        blacklisted[node] = false;
+        emit Whitelisted(node);
+    }
+
+    function isPermitted(address node) public view returns(bool) {
+        return !blacklisted[node];
+    }
+}
 /**
  * @title Pausable token
  * @dev StandardToken modified with pausable transfers.
  **/
-contract PausableToken is StandardToken, Pausable {
+contract PausableToken is StandardToken, Pausable, Blacklist {
     
-    mapping(address => int8) public blackList;
-    mapping(address => int8) public investorList;
+    mapping(address => bool) public investorList;
 
-    //for BlackListing()
-    event Blacklisted(address indexed Blacklist);
-    event Whitelisted(address indexed Whitelist);
-    event RejectedPaymentToBlacklistedAddr(address indexed _from, address indexed _to, uint256 _value);
-    event RejectedPaymentFromBlacklistedAddr(address indexed _from, address indexed _to, uint256 _value);
-    event RejectedPaymentBlacklistedAddr(address indexed _from, address indexed _to, uint256 _value);  
     
     function regiInvestor(address _addr) onlySuperOwner public {
-        investorList[_addr] = 2;
+        investorList[_addr] = true;
     }
     function delInvestor(address _addr)  onlySuperOwner public {
-        investorList[_addr] = -2;
+        investorList[_addr] = false;
     }
 
-    
-    function blacklisting(address _addr) onlyOwnerOrAdmin public {
-        blackList[_addr] = 1;
-        emit Blacklisted(_addr);
-    }
-    function deleteFromBlacklist(address _addr) onlyOwnerOrAdmin public {
-        blackList[_addr] = -1;
-        emit Whitelisted(_addr);
-    }
 
     function transfer(
         address _to,
@@ -428,12 +422,10 @@ contract PausableToken is StandardToken, Pausable {
     whenNotPaused
     returns (bool)
     {   
-        if(blackList[msg.sender] == 1){
-            emit RejectedPaymentFromBlacklistedAddr(msg.sender,_to,_value);
+        if(!isPermitted(msg.sender)){
             revert();
         }
-        else if(blackList[_to] == 1) {
-            emit RejectedPaymentToBlacklistedAddr(msg.sender,_to,_value);
+        else if(!isPermitted(_to)) {
             revert();    
         }else {
             return super.transfer(_to, _value);
@@ -449,10 +441,10 @@ contract PausableToken is StandardToken, Pausable {
     whenNotPaused
     returns (bool)
     {   
-        if(blackList[_from] == 1 || blackList[_to] == 1) {
-            emit RejectedPaymentBlacklistedAddr(_from, _to, _value);
+        if(!isPermitted(_from) || !isPermitted(_to)) {
             revert();
         }else {
+
             return super.transferFrom(_from, _to, _value);
         }  
     }
@@ -507,8 +499,8 @@ contract TMTG is StandardBurnableToken, PausableToken {
     event DGE_Unstash(uint256 _value);
 
     mapping(address => investor) public searchInvestor;
-    mapping(address => int) public superInvestor;
-    mapping(address => int) public CEx;
+    mapping(address => bool) public superInvestor;
+    mapping(address => bool) public CEx;
     
     function setCEx(
         address _CEx
@@ -516,7 +508,7 @@ contract TMTG is StandardBurnableToken, PausableToken {
     external
     onlySuperOwner
     {
-        CEx[_CEx] = 2;
+        CEx[_CEx] = true;
     }
 
     function delCEx(
@@ -525,7 +517,7 @@ contract TMTG is StandardBurnableToken, PausableToken {
     external
     onlySuperOwner
     {
-        CEx[_CEx] = -2;
+        CEx[_CEx] = false;
     }
 
     function setSuperInvestor(
@@ -534,7 +526,7 @@ contract TMTG is StandardBurnableToken, PausableToken {
     external
     onlySuperOwner 
     {
-        superInvestor[_super] = 2;
+        superInvestor[_super] = true;
     }
     
     function delSuperInvestor(
@@ -543,7 +535,7 @@ contract TMTG is StandardBurnableToken, PausableToken {
     external
     onlySuperOwner 
     {
-        superInvestor[_super] = -2;
+        superInvestor[_super] = false;
     }
     
     
@@ -556,7 +548,7 @@ contract TMTG is StandardBurnableToken, PausableToken {
    */
     function burn(uint256 _value) onlyOwner public {
         _burn(msg.sender, _value);
-        emit Burn(msg.sender, _value);
+ 
     }
 
 
@@ -568,11 +560,6 @@ contract TMTG is StandardBurnableToken, PausableToken {
         _burn(_from, _value);
     }
 
-
-    function checkTime() public view returns (uint256) {
-        return block.timestamp;
-    }
-
     function approve(
         address _spender,
         uint256 _value
@@ -582,32 +569,25 @@ contract TMTG is StandardBurnableToken, PausableToken {
     onlyNotBankOwner
     returns (bool)
     {
-        if(blackList[msg.sender] == 1){
-            emit RejectedPaymentFromBlacklistedAddr(msg.sender,_spender,_value);
-            revert();
-        }
-        else if(blackList[_spender] == 1) {
-            emit RejectedPaymentToBlacklistedAddr(msg.sender,_spender,_value);
-            revert();
-        }
-        else if(investorList[msg.sender] == 2) {
-            uint256 presentTime = block.timestamp;
-            uint256 timeValue = presentTime.sub(openingTime);
-            uint256 _result = timeValue.div(30 days);
-
-            uint256 _newLimit = _result.mul(searchInvestor[msg.sender]._limit);
-            searchInvestor[msg.sender]._sentAmount = searchInvestor[msg.sender]._sentAmount.add(_value);
+        
+        if(investorList[msg.sender]) {
+            require(!isPermitted(msg.sender));
+            require(!isPermitted(_spender));
             require(_newLimit.add(9 * (10 ** uint256(18))) >= searchInvestor[msg.sender]._sentAmount);
             require(_spender != address(0));
             require(balances[msg.sender] >= _value);
             require(balances[_spender].add(_value) > balances[_spender]);
+            uint256 presentTime = block.timestamp;
+            uint256 timeValue = presentTime.sub(openingTime);
+            uint256 _result = timeValue.div(30 days);
+            uint256 _newLimit = _result.mul(searchInvestor[msg.sender]._limit);
+            searchInvestor[msg.sender]._sentAmount = searchInvestor[msg.sender]._sentAmount.add(_value);
             allowed[msg.sender][_spender] = _value;
             emit Approval(msg.sender, _spender, _value);
             return true;
 
         } else {
-            require(superInvestor[msg.sender] != 2);
-            emit Approval(msg.sender, _spender, _value);
+            require(!superInvestor[msg.sender]);
             return super.approve(_spender,_value);
         }   
 
@@ -623,71 +603,47 @@ contract TMTG is StandardBurnableToken, PausableToken {
     onlyNotBankOwner
     returns (bool)
     {   
-        
-        if(blackList[msg.sender] == 1){
-            emit RejectedPaymentFromBlacklistedAddr(msg.sender,_to,_value);
-            revert();
-        }
-             
-        else if(blackList[_to] == 1) {
-            emit RejectedPaymentToBlacklistedAddr(msg.sender,_to,_value);
-            revert();
-        }
-        else if(investorList[msg.sender] == 2) {
+        if(investorList[msg.sender]) {
+            require(_to != address(0));
+            require(balances[msg.sender] >= _value);
+            require(!isPermitted(msg.sender));
+            require(!isPermitted(_to));
+            //calculate local variables
             uint256 presentTime = block.timestamp;
-            
             uint256 timeValue = presentTime.sub(openingTime);
             uint256 _result = timeValue.div(30 days);
             uint256 _newLimit = _result.mul(searchInvestor[msg.sender]._limit);
             require(_newLimit.add(9 * (10 ** uint256(18))) >= searchInvestor[msg.sender]._sentAmount.add(_value));
-            require(_to != address(0));
-            require(balances[msg.sender] >= _value);
-            require(balances[_to].add(_value) > balances[_to]);
-            uint256 previousValueSum = balances[msg.sender].add(balances[_to]);
-            balances[msg.sender] = balances[msg.sender].sub(_value);
             searchInvestor[msg.sender]._sentAmount = searchInvestor[msg.sender]._sentAmount.add(_value);
+            balances[msg.sender] = balances[msg.sender].sub(_value);
             balances[_to] = balances[_to].add(_value);
             emit Transfer(msg.sender, _to, _value);
-            assert(balances[msg.sender].add(balances[_to]) == previousValueSum);
             return true;
             
         } else {
 
-            if (superInvestor[msg.sender] == 2) {
-                if(investorList[_to] != 2){
-                    investorList[_to] = 2;
+            if (superInvestor[msg.sender]) {
+                require(!isPermitted(msg.sender));
+                require(!isPermitted(_to));
+                if(!investorList[_to]){
+                    investorList[_to] = true;
                     investor memory b = investor(0, _value, _value.div(10));
                     searchInvestor[_to] = b;
                 }
                 require(_to != address(0));
                 require(_to != owner);
-                require(superInvestor[_to] != 2);
-                require(CEx[_to] != 2);
+                require(!superInvestor[_to]);
+                require(!CEx[_to]);
                 require(balances[msg.sender] >= _value);
-                require(balances[_to].add(_value) > balances[_to]);
-                uint256 previousValueSum2 = balances[msg.sender].add(balances[_to]);
                 balances[msg.sender] = balances[msg.sender].sub(_value);
                 balances[_to] = balances[_to].add(_value);
-                assert(balances[msg.sender].add(balances[_to]) == previousValueSum2);
                 emit Transfer(msg.sender, _to, _value);
                 return true;
             }
-            emit Transfer(msg.sender, _to, _value);
             return super.transfer(_to, _value);
         }
     }
     
-    function transferFrom(address _from, address _to, uint256 _value) public whenNotPaused returns (bool) {
-        require(_to != address(0));
-        require(_value <= balances[_from]);
-        require(_value <= allowed[_from][msg.sender]);
-
-        balances[_from] = balances[_from].sub(_value);
-        balances[_to] = balances[_to].add(_value);
-        allowed[_from][msg.sender] = allowed[_from][msg.sender].sub(_value);
-        emit Transfer(_from, _to, _value);
-        return true;
-    }
 
     function getLimitPeriod() public view returns (uint) {
         uint256 presentTime = block.timestamp;
@@ -704,7 +660,6 @@ contract TMTG is StandardBurnableToken, PausableToken {
     onlyOwner
     {
         require(balances[owner] >= _value);
-        require(balances[centralbanker].add(_value) > balances[centralbanker]);
         balances[owner] = balances[owner].sub(_value);
         balances[centralbanker] = balances[centralbanker].add(_value);
         emit DGE_Stash(_value);        
@@ -717,7 +672,6 @@ contract TMTG is StandardBurnableToken, PausableToken {
     onlyBankOwner 
     {
         require(balances[centralbanker] >= _value);
-        require(balances[owner].add(_value) > balances[owner]);
         balances[centralbanker] = balances[centralbanker].sub(_value);
         balances[owner] = balances[owner].add(_value);
         emit DGE_Unstash(_value);

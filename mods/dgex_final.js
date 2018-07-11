@@ -88,9 +88,11 @@ module.exports = {
                         const totalSupply = new BigNumber(1e+28);
                         logger.debug("5. INITIAL_SUPPLY : " + (await tmtgFinal.balanceOf(owner)).should.be.bignumber.equal(await tmtgFinal.INITIAL_SUPPLY()));
                     })
-                    it('6. decimals check', async function(){
-                        logger.debug("6. decimals : " + assert.equal(await tmtgFinal.decimals(), 18));
-                    })
+                    // it('6. decimals check', async function(){
+                    //     logger.debug("6. decimals : " + assert.equal(await tmtgFinal.decimals(), 18));
+                    // })
+
+                    
                     //investor == investor 권한 O (index[2] 계정)
                     it('7. investorList check' ,async function(){
                         logger.debug("7. investorList : " + (await tmtgFinal.investorList(investor).should.be.fulfilled));
