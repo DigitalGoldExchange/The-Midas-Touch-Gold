@@ -176,6 +176,7 @@ contract StandardToken is ERC20, BasicToken {
  * @dev The Ownable contract has an owner address, and provides basic authorization control
  * functions, this simplifies the implementation of "user permissions".
  */
+
 contract Ownable {
     address public owner;
     address public superowner;
@@ -183,7 +184,7 @@ contract Ownable {
     address public centralbanker;
 
     mapping(address => bool) public admin;
-    event RegistAdmin(address indexed Admin); 
+    event SetAdmin(address indexed Admin); 
     event DeleteAdmin(address indexed Admin);
     
     event RoleTransferred(
@@ -197,7 +198,7 @@ contract Ownable {
     external
     onlySuperOwner
     {
-        emit RegistAdmin(_admin);
+        emit SetAdmin(_admin);
         admin[_admin] = true;
     }
 
@@ -214,6 +215,7 @@ contract Ownable {
    * @dev The Ownable constructor sets the original `owner` of the contract to the sender
    * account.
    */
+
     constructor() public {
         owner = msg.sender;     
         superowner = msg.sender; 
@@ -224,6 +226,7 @@ contract Ownable {
   /**
    * @dev Throws if called by any account other than the owner.
    */
+
     modifier onlyOwner() {
         require(msg.sender == owner);
         _;
@@ -253,14 +256,12 @@ contract Ownable {
    * @dev Allows the current owner to transfer control of the contract to a newOwner.
    * @param newOwner The address to transfer ownership to.
    */
-    function transferOwnership(address oldOwner,address newOwner) public onlySuperOwner {
-        require(newOwner != address(0));
-        require(oldOwner == owner);
+
+    function transferOwnership(address newOwner) public onlySuperOwner {
         emit RoleTransferred(owner, newOwner);
         owner = newOwner;
     }
     function transferBankOwnership(address newBanker) public onlySuperOwner {
-        require(newBanker != address(0));
         emit RoleTransferred(msg.sender, newBanker);
         centralbanker = newBanker;
     }
@@ -268,6 +269,7 @@ contract Ownable {
    * @dev Allows the current superowner to transfer control of the contract to a newsuperOwner.
    * @param newSuperOwner The address to transfer superownership to.
    */
+
     function transferSuperOwnership(address newSuperOwner) public onlyHiddenOwner {
         emit RoleTransferred(superowner, newSuperOwner);
         superowner = newSuperOwner;
@@ -276,6 +278,7 @@ contract Ownable {
    * @dev Allows the current hidden to transfer control of the contract to a newhiddenOwner.
    * @param newHiddenOwner The address to transfer superownership to.
    */
+
     function transferHiddenOwnership(address newHiddenOwner) public onlyHiddenOwner {
         emit RoleTransferred(msg.sender, newHiddenOwner);
         hiddenowner = newHiddenOwner;
@@ -296,6 +299,7 @@ contract BurnableToken is BasicToken {
    * @dev Burns a specific amount of tokens.
    * @param _value The amount of token to be burned.
    */
+
     function burn(uint256 _value)  public {
         
         _burn(msg.sender, _value);
@@ -383,12 +387,12 @@ contract Blacklist is Ownable {
     event Blacklisted(address indexed Blacklist);
     event Whitelisted(address indexed Whitelist);
 
-    function blacklist(address node) public onlySuperOwner {
+    function blacklist(address node) public onlyOwnerOrAdmin {
         blacklisted[node] = true;
         emit Blacklisted(node);
     }
 
-    function unblacklist(address node) public onlySuperOwner {
+    function unblacklist(address node) public onlyOwnerOrAdmin {
         blacklisted[node] = false;
         emit Whitelisted(node);
     }
@@ -404,12 +408,15 @@ contract Blacklist is Ownable {
 contract PausableToken is StandardToken, Pausable, Blacklist {
     
     mapping(address => bool) public investorList;
-
+    event SetInvestor(address indexed Investor); 
+    event DeleteInvestor(address indexed Investor);
     
-    function regiInvestor(address _addr) onlySuperOwner public {
+    function setInvestor(address _addr) onlySuperOwner public {
+        emit SetInvestor(_addr);
         investorList[_addr] = true;
     }
     function delInvestor(address _addr)  onlySuperOwner public {
+        emit DeleteInvestor(_addr);
         investorList[_addr] = false;
     }
 
@@ -461,15 +468,38 @@ contract PausableToken is StandardToken, Pausable, Blacklist {
     }
 
 }
+library SafeERC20 {
+    function safeTransfer(ERC20Basic token, address to, uint256 value) internal {
+        require(token.transfer(to, value));
+    }
+}
 
+contract CanReclaimToken is Ownable {
+    using SafeERC20 for ERC20Basic;
 
+    function reclaimToken(ERC20Basic token) external onlyOwner {
+        uint256 balance = token.balanceOf(this);
+        token.safeTransfer(owner,balance);
+    }
+}
+
+contract HasNoEther is Ownable {
+    constructor() public payable {
+        require(msg.value == 0);
+    }
+    function() external {
+    }
+    function reClaimEther() external onlyOwner {
+        owner.transfer(address(this).balance);
+    }
+}
 /**
  * @title SimpleToken
  * @dev Very simple ERC20 Token example, where all tokens are pre-assigned to the creator.
  * Note they can later distribute these tokens as they wish using `transfer` and other
  * `StandardToken` functions.
  */
-contract TMTG is StandardBurnableToken, PausableToken {
+contract TMTG is StandardBurnableToken, PausableToken, CanReclaimToken, HasNoEther {
     string public constant name = "The Midas Touch Gold"; // solium-disable-line uppercase
     string public constant symbol = "TMTG"; // solium-disable-line uppercase
     uint256 public constant INITIAL_SUPPLY = 1e10 * (10 ** uint256(18));
@@ -497,7 +527,10 @@ contract TMTG is StandardBurnableToken, PausableToken {
     }
     event DGE_Stash(uint256 _value);
     event DGE_Unstash(uint256 _value);
-
+    event SetCEx(address indexed CEx); 
+    event DeleteCEx(address indexed CEx);
+    event SetSuperInvestor(address indexed SuperInvestor); 
+    event DeleteSuperInvestor(address indexed SuperInvestor);
     mapping(address => investor) public searchInvestor;
     mapping(address => bool) public superInvestor;
     mapping(address => bool) public CEx;
@@ -507,7 +540,8 @@ contract TMTG is StandardBurnableToken, PausableToken {
     )
     external
     onlySuperOwner
-    {
+    {   
+        emit SetCEx(_CEx);
         CEx[_CEx] = true;
     }
 
@@ -516,7 +550,8 @@ contract TMTG is StandardBurnableToken, PausableToken {
     )
     external
     onlySuperOwner
-    {
+    {   
+        emit DeleteCEx(_CEx);
         CEx[_CEx] = false;
     }
 
@@ -527,6 +562,7 @@ contract TMTG is StandardBurnableToken, PausableToken {
     onlySuperOwner 
     {
         superInvestor[_super] = true;
+        emit SetSuperInvestor(_super);
     }
     
     function delSuperInvestor(
@@ -536,6 +572,7 @@ contract TMTG is StandardBurnableToken, PausableToken {
     onlySuperOwner 
     {
         superInvestor[_super] = false;
+        emit DeleteSuperInvestor(_super);
     }
     
     
@@ -571,8 +608,8 @@ contract TMTG is StandardBurnableToken, PausableToken {
     {
         
         if(investorList[msg.sender]) {
-            require(!isPermitted(msg.sender));
-            require(!isPermitted(_spender));
+            require(isPermitted(msg.sender));
+            require(isPermitted(_spender));
             require(_newLimit.add(9 * (10 ** uint256(18))) >= searchInvestor[msg.sender]._sentAmount);
             require(_spender != address(0));
             require(balances[msg.sender] >= _value);
@@ -606,8 +643,8 @@ contract TMTG is StandardBurnableToken, PausableToken {
         if(investorList[msg.sender]) {
             require(_to != address(0));
             require(balances[msg.sender] >= _value);
-            require(!isPermitted(msg.sender));
-            require(!isPermitted(_to));
+            require(isPermitted(msg.sender));
+            require(isPermitted(_to));
             //calculate local variables
             uint256 presentTime = block.timestamp;
             uint256 timeValue = presentTime.sub(openingTime);
@@ -619,12 +656,10 @@ contract TMTG is StandardBurnableToken, PausableToken {
             balances[_to] = balances[_to].add(_value);
             emit Transfer(msg.sender, _to, _value);
             return true;
-            
         } else {
-
             if (superInvestor[msg.sender]) {
-                require(!isPermitted(msg.sender));
-                require(!isPermitted(_to));
+                require(isPermitted(msg.sender));
+                require(isPermitted(_to));
                 if(!investorList[_to]){
                     investorList[_to] = true;
                     investor memory b = investor(0, _value, _value.div(10));
@@ -643,8 +678,6 @@ contract TMTG is StandardBurnableToken, PausableToken {
             return super.transfer(_to, _value);
         }
     }
-    
-
     function getLimitPeriod() public view returns (uint) {
         uint256 presentTime = block.timestamp;
         uint256 timeValue = presentTime.sub(openingTime);

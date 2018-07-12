@@ -21,7 +21,7 @@ Engine.core.build()
  * dgex4.js 1달이 지나지 않았지만 9TMTG 전송 및 approve 이후, 10달이 지난후 100% - 9 TMTG 한번에 전송
  */
 //---------------------------------------------- 테스트 -------------------------------
-const dgex = require('../mods/dgex.js')
+const dgex = require('../mods/dgex1.js')
 
 //const dgex = require('../mods/dgex2.js')
 
