@@ -5,6 +5,13 @@ Build trust and value in new token and blockchain trading ecosystem with TMTG Co
 ```
 hiddenOwner / superOwner / owner / centralBanker/ admin / superInvestor / investor / cex / anonymous
 ```
+## AUTH & RULE
+<div>
+    <img width="200" src="https://user-images.githubusercontent.com/30589585/42782228-39503144-8983-11e8-8ae9-513a039f4d41.PNG">
+    <img width="200" src="https://user-images.githubusercontent.com/30589585/42782258-558014c4-8983-11e8-90ed-3ede71f33287.PNG">
+
+</div>
+
 ## ROLE_EXPLAIN
 
 
