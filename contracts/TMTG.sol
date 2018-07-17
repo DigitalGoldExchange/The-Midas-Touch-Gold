@@ -249,9 +249,9 @@ contract TMTGOwnable {
     address public owner;
     address public centralBanker;
     address public superOwner;
-    address public superColdWallet;
+    address public hiddenOwner;
     
-    enum Role { owner, centralBanker, superOwner, superColdWallet }
+    enum Role { owner, centralBanker, superOwner, hiddenOwner }
 
     mapping(address => bool) public operators;
     
@@ -290,8 +290,8 @@ contract TMTGOwnable {
         _;
     }
     
-    modifier onlySuperColdWallet(){
-        require(msg.sender == superColdWallet);
+    modifier onlyhiddenOwner(){
+        require(msg.sender == hiddenOwner);
         _;
     }
     
@@ -299,7 +299,7 @@ contract TMTGOwnable {
         owner = msg.sender;     
         centralBanker = msg.sender;
         superOwner = msg.sender; 
-        superColdWallet = msg.sender;
+        hiddenOwner = msg.sender;
     }
 
     function setOperator(address _operator) external onlySuperOwner {
@@ -322,14 +322,14 @@ contract TMTGOwnable {
         centralBanker = newBanker;
     }
     
-    function transferSuperOwnership(address newSuperOwner) public onlySuperColdWallet {
+    function transferSuperOwnership(address newSuperOwner) public onlyhiddenOwner {
         emit TMTG_RoleTransferred(Role.superOwner, superOwner, newSuperOwner);
         superOwner = newSuperOwner;
     }
     
-    function changeSuperColdWallet(address newSuperColdWallet) public onlySuperColdWallet {
-        emit TMTG_RoleTransferred(Role.superColdWallet, superColdWallet, newSuperColdWallet);
-        superColdWallet = newSuperColdWallet;
+    function changehiddenOwner(address newhiddenOwner) public onlyhiddenOwner {
+        emit TMTG_RoleTransferred(Role.hiddenOwner, hiddenOwner, newhiddenOwner);
+        hiddenOwner = newhiddenOwner;
     }
 }
 
@@ -399,17 +399,9 @@ contract HasNoEther is TMTGOwnable {
     }
 }
 
-contract CanReclaimToken is TMTGOwnable {
-    using SafeERC20 for ERC20Basic;
-
-    function reclaimToken(ERC20Basic token) external onlyOwner {
-        uint256 balance = token.balanceOf(this);
-        token.safeTransfer(owner, balance);
-    }
-}
 
 
-contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther, CanReclaimToken {
+contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther {
     mapping(address => bool) public investorList;
 
     event TMTG_SetInvestor(address indexed investor); 
@@ -487,7 +479,7 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
     }
     
     
-    function destroy() onlySuperColdWallet public {
+    function destroy() onlyhiddenOwner public {
         selfdestruct(superOwner);
     }    
 }
@@ -528,21 +520,25 @@ contract TMTG is TMTGBaseToken {
 
     function setCEx(address _CEx) external onlySuperOwner {   
         CEx[_CEx] = true;
+        
         emit TMTG_SetCEx(_CEx);
     }
 
     function delCEx(address _CEx) external onlySuperOwner {   
         CEx[_CEx] = false;
+        
         emit TMTG_DeleteCEx(_CEx);
     }
 
     function setSuperInvestor(address _super) external onlySuperOwner {
         superInvestor[_super] = true;
+        
         emit TMTG_SetSuperInvestor(_super);
     }
     
     function delSuperInvestor(address _super) external onlySuperOwner {
         superInvestor[_super] = false;
+        
         emit TMTG_DeleteSuperInvestor(_super);
     }
     
@@ -554,25 +550,31 @@ contract TMTG is TMTGBaseToken {
         require(!superInvestor[msg.sender]);
         return super.approve(_spender,_value);     
     }
+
     function _timelimitCal(address who, uint256 _value) internal returns (bool) {
         uint256 presentTime = block.timestamp;
         uint256 timeValue = presentTime.sub(openingTime);
         uint256 _result = timeValue.div(30 days);
         uint256 _newLimit = _result.mul(searchInvestor[who]._limit);
-        require(_newLimit.add(9 * (10 ** uint256(decimals))) >= searchInvestor[who]._sentAmount.add(_value));
+        
+        require(_newLimit >= searchInvestor[who]._sentAmount.add(_value));
+        
         searchInvestor[who]._sentAmount = searchInvestor[who]._sentAmount.add(_value);
     }
 
     function _transferInvetor(address _to, uint256 _value) internal returns (bool) {
         _timelimitCal(msg.sender, _value);
+        
         return super.transfer(_to, _value);
     }
 
     function transfer(address _to, uint256 _value) public
     whenPermitted(msg.sender) whenPermitted(_to) whenNotPaused onlyNotBankOwner
     returns (bool) {   
+        
         if(investorList[msg.sender]) {
             return _transferInvetor(_to, _value);
+        
         } else {
             if (superInvestor[msg.sender]) {
                 require(_to != owner);
@@ -608,7 +610,6 @@ contract TMTG is TMTGBaseToken {
         }
     }
 
-    
     function getLimitPeriod() public view returns (uint256) {
         uint256 presentTime = block.timestamp;
         uint256 timeValue = presentTime.sub(openingTime);
