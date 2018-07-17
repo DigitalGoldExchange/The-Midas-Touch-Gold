@@ -407,16 +407,6 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
     event TMTG_SetInvestor(address indexed investor); 
     event TMTG_DeleteInvestor(address indexed investor);
 
-    function setInvestor(address _addr) onlySuperOwner public {
-        investorList[_addr] = true;
-        emit TMTG_SetInvestor(_addr);
-    }
-    
-    function delInvestor(address _addr) onlySuperOwner public {
-        investorList[_addr] = false;
-        emit TMTG_DeleteInvestor(_addr);
-    }
-
     // event TMTG_Transfer(address indexed from, address indexed to, uint256 value);
     event TMTG_TransferFrom(address indexed owner, address indexed spender, address indexed to, uint256 value);
     // event TMTG_Approval(address indexed owner, address indexed spender, uint256 value);
@@ -543,7 +533,18 @@ contract TMTG is TMTGBaseToken {
     function setOpeningTime() onlyOwner public {
         openingTime = block.timestamp;
     }
+
+    function setInvestor(address _addr) onlySuperOwner public {
+        investorList[_addr] = true;
+        emit TMTG_SetInvestor(_addr);
+    }
     
+    function delInvestor(address _addr) onlySuperOwner public {
+        investorList[_addr] = false;
+        searchInvestor[_addr] = investor(0,0,0);
+        emit TMTG_DeleteInvestor(_addr);
+    }
+
     function approve(address _spender, uint256 _value) public whenNotPaused onlyNotBankOwner returns (bool) {
         require(!superInvestor[msg.sender]);
         return super.approve(_spender,_value);     
@@ -584,11 +585,8 @@ contract TMTG is TMTGBaseToken {
 
                 if(!investorList[_to]){
                     investorList[_to] = true;
-                    investor memory b = investor(0, _value, _value.div(10));
-                    searchInvestor[_to] = b;
+                    searchInvestor[_to] = investor(0, _value, _value.div(10));
                 }
-
-                return super.transfer(_to, _value);
             }
             return super.transfer(_to, _value);
         }
