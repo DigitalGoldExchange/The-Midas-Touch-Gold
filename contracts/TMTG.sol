@@ -556,10 +556,10 @@ contract TMTG is TMTGBaseToken {
         uint256 timeValue = presentTime.sub(openingTime);
         uint256 _result = timeValue.div(30 days);
         uint256 _newLimit = _result.mul(searchInvestor[who]._limit);
+        uint256 _addedValue = searchInvestor[who]._sentAmount.add(_value);
+        require(_newLimit >= _addedValue);
         
-        require(_newLimit >= searchInvestor[who]._sentAmount.add(_value));
-        
-        searchInvestor[who]._sentAmount = searchInvestor[who]._sentAmount.add(_value);
+        searchInvestor[who]._sentAmount = _addedValue;
     }
 
     function _transferInvetor(address _to, uint256 _value) internal returns (bool) {
