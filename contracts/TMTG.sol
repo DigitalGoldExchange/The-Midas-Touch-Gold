@@ -563,7 +563,7 @@ contract TMTG is TMTGBaseToken {
         //searchInvestor[who]._sentAmount = _addedValue;
     }
 
-    function _transferInvetor(address _to, uint256 _value) internal returns (bool ret) {
+    function _transferInvestor(address _to, uint256 _value) internal returns (bool ret) {
         uint256 addedValue = searchInvestor[msg.sender]._sentAmount.add(_value);
         require(_timelimitCal(msg.sender,_value) >= addedValue);
         searchInvestor[msg.sender]._sentAmount = searchInvestor[msg.sender]._sentAmount.sub(_value);
@@ -578,7 +578,7 @@ contract TMTG is TMTGBaseToken {
     returns (bool) {   
         
         if(investorList[msg.sender]) {
-            return _transferInvetor(_to, _value);
+            return _transferInvestor(_to, _value);
         
         } else {
             if (superInvestor[msg.sender]) {
