@@ -551,21 +551,26 @@ contract TMTG is TMTGBaseToken {
         return super.approve(_spender,_value);     
     }
 
-    function _timelimitCal(address who, uint256 _value) internal returns (bool) {
+    function _timelimitCal(address who, uint256 _value) internal returns (uint256) {
         uint256 presentTime = block.timestamp;
         uint256 timeValue = presentTime.sub(openingTime);
         uint256 _result = timeValue.div(30 days);
-        uint256 _newLimit = _result.mul(searchInvestor[who]._limit);
-        uint256 _addedValue = searchInvestor[who]._sentAmount.add(_value);
-        require(_newLimit >= _addedValue);
+        return _result.mul(searchInvestor[who]._limit);
+        // uint256 _newLimit = _result.mul(searchInvestor[who]._limit);
+        // uint256 _addedValue = searchInvestor[who]._sentAmount.add(_value);
+        // require(_newLimit >= _addedValue);
         
-        searchInvestor[who]._sentAmount = _addedValue;
+        //searchInvestor[who]._sentAmount = _addedValue;
     }
 
-    function _transferInvetor(address _to, uint256 _value) internal returns (bool) {
-        _timelimitCal(msg.sender, _value);
-        
-        return super.transfer(_to, _value);
+    function _transferInvetor(address _to, uint256 _value) internal returns (bool ret) {
+        uint256 addedValue = searchInvestor[msg.sender]._sentAmount.add(_value);
+        require(_timelimitCal(msg.sender,_value) >= addedValue);
+        searchInvestor[msg.sender]._sentAmount = searchInvestor[msg.sender]._sentAmount.sub(_value);
+        ret = super.transfer(_to, _value);
+        if (!ret) {
+            searchInvestor[msg.sender]._sentAmount = searchInvestor[msg.sender]._sentAmount.add(_value);
+        }
     }
 
     function transfer(address _to, uint256 _value) public
@@ -595,15 +600,20 @@ contract TMTG is TMTGBaseToken {
 
     function _transferFromInvestor(address _from, address _to, uint256 _value)
     public returns(bool ret) {
-        _timelimitCal(_from, _value);
-        return super.transferFrom(_from,_to,_value);
+        uint256 addedValue = searchInvestor[_from]._sentAmount.add(_value);
+        require(_timelimitCal(_from,_value) >= addedValue);
+        searchInvestor[_from]._sentAmount = searchInvestor[_from]._sentAmount.sub(_value);
+        ret = super.transferFrom(_from, _to, _value);
+        if (!ret) {
+            searchInvestor[_from]._sentAmount = searchInvestor[_from]._sentAmount.add(_value);
+        }
     }
 
     //trnasferFrom(2)
     function transferFrom(address _from, address _to, uint256 _value)
     public whenNotPaused whenPermitted(msg.sender) whenPermitted(_to) returns (bool ret)
     {   
-        if(investorList[_from]){
+        if(investorList[_from]) {
             return _transferFromInvestor(_from,_to, _value);
         } else {
             ret = super.transferFrom(_from, _to, _value);
