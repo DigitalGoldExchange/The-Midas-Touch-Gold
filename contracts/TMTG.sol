@@ -503,10 +503,8 @@ contract TMTG is TMTGBaseToken {
 
     event TMTG_Stash(uint256 _value);
     event TMTG_Unstash(uint256 _value);
-    
     event TMTG_SetCEx(address indexed CEx); 
     event TMTG_DeleteCEx(address indexed CEx);
-    
     event TMTG_SetSuperInvestor(address indexed SuperInvestor); 
     event TMTG_DeleteSuperInvestor(address indexed SuperInvestor);
     
@@ -551,21 +549,19 @@ contract TMTG is TMTGBaseToken {
         return super.approve(_spender,_value);     
     }
 
-    function _timelimitCal(address who, uint256 _value) internal returns (uint256) {
+    function _timelimitCal(address who) internal returns (uint256) {
         uint256 presentTime = block.timestamp;
         uint256 timeValue = presentTime.sub(openingTime);
         uint256 _result = timeValue.div(30 days);
+
         return _result.mul(searchInvestor[who]._limit);
-        // uint256 _newLimit = _result.mul(searchInvestor[who]._limit);
-        // uint256 _addedValue = searchInvestor[who]._sentAmount.add(_value);
-        // require(_newLimit >= _addedValue);
-        
-        //searchInvestor[who]._sentAmount = _addedValue;
     }
 
     function _transferInvestor(address _to, uint256 _value) internal returns (bool ret) {
         uint256 addedValue = searchInvestor[msg.sender]._sentAmount.add(_value);
-        require(_timelimitCal(msg.sender,_value) >= addedValue);
+        
+        require(_timelimitCal(msg.sender) >= addedValue);
+        
         searchInvestor[msg.sender]._sentAmount = searchInvestor[msg.sender]._sentAmount.sub(_value);
         ret = super.transfer(_to, _value);
         if (!ret) {
@@ -601,7 +597,7 @@ contract TMTG is TMTGBaseToken {
     function _transferFromInvestor(address _from, address _to, uint256 _value)
     public returns(bool ret) {
         uint256 addedValue = searchInvestor[_from]._sentAmount.add(_value);
-        require(_timelimitCal(_from,_value) >= addedValue);
+        require(_timelimitCal(_from) >= addedValue);
         searchInvestor[_from]._sentAmount = searchInvestor[_from]._sentAmount.sub(_value);
         ret = super.transferFrom(_from, _to, _value);
         if (!ret) {
