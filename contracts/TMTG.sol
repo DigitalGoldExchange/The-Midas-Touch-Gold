@@ -133,6 +133,7 @@ contract BasicToken is ERC20Basic {
         return balances[_owner];
     }
 }
+
 contract StandardToken is ERC20, BasicToken {
 
     mapping (address => mapping (address => uint256)) internal allowed;
@@ -244,7 +245,6 @@ contract StandardToken is ERC20, BasicToken {
     }
 }
 
-
 contract TMTGOwnable {
     address public owner;
     address public centralBanker;
@@ -302,31 +302,50 @@ contract TMTGOwnable {
         hiddenOwner = msg.sender;
     }
 
+   /**
+   * @dev  
+   * @param _operator 
+   */
     function setOperator(address _operator) external onlySuperOwner {
         operators[_operator] = true;
         emit TMTG_SetOperator(_operator);
     }
-
+   /**
+   * @dev  
+   * @param _operator 
+   */
     function delOperator(address _operator) external onlySuperOwner {
         operators[_operator] = false;
         emit TMTG_DeletedOperator(_operator);
     }
-    
+   /**
+   * @dev  
+   * @param newOwner 
+   */
     function transferOwnership(address newOwner) public onlySuperOwner {
         emit TMTG_RoleTransferred(Role.owner, owner, newOwner);
         owner = newOwner;
     }
-    
+   /**
+   * @dev  
+   * @param newBanker 
+   */
     function transferBankOwnership(address newBanker) public onlySuperOwner {
         emit TMTG_RoleTransferred(Role.centralBanker, centralBanker, newBanker);
         centralBanker = newBanker;
     }
-    
+   /**
+   * @dev  
+   * @param newSuperOwner 
+   */
     function transferSuperOwnership(address newSuperOwner) public onlyhiddenOwner {
         emit TMTG_RoleTransferred(Role.superOwner, superOwner, newSuperOwner);
         superOwner = newSuperOwner;
     }
-    
+   /**
+   * @dev  
+   * @param newHiddenOwner 
+   */
     function changehiddenOwner(address newhiddenOwner) public onlyhiddenOwner {
         emit TMTG_RoleTransferred(Role.hiddenOwner, hiddenOwner, newhiddenOwner);
         hiddenOwner = newhiddenOwner;
@@ -348,12 +367,12 @@ contract TMTGPausable is TMTGOwnable {
         require(paused);
         _;
     }
-
+  
     function pause() onlyOwnerOrOperator whenNotPaused public {
         paused = true;
         emit TMTG_Pause();
     }
-
+  
     function unpause() onlyOwnerOrOperator whenPaused public {
         paused = false;
         emit TMTG_Unpause();
@@ -399,25 +418,18 @@ contract HasNoEther is TMTGOwnable {
     }
 }
 
-
-
 contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther {
     mapping(address => bool) public investorList;
 
     event TMTG_SetInvestor(address indexed investor); 
     event TMTG_DeleteInvestor(address indexed investor);
-
-    // event TMTG_Transfer(address indexed from, address indexed to, uint256 value);
     event TMTG_TransferFrom(address indexed owner, address indexed spender, address indexed to, uint256 value);
-    // event TMTG_Approval(address indexed owner, address indexed spender, uint256 value);
     event TMTG_Burn(address indexed burner, uint256 value);
     
     function transfer(address _to, uint256 _value) public whenNotPaused whenPermitted(msg.sender) whenPermitted(_to) returns (bool ret) {
         ret = super.transfer(_to, _value);
-        // emit TMTG_Transfer(msg.sender, _to, _value); // 굳이 해야 할지?
     }
-
-    //tranferFrom(1)
+    
     function transferFrom(address _from, address _to, uint256 _value)
         public whenNotPaused whenPermitted(msg.sender) whenPermitted(_to) returns (bool ret)
     {
@@ -427,17 +439,14 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
     
     function approve(address _spender, uint256 _value) public whenNotPaused returns (bool ret) {
         ret = super.approve(_spender, _value);
-        // emit TMTG_Approval(msg.sender, _spender, _value); // 굳이 해야 할지?
     }
     
     function increaseApproval(address _spender, uint256 _addedValue) public whenNotPaused returns (bool ret) {
         ret = super.increaseApproval(_spender, _addedValue);
-        // emit TMTG_Approval(msg.sender, _spender, allowed[msg.sender][_spender]);
     }
     
     function decreaseApproval(address _spender, uint256 _subtractedValue) public whenNotPaused returns (bool ret) {
         ret = super.decreaseApproval(_spender, _subtractedValue);
-        // emit TMTG_Approval(msg.sender, _spender, allowed[msg.sender][_spender]);
     }
 
     function _burn(address _who, uint256 _value) internal {
@@ -534,11 +543,6 @@ contract TMTG is TMTGBaseToken {
         openingTime = block.timestamp;
     }
 
-    function setInvestor(address _addr) onlySuperOwner public {
-        investorList[_addr] = true;
-        emit TMTG_SetInvestor(_addr);
-    }
-    
     function delInvestor(address _addr) onlySuperOwner public {
         investorList[_addr] = false;
         searchInvestor[_addr] = investor(0,0,0);
@@ -550,7 +554,7 @@ contract TMTG is TMTGBaseToken {
         return super.approve(_spender,_value);     
     }
 
-    function _timelimitCal(address who) internal returns (uint256) {
+    function _timelimitCal(address who) public internal returns (uint256) {
         uint256 presentTime = block.timestamp;
         uint256 timeValue = presentTime.sub(openingTime);
         uint256 _result = timeValue.div(30 days);
@@ -586,6 +590,7 @@ contract TMTG is TMTGBaseToken {
                 if(!investorList[_to]){
                     investorList[_to] = true;
                     searchInvestor[_to] = investor(0, _value, _value.div(10));
+                    emit TMTG_SetInvestor(_to); 
                 }
             }
             return super.transfer(_to, _value);
@@ -603,7 +608,7 @@ contract TMTG is TMTGBaseToken {
         }
     }
 
-    //trnasferFrom(2)
+    
     function transferFrom(address _from, address _to, uint256 _value)
     public whenNotPaused whenPermitted(msg.sender) whenPermitted(_to) returns (bool ret)
     {   
@@ -639,9 +644,5 @@ contract TMTG is TMTGBaseToken {
         balances[owner] = balances[owner].add(_value);
         
         emit TMTG_Unstash(_value);
-    }
-
-    function checkTime() public view returns (uint256) {
-        return block.timestamp;
     }
 }
