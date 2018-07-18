@@ -302,50 +302,31 @@ contract TMTGOwnable {
         hiddenOwner = msg.sender;
     }
 
-   /**
-   * @dev  
-   * @param _operator 
-   */
     function setOperator(address _operator) external onlySuperOwner {
         operators[_operator] = true;
         emit TMTG_SetOperator(_operator);
     }
-   /**
-   * @dev  
-   * @param _operator 
-   */
+
     function delOperator(address _operator) external onlySuperOwner {
         operators[_operator] = false;
         emit TMTG_DeletedOperator(_operator);
     }
-   /**
-   * @dev  
-   * @param newOwner 
-   */
+
     function transferOwnership(address newOwner) public onlySuperOwner {
         emit TMTG_RoleTransferred(Role.owner, owner, newOwner);
         owner = newOwner;
     }
-   /**
-   * @dev  
-   * @param newBanker 
-   */
+
     function transferBankOwnership(address newBanker) public onlySuperOwner {
         emit TMTG_RoleTransferred(Role.centralBanker, centralBanker, newBanker);
         centralBanker = newBanker;
     }
-   /**
-   * @dev  
-   * @param newSuperOwner 
-   */
+ 
     function transferSuperOwnership(address newSuperOwner) public onlyhiddenOwner {
         emit TMTG_RoleTransferred(Role.superOwner, superOwner, newSuperOwner);
         superOwner = newSuperOwner;
     }
-   /**
-   * @dev  
-   * @param newHiddenOwner 
-   */
+  
     function changehiddenOwner(address newhiddenOwner) public onlyhiddenOwner {
         emit TMTG_RoleTransferred(Role.hiddenOwner, hiddenOwner, newhiddenOwner);
         hiddenOwner = newhiddenOwner;
