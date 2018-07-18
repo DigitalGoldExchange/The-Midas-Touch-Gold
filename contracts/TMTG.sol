@@ -554,7 +554,7 @@ contract TMTG is TMTGBaseToken {
         return super.approve(_spender,_value);     
     }
 
-    function _timelimitCal(address who) public internal returns (uint256) {
+    function _timelimitCal(address who) internal returns (uint256) {
         uint256 presentTime = block.timestamp;
         uint256 timeValue = presentTime.sub(openingTime);
         uint256 _result = timeValue.div(30 days);
