@@ -562,6 +562,7 @@ contract TMTG is TMTGBaseToken {
             return _transferFromInvestor(_from,_to, _value);
         } else {
             ret = super.transferFrom(_from, _to, _value);
+            emit TMTG_TransferFrom(_from, msg.sender, _to, _value);
         }
     }
 
