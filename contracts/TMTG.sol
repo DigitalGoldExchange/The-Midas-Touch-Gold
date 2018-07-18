@@ -400,10 +400,7 @@ contract HasNoEther is TMTGOwnable {
 }
 
 contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther {
-    mapping(address => bool) public investorList;
-
-    event TMTG_SetInvestor(address indexed investor); 
-    event TMTG_DeleteInvestor(address indexed investor);
+    
     event TMTG_TransferFrom(address indexed owner, address indexed spender, address indexed to, uint256 value);
     event TMTG_Burn(address indexed burner, uint256 value);
     
@@ -480,7 +477,10 @@ contract TMTG is TMTGBaseToken {
     mapping(address => investor) public searchInvestor;
     mapping(address => bool) public superInvestor;
     mapping(address => bool) public CEx;
+    mapping(address => bool) public investorList;
 
+    event TMTG_SetInvestor(address indexed investor); 
+    event TMTG_DeleteInvestor(address indexed investor);
     event TMTG_Stash(uint256 _value);
     event TMTG_Unstash(uint256 _value);
     event TMTG_SetCEx(address indexed CEx); 
