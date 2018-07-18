@@ -41,7 +41,7 @@ can only transact with owner
 have the ability to unstash 
 ```
 
-admin
+operator
 
 ```
 have the ability to pause transaction
