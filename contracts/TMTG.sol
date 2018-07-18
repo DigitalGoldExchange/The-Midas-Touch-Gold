@@ -436,7 +436,7 @@ contract TMTGBlacklist is TMTGOwnable {
 }
 
 /**
- * @title TMTGBlacklist
+ * @title HasNoEther
  *
  * @dev 이상 징후가 있는 계정의 주소에 대해 거래를 할 수 없게 막는다.
  */
