@@ -7,32 +7,6 @@ contract ERC20Basic {
     function transfer(address to, uint256 value) public returns (bool);
     event Transfer(address indexed from, address indexed to, uint256 value);
 }
-/**
- * @title SafeERC20
- * @dev Wrappers around ERC20 operations that throw on failure.
- * To use this library you can add a `using SafeERC20 for ERC20;` statement to your contract,
- * which allows you to call the safe operations as `token.safeTransfer(...)`, etc.
- */
-library SafeERC20 {
-    function safeTransfer(ERC20Basic token, address to, uint256 value) internal {
-        require(token.transfer(to, value));
-    }
-
-    function safeTransferFrom(
-        ERC20 token,
-        address from,
-        address to,
-        uint256 value
-    )
-    internal
-    {
-        require(token.transferFrom(from, to, value));
-    }
-
-    function safeApprove(ERC20 token, address spender, uint256 value) internal {
-        require(token.approve(spender, value));
-    }
-}
 
 library SafeMath {
 
@@ -404,17 +378,6 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
     event TMTG_TransferFrom(address indexed owner, address indexed spender, address indexed to, uint256 value);
     event TMTG_Burn(address indexed burner, uint256 value);
     
-    function transfer(address _to, uint256 _value) public whenNotPaused whenPermitted(msg.sender) whenPermitted(_to) returns (bool ret) {
-        ret = super.transfer(_to, _value);
-    }
-    
-    function transferFrom(address _from, address _to, uint256 _value)
-        public whenNotPaused whenPermitted(msg.sender) whenPermitted(_to) returns (bool ret)
-    {
-        ret = super.transferFrom(_from, _to, _value);
-        emit TMTG_TransferFrom(_from, msg.sender, _to, _value);
-    }
-    
     function approve(address _spender, uint256 _value) public whenNotPaused returns (bool ret) {
         ret = super.approve(_spender, _value);
     }
@@ -584,12 +547,14 @@ contract TMTG is TMTGBaseToken {
         require(_timelimitCal(_from) >= addedValue);
         searchInvestor[_from]._sentAmount = searchInvestor[_from]._sentAmount.sub(_value);
         ret = super.transferFrom(_from, _to, _value);
+
         if (!ret) {
             searchInvestor[_from]._sentAmount = searchInvestor[_from]._sentAmount.add(_value);
+        }else {
+            emit TMTG_TransferFrom(_from, msg.sender, _to, _value);
         }
     }
 
-    
     function transferFrom(address _from, address _to, uint256 _value)
     public whenNotPaused whenPermitted(msg.sender) whenPermitted(_to) returns (bool ret)
     {   
