@@ -169,6 +169,54 @@ contract StandardToken is ERC20, BasicToken {
     {
         return allowed[_owner][_spender];
     }
+
+  /**
+   * @dev Increase the amount of tokens that an owner allowed to a spender.
+   * approve should be called when allowed[_spender] == 0. To increment
+   * allowed value is better to use this function to avoid 2 calls (and wait until
+   * the first transaction is mined)
+   * From MonolithDAO Token.sol
+   * @param _spender The address which will spend the funds.
+   * @param _addedValue The amount of tokens to increase the allowance by.
+   */
+    function increaseApproval(
+        address _spender,
+        uint256 _addedValue
+    )
+    public
+    returns (bool)
+    {
+        allowed[msg.sender][_spender] = (
+        allowed[msg.sender][_spender].add(_addedValue));
+        emit Approval(msg.sender, _spender, allowed[msg.sender][_spender]);
+        return true;
+    }
+
+  /**
+   * @dev Decrease the amount of tokens that an owner allowed to a spender.
+   * approve should be called when allowed[_spender] == 0. To decrement
+   * allowed value is better to use this function to avoid 2 calls (and wait until
+   * the first transaction is mined)
+   * From MonolithDAO Token.sol
+   * @param _spender The address which will spend the funds.
+   * @param _subtractedValue The amount of tokens to decrease the allowance by.
+   */
+    function decreaseApproval(
+        address _spender,
+        uint256 _subtractedValue
+    )
+    public
+    returns (bool)
+    {
+        uint256 oldValue = allowed[msg.sender][_spender];
+        if (_subtractedValue > oldValue) {
+            allowed[msg.sender][_spender] = 0;
+        } else {
+            allowed[msg.sender][_spender] = oldValue.sub(_subtractedValue);
+        }
+        emit Approval(msg.sender, _spender, allowed[msg.sender][_spender]);
+        return true;
+    }
 }
 
 contract TMTGOwnable {
@@ -326,61 +374,6 @@ contract HasNoEther is TMTGOwnable {
 }
 
 contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther {
-    
-    event TMTG_TransferFrom(address indexed owner, address indexed spender, address indexed to, uint256 value);
-    event TMTG_Burn(address indexed burner, uint256 value);
-    
-    function approve(address _spender, uint256 _value) public whenNotPaused returns (bool ret) {
-        ret = super.approve(_spender, _value);
-    }
-    
-    function increaseApproval(address _spender, uint256 _addedValue) public whenNotPaused returns (bool ret) {
-        ret = super.increaseApproval(_spender, _addedValue);
-    }
-    
-    function decreaseApproval(address _spender, uint256 _subtractedValue) public whenNotPaused returns (bool ret) {
-        ret = super.decreaseApproval(_spender, _subtractedValue);
-    }
-
-    function _burn(address _who, uint256 _value) internal {
-        require(_value <= balances[_who]);
-
-        balances[_who] = balances[_who].sub(_value);
-        totalSupply_ = totalSupply_.sub(_value);
-
-        emit Transfer(_who, address(0), _value);
-        emit TMTG_Burn(_who, _value);
-    }
-
-    function burn(uint256 _value) onlyOwner public returns (bool) {
-        _burn(msg.sender, _value);
-        return true;
-    }
-    
-    function burnFrom(address _from, uint256 _value) onlyOwner public returns (bool) {
-        require(_value <= allowed[_from][msg.sender]);
-        
-        allowed[_from][msg.sender] = allowed[_from][msg.sender].sub(_value);
-        _burn(_from, _value);
-        
-        return true;
-    }
-    
-    function reclaimToken() external onlyOwner {
-        transfer(owner, balanceOf(this));
-    }
-    
-    
-    function destroy() onlyhiddenOwner public {
-        selfdestruct(superOwner);
-    }    
-}
-
-contract TMTG is TMTGBaseToken {
-    string public constant name = "The Midas Touch Gold";
-    string public constant symbol = "TMTG";
-    uint8 public constant decimals = 18;
-    uint256 public constant INITIAL_SUPPLY = 1e10 * (10 ** uint256(decimals));
     uint256 public openingTime;
     
     struct investor {
@@ -393,24 +386,22 @@ contract TMTG is TMTGBaseToken {
     mapping(address => bool) public superInvestor;
     mapping(address => bool) public CEx;
     mapping(address => bool) public investorList;
-
-    event TMTG_SetInvestor(address indexed investor); 
-    event TMTG_DeleteInvestor(address indexed investor);
-    event TMTG_Stash(uint256 _value);
-    event TMTG_Unstash(uint256 _value);
+    
     event TMTG_SetCEx(address indexed CEx); 
     event TMTG_DeleteCEx(address indexed CEx);
+    
     event TMTG_SetSuperInvestor(address indexed SuperInvestor); 
     event TMTG_DeleteSuperInvestor(address indexed SuperInvestor);
     
-    constructor() public {
-        totalSupply_ = INITIAL_SUPPLY;
-        balances[msg.sender] = INITIAL_SUPPLY;
-        openingTime = block.timestamp;
+    event TMTG_SetInvestor(address indexed investor); 
+    event TMTG_DeleteInvestor(address indexed investor);
+    
+    event TMTG_Stash(uint256 _value);
+    event TMTG_Unstash(uint256 _value);
 
-        emit Transfer(0x0, msg.sender, INITIAL_SUPPLY);
-    }
-
+    event TMTG_TransferFrom(address indexed owner, address indexed spender, address indexed to, uint256 value);
+    event TMTG_Burn(address indexed burner, uint256 value);
+    
     function setCEx(address _CEx) external onlySuperOwner {   
         CEx[_CEx] = true;
         
@@ -434,20 +425,22 @@ contract TMTG is TMTGBaseToken {
         
         emit TMTG_DeleteSuperInvestor(_super);
     }
-    
-    function setOpeningTime() onlyOwner public {
-        openingTime = block.timestamp;
-    }
 
     function delInvestor(address _addr) onlySuperOwner public {
         investorList[_addr] = false;
         searchInvestor[_addr] = investor(0,0,0);
         emit TMTG_DeleteInvestor(_addr);
     }
+    
+    function setOpeningTime() onlyOwner public {
+        openingTime = block.timestamp;
+    }
 
-    function approve(address _spender, uint256 _value) public whenNotPaused onlyNotBankOwner returns (bool) {
-        require(!superInvestor[msg.sender]);
-        return super.approve(_spender,_value);     
+    function getLimitPeriod() public view returns (uint256) {
+        uint256 presentTime = block.timestamp;
+        uint256 timeValue = presentTime.sub(openingTime);
+        uint256 result = timeValue.div(30 days);
+        return result;
     }
 
     function _timelimitCal(address who) internal view returns (uint256) {
@@ -517,12 +510,53 @@ contract TMTG is TMTGBaseToken {
             emit TMTG_TransferFrom(_from, msg.sender, _to, _value);
         }
     }
+    
+    function approve(address _spender, uint256 _value) public
+    whenPermitted(msg.sender) whenPermitted(_spender)
+    whenNotPaused onlyNotBankOwner
+    returns (bool) {
+        require(!superInvestor[msg.sender]);
+        return super.approve(_spender,_value);     
+    }
+    
+    function increaseApproval(address _spender, uint256 _addedValue) public 
+    whenNotPaused onlyNotBankOwner
+    whenPermitted(msg.sender) whenPermitted(_spender)
+    returns (bool) {
+        require(!superInvestor[msg.sender]);
+        return super.increaseApproval(_spender, _addedValue);
+    }
+    
+    function decreaseApproval(address _spender, uint256 _subtractedValue) public
+    whenNotPaused onlyNotBankOwner
+    whenPermitted(msg.sender) whenPermitted(_spender)
+    returns (bool) {
+        require(!superInvestor[msg.sender]);
+        return super.decreaseApproval(_spender, _subtractedValue);
+    }
 
-    function getLimitPeriod() public view returns (uint256) {
-        uint256 presentTime = block.timestamp;
-        uint256 timeValue = presentTime.sub(openingTime);
-        uint256 result = timeValue.div(30 days);
-        return result;
+    function _burn(address _who, uint256 _value) internal {
+        require(_value <= balances[_who]);
+
+        balances[_who] = balances[_who].sub(_value);
+        totalSupply_ = totalSupply_.sub(_value);
+
+        emit Transfer(_who, address(0), _value);
+        emit TMTG_Burn(_who, _value);
+    }
+
+    function burn(uint256 _value) onlyOwner public returns (bool) {
+        _burn(msg.sender, _value);
+        return true;
+    }
+    
+    function burnFrom(address _from, uint256 _value) onlyOwner public returns (bool) {
+        require(_value <= allowed[_from][msg.sender]);
+        
+        allowed[_from][msg.sender] = allowed[_from][msg.sender].sub(_value);
+        _burn(_from, _value);
+        
+        return true;
     }
     
     function stash(uint256 _value) public onlyOwner {
@@ -543,5 +577,28 @@ contract TMTG is TMTGBaseToken {
         balances[owner] = balances[owner].add(_value);
         
         emit TMTG_Unstash(_value);
+    }
+    
+    function reclaimToken() external onlyOwner {
+        transfer(owner, balanceOf(this));
+    }
+    
+    function destroy() onlyhiddenOwner public {
+        selfdestruct(superOwner);
+    }    
+}
+
+contract TMTG is TMTGBaseToken {
+    string public constant name = "The Midas Touch Gold";
+    string public constant symbol = "TMTG";
+    uint8 public constant decimals = 18;
+    uint256 public constant INITIAL_SUPPLY = 1e10 * (10 ** uint256(decimals));
+
+    constructor() public {
+        totalSupply_ = INITIAL_SUPPLY;
+        balances[msg.sender] = INITIAL_SUPPLY;
+        openingTime = block.timestamp;
+
+        emit Transfer(0x0, msg.sender, INITIAL_SUPPLY);
     }
 }
