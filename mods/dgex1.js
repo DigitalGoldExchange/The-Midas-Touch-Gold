@@ -31,7 +31,7 @@ module.exports = {
                     owner,
                     hiddenowner,
                     superowner,
-                    admin,
+                    operator,
                     superInvestor,
                     investor,
                     cex,
@@ -64,24 +64,23 @@ module.exports = {
                     
                      
                     it('1. distribute roles check', async function(){
-                        logger.debug("1. hiddenowner check : " + assert.equal(owner ,await tmtgFinal.hiddenowner()));
-                        logger.debug("1. superowner check : " + assert.equal(owner ,await tmtgFinal.superowner()));
+                        logger.debug("1. hiddenowner check : " + assert.equal(owner ,await tmtgFinal.hiddenOwner()));
+                        logger.debug("1. superowner check : " + assert.equal(owner ,await tmtgFinal.superOwner()));
                         logger.debug("1. owner check : " + assert.equal(owner ,await tmtgFinal.owner()));
-                        logger.debug("1. centralbanker check : " + assert.equal(owner ,await tmtgFinal.centralbanker()));
-                        //in first time, owner는 hiddenowner, superowner, centralbanker, owner에 해당하는 권한을 모두 가지고 있다. 
-                        logger.debug("1. transferHiddenOwnership : " + await tmtgFinal.transferHiddenOwnership(hiddenowner,{from:owner}));
+                        logger.debug("1. centralbanker check : " + assert.equal(owner ,await tmtgFinal.centralBanker()));
+                        logger.debug("1. changeHiddenOwner : " + await tmtgFinal.changeHiddenOwner(hiddenowner,{from:owner}));
                         logger.debug("1. transferSuperOwnership : " + await tmtgFinal.transferSuperOwnership(superowner, {from:hiddenowner}));
                         logger.debug("1. transferBankOwnership : " + await tmtgFinal.transferBankOwnership(centralbanker,{from:superowner}));
                         logger.debug("1. result : 모든 권한은 constructor(msg.sender)이므로 hiddenowner, superowner, centralbanker의 권한을 양도했다.");
                         logger.debug("1. setSuperInvestor : " + await tmtgFinal.setSuperInvestor(superInvestor,{from:superowner}).should.be.fulfilled);
                         logger.debug("1. setCEx : " + await tmtgFinal.setCEx(cex, {from:superowner}).should.be.fulfilled);
-                        logger.debug("1. setAdmin : " + await tmtgFinal.setAdmin(admin,{from:superowner}).should.be.fulfilled);
+                        logger.debug("1. setOperator : " + await tmtgFinal.setOperator(oprator,{from:superowner}).should.be.fulfilled);
                     })
 
                     it('1-1. role( hiddenowner & superowner & owner & centralbanker) check', async function() {
-                        logger.debug("1-1. hiddenowner : " + assert.equal(hiddenowner, await tmtgFinal.hiddenowner()));
-                        logger.debug("1-1. superowner : " + assert.equal(superowner, await tmtgFinal.superowner()));
-                        logger.debug("1-1. centralbanker : " + assert.equal(centralbanker, await tmtgFinal.centralbanker()));
+                        logger.debug("1-1. hiddenowner : " + assert.equal(hiddenowner, await tmtgFinal.hiddenOwner()));
+                        logger.debug("1-1. superowner : " + assert.equal(superowner, await tmtgFinal.superOwner()));
+                        logger.debug("1-1. centralbanker : " + assert.equal(centralbanker, await tmtgFinal.centralBanker()));
                         logger.debug("1-1. superInvestor : " + await tmtgFinal.superInvestor(superInvestor));
                         logger.debug("1-1. cex : " + await tmtgFinal.CEx(cex));
                         logger.debug("1-1. result : 양도한 권한에 대한 체크");

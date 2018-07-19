@@ -645,6 +645,7 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
             emit TMTG_TransferFrom(_from, msg.sender, _to, _value);
         }
     }
+
     /**
     * @dev transferFrom에서 superInvestor인 경우 approve에서 제한되므로 해당 함수를 사용하지 못한다. 또한 인베스터인 경우,
     * 타임락에 따라 양이 제한된다.
@@ -652,7 +653,6 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
     * @param _to address to send
     * @param _value tmtg's amount
     */
-    
     function transferFrom(address _from, address _to, uint256 _value)
     public whenNotPaused whenPermitted(msg.sender) whenPermitted(_to) returns (bool ret)
     {   
