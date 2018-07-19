@@ -53,7 +53,7 @@ module.exports = {
                 
                     it('0. name check', async function(){
                         var name = "The Midas Touch Gold";
-                        logger.debug("0. name : " + assert.equal(name, await tmtgFinal.name()));  
+                        logger.debug("0. name : " + assert.equal(name, await tmtgFinal.name()));
                     })
                     it('1. superInvestor check', async function(){
                         assert.equal(owner, await tmtgFinal.owner());

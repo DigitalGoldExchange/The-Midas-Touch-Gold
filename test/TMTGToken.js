@@ -35,7 +35,7 @@ const dgex = require('../mods/dgex1.js')
 
 dgex.core.init(Engine)
 dgex.core.components(
-    artifacts.require('../contracts/TMTG.sol')
+    artifacts.require('../contracts/tmtg.sol')
 )
 /**
  * 3. Choose any file from the sub folder
