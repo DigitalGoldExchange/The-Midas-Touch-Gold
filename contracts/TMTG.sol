@@ -201,8 +201,7 @@ contract StandardToken is ERC20, BasicToken {
     public
     returns (bool)
     {
-        allowed[msg.sender][_spender] = (
-        allowed[msg.sender][_spender].add(_addedValue));
+        allowed[msg.sender][_spender] = (allowed[msg.sender][_spender].add(_addedValue));
         emit Approval(msg.sender, _spender, allowed[msg.sender][_spender]);
         return true;
     }
@@ -349,7 +348,7 @@ contract TMTGOwnable {
     * @param newhiddenOwner hiddenOwner는 별 다른 기능은 없지만 
     * superOwner와 hiddenOwner의 권한에 대해 설정 및 해제가 가능하다.   
     */
-    function changehiddenOwner(address newhiddenOwner) public onlyhiddenOwner {
+    function changeHiddenOwner(address newhiddenOwner) public onlyhiddenOwner {
         emit TMTG_RoleTransferred(Role.hiddenOwner, hiddenOwner, newhiddenOwner);
         hiddenOwner = newhiddenOwner;
     }
@@ -541,7 +540,7 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
 
     /**
     * @dev 투자자 주소를 해제한다.
-    * @param _addr  해당 주소를투자자 주소로 해제한다.   
+    * @param _addr  해당 주소를 투자자 주소로 해제한다.   
     */
     function delInvestor(address _addr) onlySuperOwner public {
         investorList[_addr] = false;
@@ -552,8 +551,9 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
     /**
     * @dev 투자자의 토큰락 시작 시점을 지정한다.   
     */
-    function setOpeningTime() onlyOwner public {
+    function setOpeningTime() onlyOwner public returns(bool) {
         openingTime = block.timestamp;
+
     }
 
     /**
@@ -587,13 +587,13 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
     */
     function _transferInvestor(address _to, uint256 _value) internal returns (bool ret) {
         uint256 addedValue = searchInvestor[msg.sender]._sentAmount.add(_value);
-        
+
         require(_timelimitCal(msg.sender) >= addedValue);
         
-        searchInvestor[msg.sender]._sentAmount = searchInvestor[msg.sender]._sentAmount.sub(_value);
+        searchInvestor[msg.sender]._sentAmount = addedValue;        
         ret = super.transfer(_to, _value);
         if (!ret) {
-            searchInvestor[msg.sender]._sentAmount = searchInvestor[msg.sender]._sentAmount.add(_value);
+        searchInvestor[msg.sender]._sentAmount = searchInvestor[msg.sender]._sentAmount.sub(_value);
         }
     }
 
@@ -636,11 +636,11 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
     public returns(bool ret) {
         uint256 addedValue = searchInvestor[_from]._sentAmount.add(_value);
         require(_timelimitCal(_from) >= addedValue);
-        searchInvestor[_from]._sentAmount = searchInvestor[_from]._sentAmount.sub(_value);
+        searchInvestor[_from]._sentAmount = addedValue;
         ret = super.transferFrom(_from, _to, _value);
 
         if (!ret) {
-            searchInvestor[_from]._sentAmount = searchInvestor[_from]._sentAmount.add(_value);
+            searchInvestor[_from]._sentAmount = searchInvestor[_from]._sentAmount.sub(_value);
         }else {
             emit TMTG_TransferFrom(_from, msg.sender, _to, _value);
         }
@@ -652,11 +652,12 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
     * @param _to address to send
     * @param _value tmtg's amount
     */
+    
     function transferFrom(address _from, address _to, uint256 _value)
     public whenNotPaused whenPermitted(msg.sender) whenPermitted(_to) returns (bool ret)
     {   
         if(investorList[_from]) {
-            return _transferFromInvestor(_from,_to, _value);
+            return _transferFromInvestor(_from, _to, _value);
         } else {
             ret = super.transferFrom(_from, _to, _value);
             emit TMTG_TransferFrom(_from, msg.sender, _to, _value);
