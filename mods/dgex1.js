@@ -239,7 +239,7 @@ module.exports = {
 
                 describe("10. SCENARIO'S CHECK", () => {
                     describe("10-1. timelock test", () => {
-                        it("[result] : 1달 지급하는 도중에 delInvestor 이후, 다시 superInvestor에게 금액을 받는 경우. (이슈)다시 설정하는 값을 넣을 것인가? delInvestor이후 superInvestor에게 금액을 받기전까지 기존의 가지고있던 investor의 값은 자유로이 이용이 가능하다.", async function() {
+                        it("[result] : 1달 지급하는 도중에 delInvestor 이후, 다시 superInvestor에게 금액을 받는 경우. (이슈)다시 설정하는 값을 넣을 것인가? delInvestor이후 superInvestor에게 금액을 받기전까지 기존에 가지고있던 investor의 값은 자유로이 이용이 가능하다.", async function() {
                             let monthInSeconds = 2.678e+6;
                             let amt = new BigNumber(1e+25);
                             let amt2 = new BigNumber(5e+24);
