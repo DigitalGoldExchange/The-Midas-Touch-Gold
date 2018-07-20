@@ -746,10 +746,7 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
     /**
     * @dev When investors buy additional coins in Exchange, the amount will require tockenlock for 10 months. 
       In this case, it is possible to move the amount in the presence of owner. 
-    * @param _investor 
-    * @param _to 
-    * @param _amount 
-    */
+   */
     function refreshInvestor(address _investor, address _to, uint _amount) onlyOwner public  {
        require(investorList[_investor]);
        require(_to != address(0));
