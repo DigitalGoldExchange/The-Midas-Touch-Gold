@@ -236,8 +236,9 @@ contract StandardToken is ERC20, BasicToken {
 /**
  * @title TMTGOwnable
  *
- * @dev zeppelin의 ownable의 변형으로 TMTGOwnable에서 권한은 hiddenOwner, superOwner, owner, centralBanker, operator가 있습니다.
- * 각 권한마다 역할이 다릅니다.
+ * @dev Due to ownable change in zeppelin, the authorities in TMTGOwnable include hiddenOwner,
+ *      superOwner, owner, centerBanker, and operator. 
+ *      Each authority has different roles.
  */
 contract TMTGOwnable {
     address public owner;
@@ -297,7 +298,7 @@ contract TMTGOwnable {
     }
 
     /**
-    * @dev 해당 주소를 operator로 설정한다.
+    * @dev Set the address to operator
     * @param _operator has the ability to pause transaction, has the ability to blacklisting & unblacklisting. 
     */
     function setOperator(address _operator) external onlySuperOwner {
@@ -306,7 +307,7 @@ contract TMTGOwnable {
     }
 
     /**
-    * @dev 해당 주소를 operator에서 해제한다.
+    * @dev Remove the address from operator
     * @param _operator has the ability to pause transaction, has the ability to blacklisting & unblacklisting. 
     */
     function delOperator(address _operator) external onlySuperOwner {
@@ -315,7 +316,7 @@ contract TMTGOwnable {
     }
 
     /**
-    * @dev owner의 권한을 넘겨 줄 수 있다. 단, superowner만 실행할 수 있다.
+    * @dev It is possible to hand over owner’s authority. Only superowner is available.
     * @param newOwner  
     */
     function transferOwnership(address newOwner) public onlySuperOwner {
@@ -324,10 +325,10 @@ contract TMTGOwnable {
     }
 
     /**
-    * @dev centralBanker의 권한을 넘겨 줄 수 있다. 단, superOwner만 실행할 수 있다.
-    * @param newBanker centralBanker는 일종의 중앙은행으로 거래가 불가능하다. 
-    * 지급 준비율과 통화량에 따라 묶여있는 금액이 결정되어진다.
-    * 돈을 꺼내기 위해서는 감사를 거쳐서 owner쪽으로 인출이 가능하다. 
+    * @dev It is possible to hand over centerBanker’s authority. Only superowner is available.
+    * @param newBanker centerBanker is a kind of a central bank, transaction is impossible.
+    * The amount of money to deposit is determined in accordance with cash reserve ratio and the amount of currency in circulation
+    * To withdraw money out of a wallet and give it to owner, audit is inevitable 
     */
     function transferBankOwnership(address newBanker) public onlySuperOwner {
         emit TMTG_RoleTransferred(Role.centralBanker, centralBanker, newBanker);
@@ -335,8 +336,8 @@ contract TMTGOwnable {
     }
 
     /**
-    * @dev superOwner의 권한을 넘겨 줄 수 있다. 단, hiddenOwner만 실행 할 수 있다.
-    * @param newSuperOwner  superOwner는 hiddenOwner와 superOwner를 제외한 모든 권한 여부를 관리한다.
+    * @dev It is possible to hand over superOwner’s authority. Only hiddenowner is available.  
+    * @param newSuperOwner  SuperOwner manages all authorities except for hiddenOwner and superOwner
     */
     function transferSuperOwnership(address newSuperOwner) public onlyhiddenOwner {
         emit TMTG_RoleTransferred(Role.superOwner, superOwner, newSuperOwner);
@@ -344,9 +345,9 @@ contract TMTGOwnable {
     }
     
     /**
-    * @dev hiddenOwner의 권한 을 넘겨 줄 수 있다. 단, hiddenOwner만 실행 할 수 있다.
-    * @param newhiddenOwner hiddenOwner는 별 다른 기능은 없지만 
-    * superOwner와 hiddenOwner의 권한에 대해 설정 및 해제가 가능하다.   
+    * @dev It is possible to hand over hiddenOwner’s authority. Only hiddenowner is available
+    * @param newhiddenOwner NewhiddenOwner and hiddenOwner don’t have many functions, 
+    * but they can set and remove authorities of superOwner and hiddenOwner.
     */
     function changeHiddenOwner(address newhiddenOwner) public onlyhiddenOwner {
         emit TMTG_RoleTransferred(Role.hiddenOwner, hiddenOwner, newhiddenOwner);
@@ -357,7 +358,7 @@ contract TMTGOwnable {
 /**
  * @title TMTGPausable
  *
- * @dev 긴급한 상황에서 거래를 중지시킬때 사용한다.
+ * @dev It is used to stop trading in emergency situation
  */
 contract TMTGPausable is TMTGOwnable {
     event TMTG_Pause();
@@ -375,7 +376,7 @@ contract TMTGPausable is TMTGOwnable {
         _;
     }
     /**
-    * @dev 거래를 할 수 없게 막는다. 단, owner 또는 operator만 실행 할 수 있다.
+    * @dev Block trading. Only owner and operator are available.
     */
     function pause() onlyOwnerOrOperator whenNotPaused public {
         paused = true;
@@ -383,7 +384,7 @@ contract TMTGPausable is TMTGOwnable {
     }
   
     /**
-    * @dev 거래를 할 수 있게 풀어준다. 단, owner 또는 operator만 실행 할 수 있으며 paused 상태일 때만 이용이 가능하다.
+    * @dev Unlock limit for trading. Owner and operator are available and this function can be operated in paused mode.
     */
     function unpause() onlyOwnerOrOperator whenPaused public {
         paused = false;
@@ -394,7 +395,7 @@ contract TMTGPausable is TMTGOwnable {
 /**
  * @title TMTGBlacklist
  *
- * @dev 이상 징후가 있는 계정의 주소에 대해 거래를 할 수 없게 막는다.
+ * @dev Block trading of the suspicious account address.
  */
 contract TMTGBlacklist is TMTGOwnable {
     mapping(address => bool) blacklisted;
@@ -408,16 +409,16 @@ contract TMTGBlacklist is TMTGOwnable {
     }
     
     /**
-    * @dev 블랙리스팅 여부를 확인한다.
-    * @param node  해당 사용자가 블랙리스트에 등록되었는가에 대한 유무를  확인한다.   
+    * @dev Check a certain node is in a blacklist
+    * @param node  Check whether the user at a certain node is in a blacklist
     */
     function isPermitted(address node) public view returns (bool) {
         return !blacklisted[node];
     }
 
     /**
-    * @dev 블랙리스팅 처리한다.
-    * @param node  해당 사용자를 블랙리스트에 등록한다.   
+    * @dev Process blacklisting
+    * @param node Process blacklisting. Put the user in the blacklist.   
     */
     function blacklist(address node) public onlyOwnerOrOperator {
         blacklisted[node] = true;
@@ -425,8 +426,8 @@ contract TMTGBlacklist is TMTGOwnable {
     }
 
     /**
-    * @dev 블랙리스트에서 해제한다.
-    * @param node  해당 사용자를 블랙리스트에서 제거한다.   
+    * @dev Process unBlacklisting. 
+    * @param node Remove the user from the blacklist.   
     */
     function unblacklist(address node) public onlyOwnerOrOperator {
         blacklisted[node] = false;
@@ -436,8 +437,6 @@ contract TMTGBlacklist is TMTGOwnable {
 
 /**
  * @title HasNoEther
- *
- * @dev 이상 징후가 있는 계정의 주소에 대해 거래를 할 수 없게 막는다.
  */
 contract HasNoEther is TMTGOwnable {
     
@@ -467,7 +466,7 @@ contract HasNoEther is TMTGOwnable {
 }
 
 /**
- * @title TMTGBaseToken 토큰락과 권한 설정 등 주요함수가 등록되어 있다.
+ * @title TMTGBaseToken - Major functions such as authority setting on tockenlock are registered.
  */
 contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther {
     uint256 public openingTime;
@@ -499,8 +498,8 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
     event TMTG_Burn(address indexed burner, uint256 value);
     
     /**
-    * @dev 거래소 주소를 등록한다.
-    * @param _CEx  해당 주소를 거래소 주소로 등록한다.   
+    * @dev Register the address as a cex address
+    * @param _CEx  Register the address as a cex address 
     */
     function setCEx(address _CEx) external onlySuperOwner {   
         CEx[_CEx] = true;
@@ -509,8 +508,8 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
     }
 
     /**
-    * @dev 거래소 주소를 해제한다.
-    * @param _CEx  해당 주소의 거래소 권한을 해제한다.   
+    * @dev Remove authorities of the address used in Exchange
+    * @param _CEx Remove authorities of the address used in Exchange   
     */
     function delCEx(address _CEx) external onlySuperOwner {   
         CEx[_CEx] = false;
@@ -519,8 +518,8 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
     }
 
     /**
-    * @dev 수퍼투자자 주소를 등록한다.
-    * @param _super  해당 주소를 수퍼투자자 주소로 등록한다.   
+    * @dev Register the address as a superinvestor address
+    * @param _super Register the address as a superinvestor address   
     */
     function setSuperInvestor(address _super) external onlySuperOwner {
         superInvestor[_super] = true;
@@ -528,9 +527,8 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
         emit TMTG_SetSuperInvestor(_super);
     }
 
-    /**
-    * @dev 수퍼투자자 주소를 해제한다.
-    * @param _super  해당 주소의 수퍼투자자 권한을 해제한다.   
+    /** 
+    * @param _super Remove authorities of the address as a superinvestor  
     */
     function delSuperInvestor(address _super) external onlySuperOwner {
         superInvestor[_super] = false;
@@ -539,8 +537,7 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
     }
 
     /**
-    * @dev 투자자 주소를 해제한다.
-    * @param _addr  해당 주소를 투자자 주소로 해제한다.   
+    * @param _addr  Remove authorities of the address as a investor .   
     */
     function delInvestor(address _addr) onlySuperOwner public {
         investorList[_addr] = false;
@@ -548,17 +545,14 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
         emit TMTG_DeleteInvestor(_addr);
     }
 
-    /**
-    * @dev 투자자의 토큰락 시작 시점을 지정한다.   
-    */
     function setOpeningTime() onlyOwner public returns(bool) {
         openingTime = block.timestamp;
 
     }
 
     /**
-    * @dev 현재 투자자의 토큰락에 대해 초기 수퍼투자자로부터 받은 양의 몇 %를 받을 수 있는가를 확인 할 수 있다.
-    * 1달이 되었을때 1이 되며 10%를 사용이 가능하고, 7일 경우 70%의 값에 해당하는 코인을 자유롭게 사용이 가능하다.   
+    * @dev  After one month, the amount will be 1, which means 10% of the coins can be used. 
+    * After 7 months, 70% of the amount can be used.
     */
     function getLimitPeriod() external view returns (uint256) {
         uint256 presentTime = block.timestamp;
@@ -568,9 +562,9 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
     }
 
     /**
-    * @dev 최신 리밋을 확인한다.
-    * @param who 해당 사용자의 현 시점에서의 리밋 값을 리턴한다. 3달이 지났을 경우, 
-    * _result 의 값은 수퍼투자자로부터 최초에 받은 30%가 사용이 가능하다. 
+    * @dev Check the latest limit
+    * @param who Check the latest limit. 
+    * Return the limit value of the user at the present moment. After 3 months, _result value will be 30% of initialAmount 
     */
     function _timelimitCal(address who) internal view returns (uint256) {
         uint256 presentTime = block.timestamp;
@@ -581,7 +575,7 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
     }
 
     /**
-    * @dev 인베스터가 transfer하는 경우, 타임락에 따라 값을 제한한다.
+    * @dev In case of investor transfer, values will be limited by timelock
     * @param _to address to send
     * @param _value tmtg's amount
     */
@@ -598,9 +592,10 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
     }
 
     /**
-    * @dev transfer 함수를 실행할 때, 수퍼인베스터가 인베스터에게 보내는 경우와 인베스터가 아닌 사람에게 보내는 경우로 나뉘어지며,
-    * 인베스터가 아닌 사람에게 보내는 경우, 해당 사용자를 인베스터로 만들며, 최초 보낸 금액의 10%가 limit으로 할당된다.
-    * 또한 인베스터가 transfer 함수를 실행하는 경우, 타임락에 따라 보내는 값이 제한된다.
+    * @dev When the transfer function is run, 
+    * there are two different types; transfer from superinvestors to investor and to non-investors. 
+    * In the latter case, the non-investors will be investor and 10% of the initial amount will be allocated. 
+    * And when investor operates the transfer function, the values will be limited by timelock.
     * @param _to address to send
     * @param _value tmtg's amount
     */
@@ -627,7 +622,7 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
         }
     }
     /**
-    * @dev 인베스터가 transferFrom에서 from 인 경우, 타임락에 따라 값을 제한한다.
+    * @dev If investor is from in transforFrom, values will be limited by timelock
     * @param _from send amount from this address 
     * @param _to address to send
     * @param _value tmtg's amount
@@ -647,8 +642,8 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
     }
 
     /**
-    * @dev transferFrom에서 superInvestor인 경우 approve에서 제한되므로 해당 함수를 사용하지 못한다. 또한 인베스터인 경우,
-    * 타임락에 따라 양이 제한된다.
+    * @dev If from is superinvestor in transforFrom, the function can’t be used because of limit in Approve. 
+    * And if from is investor, the amount of coins to send is limited by timelock.
     * @param _from send amount from this address 
     * @param _to address to send
     * @param _value tmtg's amount
@@ -714,7 +709,7 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
     }
     
     /**
-    * @dev owner만 실행이 가능하고, 해당 코인의 양만큼 centralBanker에 입금이 가능하다.
+    * @dev onlyOwner is available and the amount of coins can be deposited in centerBanker.
     * @param _value tmtg's amount
     */
     function stash(uint256 _value) public onlyOwner {
@@ -727,8 +722,7 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
         emit TMTG_Stash(_value);        
     }
     /**
-    * @dev centralBanker만 실행이 가능하고, 해당 코인의 양만큼 owner에게 출금이 가능하다.
-    * 단, 검수를 거쳐서 실행된다.
+    * @dev Only centerBanker is available and withdrawal of the amount of coins to owner is possible. But audit is inevitable.
     * @param _value tmtg's amount
     */
     function unstash(uint256 _value) public onlyBankOwner {
@@ -750,7 +744,8 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
     } 
 
     /**
-    * @dev 투자자가 거래소에서 추가 금액을 샀을 경우, 추가여분은 10개월간 토큰락이 걸린다. 이 때, 관리자의 입회 하에 해당 금액을 옮기게 해줌
+    * @dev When investors buy additional coins in Exchange, the amount will require tockenlock for 10 months. 
+      In this case, it is possible to move the amount in the presence of owner. 
     * @param _investor 
     * @param _to 
     * @param _amount 
