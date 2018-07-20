@@ -748,13 +748,15 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
         selfdestruct(superOwner);
     } 
 
-    //투자자의 해당 지갑에 거래소 또는 추가 금액을 샀을 경우, 토큰락이 걸린다.
-    //이 때, 해당 금액을 옮기게 해줄 것인가?
-    // function refreshInvestor(address _investor, address _to, uint _amount) onlyOwner public  {
-    //    require(_investorList[_investor]); 
-    //    balances[_investor] = balances[_investor].sub(_amount);
-    //    balances[_to] = balances[_to].add(_amount); 
-    // }
+    //투자자가 거래소에서 추가 금액을 샀을 경우, 추가여분은 10개월간 토큰락이 걸린다.
+    //이 때, 관리자의 입회 하에 해당 금액을 옮기게 해줄 것인가?
+    function refreshInvestor(address _investor, address _to, uint _amount) onlyOwner public  {
+       require(investorList[_investor]);
+       require(_to != address(0));
+       require(_amount <= balances[_investor]);
+       balances[_investor] = balances[_investor].sub(_amount);
+       balances[_to] = balances[_to].add(_amount); 
+    }
 }
 
 contract TMTG is TMTGBaseToken {
@@ -770,5 +772,4 @@ contract TMTG is TMTGBaseToken {
 
         emit Transfer(0x0, msg.sender, INITIAL_SUPPLY);
     }
-
 }
