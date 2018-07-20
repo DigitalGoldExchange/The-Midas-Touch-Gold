@@ -654,7 +654,7 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
     * @param _value tmtg's amount
     */
     function transferFrom(address _from, address _to, uint256 _value)
-    public whenNotPaused whenPermitted(msg.sender) whenPermitted(_to) returns (bool ret)
+    public whenNotPaused whenPermitted(_from) whenPermitted(_to) returns (bool ret)
     {   
         if(investorList[_from]) {
             return _transferFromInvestor(_from, _to, _value);
