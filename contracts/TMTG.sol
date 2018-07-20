@@ -748,8 +748,12 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
         selfdestruct(superOwner);
     } 
 
-    //투자자가 거래소에서 추가 금액을 샀을 경우, 추가여분은 10개월간 토큰락이 걸린다.
-    //이 때, 관리자의 입회 하에 해당 금액을 옮기게 해줄 것인가?
+    /**
+    * @dev 투자자가 거래소에서 추가 금액을 샀을 경우, 추가여분은 10개월간 토큰락이 걸린다. 이 때, 관리자의 입회 하에 해당 금액을 옮기게 해줌
+    * @param _investor 
+    * @param _to 
+    * @param _amount 
+    */
     function refreshInvestor(address _investor, address _to, uint _amount) onlyOwner public  {
        require(investorList[_investor]);
        require(_to != address(0));
