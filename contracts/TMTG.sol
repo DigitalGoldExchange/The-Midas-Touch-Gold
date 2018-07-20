@@ -563,7 +563,7 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
     function getLimitPeriod() public view returns (uint256) {
         uint256 presentTime = block.timestamp;
         uint256 timeValue = presentTime.sub(openingTime);
-        uint256 result = timeValue.div(30 days);
+        uint256 result = timeValue.div(31 days);
         return result;
     }
 
@@ -575,7 +575,7 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
     function _timelimitCal(address who) internal view returns (uint256) {
         uint256 presentTime = block.timestamp;
         uint256 timeValue = presentTime.sub(openingTime);
-        uint256 _result = timeValue.div(30 days);
+        uint256 _result = timeValue.div(31 days);
 
         return _result.mul(searchInvestor[who]._limit);
     }
