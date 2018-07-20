@@ -560,7 +560,7 @@ contract TMTGBaseToken is StandardToken, TMTGPausable, TMTGBlacklist, HasNoEther
     * @dev 현재 투자자의 토큰락에 대해 초기 수퍼투자자로부터 받은 양의 몇 %를 받을 수 있는가를 확인 할 수 있다.
     * 1달이 되었을때 1이 되며 10%를 사용이 가능하고, 7일 경우 70%의 값에 해당하는 코인을 자유롭게 사용이 가능하다.   
     */
-    function getLimitPeriod() public view returns (uint256) {
+    function getLimitPeriod() external view returns (uint256) {
         uint256 presentTime = block.timestamp;
         uint256 timeValue = presentTime.sub(openingTime);
         uint256 result = timeValue.div(31 days);
