@@ -89,4 +89,4 @@ Join now TMTG !!! Let's win together
 * [Telegram](t.me/themidastoucgold) 
 
 
-## AUDIT REPORT COMPELETED
+## AUDIT REPORT COMPELETE
