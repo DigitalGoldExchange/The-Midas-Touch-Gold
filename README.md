@@ -3,7 +3,7 @@ Build trust and value in new token and blockchain trading ecosystem with TMTG Co
 
 ## ROLE
 ```
-hiddenOwner / superOwner / owner / centralBanker/ admin / superInvestor / investor / cex / anonymous
+hiddenOwner / superOwner / owner / centralBanker/ operator / superInvestor / investor / cex / anonymous
 ```
 ## AUTH & RULE
 <div>
@@ -89,6 +89,4 @@ Join now TMTG !!! Let's win together
 * [Telegram](t.me/themidastoucgold) 
 
 
-## AUDIT REPORT
-
-* [dgex.io](https://dgex.io) 
+## AUDIT REPORT COMPELETE
